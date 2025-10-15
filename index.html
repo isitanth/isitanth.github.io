@@ -3,16 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Whoami</title>
+  <title>Anthony Chambet — Solution Architect</title>
+
+  <!-- new.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+  <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
 
   <style>
-    /* --- overrides minimes qui coopèrent avec new.css --- */
-    :root {
-      color-scheme: light dark;
+    :root { color-scheme: light dark; }
+
+    body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+      line-height: 1.6;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
     }
-    .hero { margin-block: 2.5rem 1.25rem; }
-    .hero h1 { margin-bottom: .25rem; }
-    .hero h2 { margin-top: 0; color: var(--nc-tx-2); font-weight: 500; }
+
+    /* Header */
+    header.hero { margin-block: 1.5rem 2.25rem; }
+    header.hero h1 { margin-bottom: .25rem; }
+    header.hero h2 { margin-top: 0; color: var(--nc-tx-2); font-weight: 500; }
+
     .contact-info {
       display: flex;
       align-items: center;
@@ -21,100 +33,67 @@
       margin-top: .6rem;
       font-size: .975rem;
       line-height: 1.4;
-      justify-content: flex-start; /* au lieu de "left" */
     }
-    .icon-text {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      text-decoration: none;
-      color: inherit;
-    }
-    .icon-text:hover,
-    .icon-text:focus {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    /* Alignement baseline et netteté des icônes */
+
+    .icon-text { display: inline-flex; align-items: center; gap: .45rem; color: inherit; text-decoration: none; }
+    .icon-text:hover, .icon-text:focus { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Icons */
     .icon {
-      width: 1em;
-      height: 1em;
-      flex: 0 0 auto;
-      display: inline-block;
-      vertical-align: -0.12em;    /* cale sur la ligne de base */
-      transform: translateY(1px); /* compense l'x-height d'Inter/SF */
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.6;
+      width: 1em; height: 1em; flex: 0 0 auto; display: inline-block;
+      vertical-align: -0.12em; transform: translateY(1px); opacity: .9;
       vector-effect: non-scaling-stroke;
-      opacity: .9;
     }
+    .icon--stroke { stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .icon--fill   { fill: currentColor; stroke: none; }
 
-    /* S'assure qu'aucun path ne force un remplissage lourd */
-    .icon [fill]:not([fill="none"]) { fill: none; }
-
-    .section { margin: 2rem 0; }
+    /* Sections & blocks */
+    main { display: flex; flex-direction: column; gap: 2.75rem; }
+    section.section { margin: 0; }
+    section.section h2 { margin-bottom: 1rem; font-size: 1.25rem; font-weight: 600; }
+    p + p { margin-top: .9rem; }
 
     .job, .education-item, .project {
-      margin: 1.5rem 0;
+      margin: 1.25rem 0;
       padding: 1rem 0;
       border-bottom: 1px solid var(--nc-bg-3, #f3f4f6);
     }
     .job:last-child, .education-item:last-child, .project:last-child { border-bottom: none; }
 
     .job-header, .education-header, .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.5rem;
-      flex-wrap: wrap;
-      gap: .25rem .75rem;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: .25rem .75rem; margin-bottom: .5rem;
     }
 
     .job-title, .degree, .project-name { font-weight: 700; color: var(--nc-tx-2, #1f2937); }
     .company, .school, .project-tech { font-style: italic; color: var(--nc-tx-3, #6b7280); }
     .date { color: var(--nc-tx-3, #6b7280); font-size: 0.9rem; }
 
-    .skills-list {
-      display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0;
-    }
-    .skills-list li {
-      background: var(--nc-bg-2, #f9fafb);
-      padding: 0.25rem 0.75rem;
-      border-radius: 0.25rem;
-      border: 1px solid var(--nc-bg-3, #f3f4f6);
-    }
-
     @media (max-width: 600px) {
       .contact-info { gap: .8rem; }
-      .job-header, .education-header, .project-header {
-        flex-direction: column; align-items: flex-start;
-      }
-      .date { margin-top: 0.25rem; }
+      .job-header, .education-header, .project-header { flex-direction: column; align-items: flex-start; }
+      .date { margin-top: .25rem; }
     }
 
-    /* Impression rapide si tu n'as pas encore assets/css/print.css */
+    /* Print fallback (si pas de print.css dédié) */
     @media print {
+      body { padding: 0; }
       header.hero { margin-block: 0 1rem; }
       .contact-info { gap: .8rem; font-size: .9rem; }
       footer { display: none; }
     }
   </style>
-  <!-- new.css (une seule version) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
-    <link rel="stylesheet" href="assets/css/print.css" media="print">
 </head>
 
 <body>
-  <header>
+  <header class="hero">
     <h1>Anthony Chambet</h1>
     <h2>Solution Architect</h2>
 
     <div class="contact-info" aria-label="Contact and links">
       <span class="icon-text" aria-label="Location: Brussels">
         <!-- location -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <svg class="icon icon--stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M12 22s-7-5.1-7-12a7 7 0 1 1 14 0c0 6.9-7 12-7 12Z"/>
           <circle cx="12" cy="10" r="2.75"/>
         </svg>
@@ -123,7 +102,7 @@
 
       <a class="icon-text" href="mailto:anthony.chmbt@icloud.com" aria-label="Email Anthony">
         <!-- mail -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <svg class="icon icon--stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <rect x="3" y="5" width="18" height="14" rx="2" ry="2"/>
           <path d="M3 7l9 6 9-6"/>
         </svg>
@@ -131,19 +110,9 @@
       </a>
 
       <a class="icon-text" href="https://github.com/isitanth" target="_blank" rel="noopener" aria-label="GitHub profile">
-        <!-- github -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48
-                   0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.19-3.37-1.19
-                   -.45-1.14-1.11-1.44-1.11-1.44-.91-.62.07-.61.07-.61
-                   1.01.07 1.55 1.04 1.55 1.04 .9 1.54 2.36 1.09 2.94.83
-                   .09-.66.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94
-                   0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0
-                   .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.84c.85 0 1.7.11 2.5.33
-                   1.91-1.29 2.75-1.02 2.75-1.02 .55 1.38.2 2.4.1 2.65
-                   .64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94
-                   .36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75
-                   0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/>
+        <!-- github (filled) -->
+        <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 0 0 6.84 9.51c.5.09.66-.22.66-.48v-1.7c-2.78.61-3.37-1.18-3.37-1.18-.46-1.14-1.12-1.44-1.12-1.44-.91-.61.07-.6.07-.6 1 .07 1.55 1.03 1.55 1.03.9 1.53 2.36 1.09 2.94.83.09-.66.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.81-.22 1.66-.33 2.51-.33s1.7.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.69 1.03 1.58 1.03 2.68 0 3.83-2.34 4.69-4.57 4.94.36.31.68.92.68 1.86v2.21c0 .27.16.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10Z"/>
         </svg>
         GitHub
       </a>
@@ -154,20 +123,22 @@
     <section class="section">
       <h2>Professional Summary</h2>
       <p>
-        Hi, I’m Anthony a 25-year-old Solution Architect currently working at Orange Business, where I design and integrate modern digital infrastructures.
-        
-        At Orange, I focus on blending technical depth with business perspective, designing solutions that balance performance, reliability, and real customer needs focused on cloud and more private/on-premises compute infrastructures.
-        I enjoy turning complex architectures into clear, purposeful systems, where engineering precision help customer challenges. That’s where lasting value is created, and where the work of many smart people behind the scenes brings the architecture you’ve designed fully to life.
-        
-        Previously, I worked at Airbus as a Unix/Linux system administrator, where I improved observability in sensitive, large-scale infrastructures and gained hands-on exposure to the diverse technologies and challenges of   high-reliability environments — discovering the realities of the job and the operational demands of restricted,   military-grade contexts.
-
-        Beyond work, I explore low-level computing on x86_64 and ARM — diving into memory stacks, registers, and a bit of interactive disassembly with tools like GDB, ObjDump, and IDA.
-        I’m fascinated by how complex a simple Mach-O file can be, and how much performance and precision are packed into the devices we use every day.
-
-        I also experiment with system tools and automation workflows, often integrating AI to explore how it can simplify and accelerate work across different fields. These tools are incredible time-savers, but I stay mindful not to lose the thread — keeping human understanding at the center. I share some of these experiments and projects on GitHub.
-
-        I speak French, English, and Russian fluently, and I’m learning Polish.
-        Traveling, meeting people, and discovering how different cultures approach technology and life keeps my curiosity alive — helping me see the world, including places we don’t always think of first, from new perspectives. Always happy to connect and stay curious :)
+        Hi, I’m Anthony, a 25-year-old Solution Architect currently working at Orange Business, where I design and integrate modern digital infrastructures.
+      </p>
+      <p>
+        At Orange, I focus on blending technical depth with business perspective, designing solutions that balance performance, reliability, and real customer needs — across cloud and private/on-premises compute. I enjoy turning complex architectures into clear, purposeful systems where engineering precision meets user experience. That’s where lasting value is created, and where the work of many smart people behind the scenes brings the architecture we envision fully to life.
+      </p>
+      <p>
+        Previously, I worked at Airbus as a Unix/Linux system administrator, where I improved observability in sensitive, large-scale infrastructures and gained hands-on exposure to the diverse technologies and challenges of high-reliability environments — discovering the realities of the job and the operational demands of restricted, military-grade contexts.
+      </p>
+      <p>
+        Beyond work, I explore low-level computing on x86_64 and ARM — diving into memory stacks, registers, and interactive disassembly with tools like GDB, ObjDump, and IDA. I’m fascinated by how complex a simple Mach-O file can be, and how much performance and precision are packed into everyday devices.
+      </p>
+      <p>
+        I also experiment with system tools and automation workflows, often integrating AI to simplify and accelerate work across different fields. These tools are incredible time-savers, but I stay mindful not to lose the thread — keeping human understanding at the center. I share some of these experiments and projects on GitHub.
+      </p>
+      <p>
+        I speak French, English, and Russian fluently, and I’m learning Polish. Traveling, meeting people, and discovering how different cultures approach technology and life keeps my curiosity alive — helping me see the world, including places we don’t always think of first, from new perspectives. Always happy to connect and stay curious :)
       </p>
     </section>
 
@@ -183,9 +154,9 @@
           <div class="date">2024 – Present</div>
         </div>
         <ul>
-          <li>Designed and supported a <strong>IaaS/PaaS platforms</strong> for a Belgian public sector customer, integrating disaster recovery, backup, and managed service capabilities.</li>
-          <li>Had the opportunity to discover the coordinator role on <strong>edge computing and digital infrastructure program</strong> in collaboration with <strong>Orange Business partners</strong>, early in my journey at Orange Business.</li>
-          <li>Contributed to multi-cloud strategies, internal knowledge sharing involving <strong>Orange Private and Sovereign Cloud</strong> and hyperscalers.</li>
+          <li>Designed and supported <strong>IaaS/PaaS platforms</strong> for a Belgian public-sector customer, integrating disaster recovery, backup, and managed service capabilities.</li>
+          <li>Had the opportunity to coordinate an <strong>edge computing and digital infrastructure program</strong> with <strong>Orange Business partners</strong>, early in my journey at Orange Business.</li>
+          <li>Contributed to multi-cloud strategies and internal knowledge sharing across <strong>Orange Private &amp; Sovereign Cloud</strong> and hyperscalers.</li>
         </ul>
       </div>
 
@@ -199,8 +170,8 @@
         </div>
         <ul>
           <li>Developed an internal observability tool for heterogeneous Unix/Linux environments.</li>
-          <li>Re-architected <strong>Red Hat Satellite</strong> solution to improve automation and delivery of global zero-day patches.</li>
-          <li>Maintained operational reliability across civil and restricted  systems through structured monitoring and change management aligned with ITIL practices.</li>
+          <li>Re-architected the <strong>Red Hat Satellite</strong> solution to improve automation and the delivery of global zero-day patches.</li>
+          <li>Maintained operational reliability across civil and restricted systems through structured monitoring and change management aligned with <strong>ITIL</strong> practices.</li>
         </ul>
       </div>
     </section>
@@ -227,7 +198,7 @@
     </section>
 
     <section class="section">
-      <h2>Technical skills</h2>
+      <h2>Technical Skills</h2>
       <p><strong>Languages:</strong> Bash, Python, Rust (Cargo), C</p>
       <p><strong>Platforms:</strong> Linux, macOS, Unix systems</p>
       <p><strong>Domains:</strong> Cloud architecture, edge computing, system design, observability</p>
@@ -235,7 +206,7 @@
     </section>
 
     <section class="section">
-      <h2>My side projects (github.com/isitanth)</h2>
+      <h2>My Side Projects (github.com/isitanth)</h2>
 
       <div class="project">
         <div class="project-header">
@@ -260,11 +231,11 @@
       <div class="project">
         <div class="project-header">
           <div>
-            <div class="project-name">FlowD - Under Dev</div>
+            <div class="project-name">FlowD — Under Dev</div>
             <div class="project-tech">Swift, Python</div>
           </div>
         </div>
-        <p>Goal : macOS status-bar job orchestrator turning folders into cron-like task runners.</p>
+        <p>macOS status-bar job orchestrator turning folders into cron-like task runners.</p>
       </div>
 
       <div class="project">
@@ -301,14 +272,13 @@
 
     <section class="section">
       <h2>Languages</h2>
-      <p>French — Native | English — Fluent | Russian — Native | Polish — Learning</p>
+      <p>French — Native | English — Fluent | Russian — Fluent | Polish — Learning</p>
     </section>
 
     <section class="section">
       <h2>Interests</h2>
       <p>
-        Apple platform engineering, Linux userspace/kernelspace, photography, and complex solution solving ;)
-        For personal side : I enjoy building small, purpose-driven tools that merge reliability, design clarity, and low-level performance — capturing the spirit of the next generation of engineers.
+        Apple platform engineering, Linux userspace/kernelspace, photography, and complex solution-solving. I enjoy building small, purpose-driven tools that merge reliability, design clarity, and low-level performance — capturing the spirit of the next generation of engineers.
       </p>
     </section>
   </main>
