@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<style>
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .blog-item {
+    padding: 1.25rem;
+    border: 1px solid var(--nc-bg-3, #e5e7eb);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .blog-item:hover {
+    border-color: var(--nc-lk-1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-item h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .blog-item h2 a {
+    color: var(--nc-tx-1);
+    text-decoration: none;
+  }
+
+  .blog-item h2 a:hover {
+    color: var(--nc-lk-1);
+    text-decoration: underline;
+  }
+
+  .blog-meta {
+    font-size: 0.9rem;
+    color: var(--nc-tx-3);
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-excerpt {
+    color: var(--nc-tx-2);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+</style>
+
+<header class="hero">
+  <a class="back-link" href="/">← Back to Home</a>
+  
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description }}</p>
+</header>
+
+<main>
+  <div class="blog-list">
+    {% for post in site.posts %}
+      <article class="blog-item">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="blog-meta">{{ post.tags | join: ' • ' }}</div>
+        <p class="blog-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 50 }}
+        </p>
+      </article>
+    {% endfor %}
+  </div>
+</main>

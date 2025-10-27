@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+<style>
+  article header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--nc-bg-3, #e5e7eb);
+    padding-bottom: 1.5rem;
+  }
+
+  article h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  article h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--nc-bg-3, #e5e7eb);
+    padding-bottom: 0.5rem;
+  }
+
+  article h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  article h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  article p {
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  article ul, article ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  article li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  article pre {
+    margin: 1.25rem 0;
+    padding: 1rem;
+    background: var(--nc-bg-2, #f9fafb);
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  article code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+
+  article p code {
+    background: var(--nc-bg-2, #f3f4f6);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+
+  article hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--nc-bg-3, #e5e7eb);
+  }
+
+  article strong {
+    font-weight: 600;
+  }
+
+  article em {
+    font-style: italic;
+  }
+
+  article a {
+    color: var(--nc-lk-1);
+    text-decoration: none;
+  }
+
+  article a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+<article>
+  <header>
+    <a class="back-link" href="/blog/">← Back to Blog</a>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  {{ content }}
+</article>
