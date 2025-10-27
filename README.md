@@ -1,4 +1,4 @@
-# Jekyll Portfolio & Blog
+# Jekyll based portfolio & blog
 
 Static site converted to Jekyll for GitHub Pages, preserving original design and CSS.
 
@@ -19,16 +19,16 @@ jekyllWebsite/
 └── README.md                # This file
 ```
 
-## Key Features
+## Key features
 
 - **Preserved Design**: All original CSS maintained in layouts
 - **Automatic Blog Listing**: Posts automatically appear on `/blog/`
 - **Markdown Posts**: Write posts in `_posts/` directory
 - **Clean URLs**: `yourusername.github.io/blog/post-title/`
 
-## Local Development
+## Local development
 
-### Quick Start
+### Quick start
 
 1. **Install dependencies** (first time only):
    ```bash
@@ -44,7 +44,7 @@ jekyllWebsite/
 
 4. **Stop server**: Press `Ctrl+C`
 
-### Important Notes
+### Important notes
 
 - Using **Jekyll 3.9** (not 4.x) for compatibility with macOS system Ruby 2.6
 - URLs are clean (no `.html` extension) thanks to `permalink: pretty`
@@ -52,7 +52,7 @@ jekyllWebsite/
 
 ## Deploy to GitHub Pages
 
-### Method 1: GitHub Repository (Recommended)
+### Method 1: GitHub repository (recommended)
 
 1. **Create repository** named `yourusername.github.io`
 
@@ -79,7 +79,7 @@ jekyllWebsite/
 
 5. **Wait 1-2 minutes**, then visit `https://yourusername.github.io`
 
-### Method 2: GitHub Actions (Alternative)
+### Method 2: GitHub actions (alternative)
 
 Create `.github/workflows/pages.yml`:
 
@@ -122,7 +122,7 @@ jobs:
 
 Then in Settings → Pages → Source: select "GitHub Actions"
 
-## Adding New Blog Posts
+## Adding new blog posts
 
 Create file in `_posts/` with format: `YYYY-MM-DD-title.md`
 
@@ -149,7 +149,7 @@ Post will automatically appear on blog listing page.
 
 ## Troubleshooting
 
-### Common Issues
+### Common issues
 
 **"cannot load such file -- google/protobuf_c" error**
 - **Cause**: Jekyll 4.x incompatibility with macOS system Ruby 2.6
@@ -196,15 +196,15 @@ bundle exec jekyll serve --host 127.0.0.1 --port 4001
 lsof -ti:4000 | xargs kill -9
 ```
 
-## Technical Details
+## Technical details
 
-### Jekyll Version & Compatibility
+### Jekyll version & compatibility
 
 - **Jekyll**: 3.9.x (not 4.x)
 - **Ruby**: System Ruby 2.6.10 (macOS default)
 - **Why Jekyll 3.9?**: Jekyll 4.x has protobuf/sass-embedded dependencies incompatible with Ruby 2.6
 
-### Key Configuration
+### Key configuration
 
 **`_config.yml`**:
 - `permalink: pretty` — Removes `.html` extensions from URLs
@@ -219,7 +219,7 @@ gem "jekyll", "~> 3.9"  # NOT 4.x
 gem "kramdown-parser-gfm"  # GitHub-flavored markdown
 ```
 
-### File Structure Changes
+### File structure changes
 
 **Before (static HTML)**:
 ```
@@ -239,12 +239,12 @@ _layouts/
   └── post.html                       # Article template
 ```
 
-**URL Mapping**:
+**URL mapping**:
 - `index.html` → `http://127.0.0.1:4000/`
 - `blog.html` → `http://127.0.0.1:4000/blog/`
 - `blog1.html` → `http://127.0.0.1:4000/blog/bypass-drm-apple-music/`
 
-## Original Files (Reference Only)
+## Original files (reference only)
 
 Keep these for reference, but they're no longer used by Jekyll:
 - `index.html` → migrated to `index.md`
