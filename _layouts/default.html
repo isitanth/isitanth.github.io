@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+
+  <!-- new.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+  <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+
+  <style>
+    :root { color-scheme: light dark; }
+
+    body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+      line-height: 1.6;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    /* Header */
+    header.hero h1 { margin-bottom: .25rem; }
+    header.hero h2 { margin-top: 0; color: var(--nc-tx-2); font-weight: 500; }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      margin-top: .6rem;
+      font-size: .975rem;
+      line-height: 1.4;
+    }
+
+    .icon-text { display: inline-flex; align-items: center; gap: .45rem; color: inherit; text-decoration: none; }
+    .icon-text:hover, .icon-text:focus { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Icons */
+    .icon {
+      width: 1em; height: 1em; flex: 0 0 auto; display: inline-block;
+      vertical-align: -0.12em; transform: translateY(1px); opacity: .9;
+      vector-effect: non-scaling-stroke;
+    }
+    .icon--stroke { stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .icon--fill   { fill: currentColor; stroke: none; }
+
+    /* Sections & blocks */
+    main { display: flex; flex-direction: column; gap: 2.75rem; }
+    section.section { margin: 0; }
+    section.section h2 { margin-bottom: 1rem; font-size: 1.25rem; font-weight: 600; }
+    p + p { margin-top: .9rem; }
+
+    .job, .education-item, .project {
+      margin: 1.25rem 0;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--nc-bg-3, #f3f4f6);
+    }
+    .job:last-child, .education-item:last-child, .project:last-child { border-bottom: none; }
+
+    .job-header, .education-header, .project-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: .25rem .75rem; margin-bottom: .5rem;
+    }
+
+    .job-title, .degree, .project-name { font-weight: 700; color: var(--nc-tx-2, #1f2937); }
+    .company, .school, .project-tech { font-style: italic; color: var(--nc-tx-3, #6b7280); }
+    .date { color: var(--nc-tx-3, #6b7280); font-size: 0.9rem; }
+
+    .back-link {
+      display: inline-block;
+      color: var(--nc-lk-1);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    
+    .back-link:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .contact-info { gap: .8rem; }
+      .job-header, .education-header, .project-header { flex-direction: column; align-items: flex-start; }
+      .date { margin-top: .25rem; }
+    }
+
+    @media print {
+      body { padding: 0; }
+      header.hero { margin-block: 0 1rem; }
+      .contact-info { gap: .8rem; font-size: .9rem; }
+      footer { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  {{ content }}
+
+  <footer class="no-print" style="text-align:center; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--nc-bg-3, #f3f4f6); color:var(--nc-tx-3, #6b7280);">
+    <p>Generated with ❤️ using <a href="https://newcss.net/" target="_blank" rel="noopener">new.css</a></p>
+  </footer>
+</body>
+</html>

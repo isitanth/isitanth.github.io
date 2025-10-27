@@ -1,0 +1,39 @@
+title: Whoami
+email: anthony.chmbt@icloud.com
+description: Technical explorations and portfolio
+baseurl: ""
+url: "https://yourusername.github.io"
+github_username: isitanth
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Front Matter Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

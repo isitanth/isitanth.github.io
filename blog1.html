@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case study 1</title>
+
+  <style>
+    :root { color-scheme: light dark; }
+
+    body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+      line-height: 1.6;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--nc-lk-1);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    
+    .back-link:hover { text-decoration: underline; }
+
+    article header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--nc-bg-3, #e5e7eb);
+      padding-bottom: 1.5rem;
+    }
+
+    article h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    article h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 1px solid var(--nc-bg-3, #e5e7eb);
+      padding-bottom: 0.5rem;
+    }
+
+    article h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    article h4 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    article p {
+      margin: 1rem 0;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    article ul, article ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    article li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    article pre {
+      margin: 1.25rem 0;
+      padding: 1rem;
+      background: var(--nc-bg-2, #f9fafb);
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    article code {
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    article p code {
+      background: var(--nc-bg-2, #f3f4f6);
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+    }
+
+    article hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid var(--nc-bg-3, #e5e7eb);
+    }
+
+    article strong {
+      font-weight: 600;
+    }
+
+    article em {
+      font-style: italic;
+    }
+
+    article a {
+      color: var(--nc-lk-1);
+      text-decoration: none;
+    }
+
+    article a:hover {
+      text-decoration: underline;
+    }
+    <!-- new.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  </style>
+</head>
+
+<body>
+  <article>
+    <header>
+      <a class="back-link" href="blog.html">← Back to Blog</a>
+      <h1>Bypass DRM Decryption on streaming platforms : Apple Music case study</h1>
+    </header>
+
+    <h2>The problem (that is also the actual state of the art)</h2>
+    <p>Apple Music doesn't give you a single MP3 file.</p>
+    <p>Instead:</p>
+    <ul>
+      <li>Audio is split into HLS segments (chunks, typically 10-second pieces)</li>
+      <li>Each segment is encrypted with Widevine DRM (AES-128 encryption)</li>
+      <li>You need a decryption key to unlock them</li>
+    </ul>
+
+    <h3>What is HLS segments?</h3>
+    <p>HLS (HTTP Live Streaming) breaks a continuous audio/video stream into many small files called <strong>segments</strong> (typically 2–10s each). The player downloads a playlist (an .m3u8 manifest) that lists segment URLs and switches between bitrates by picking different playlists. Segments can be MPEG-TS or fragmented MP4 (fMP4 / CMAF); each segment contains encoded audio/video frames for a short time slice and is independently addressable over HTTP(S). This chunking gives you adaptive bitrate switching, simple CDN caching, and easy recovery from packet loss.</p>
+    <ul>
+      <li>Segment = time-contiguous container of compressed frames + timestamps.</li>
+      <li>Manifest (.m3u8) maps timeline → segment URLs; player requests segments with normal HTTP GETs.</li>
+      <li>fMP4/CMAF segments are preferred now because they unify with DASH and simplify encryption (common boxes like moof/mdat).</li>
+    </ul>
+
+    <h3>Widevine DRM encryption?</h3>
+    <p>Widevine is a pretty cool Google's DRM stack for protecting premium media. At a high level it's a <strong>system</strong> composed of an encrypted media file (or also called as encrypted HLS/DASH segments), a client-side <strong>CDM (Content Decryption Module)</strong> embedded in the OS/browser running chromium engines for example, and a <strong>license server</strong> that issues decryption keys and policy (it's called playback rights).</p>
+    <p>The protected stream is usually encrypted with standard block ciphers (an algorithm that transforms plaintext into ciphertext, with AES) under keys identified by a Key ID (KID); the player sends a license request (including a PSSH) to the license server, the server responds with a license (key material + policy), and the CDM (often in a TEE or hardware-backed OEM module) performs the actual decryption and enforces policy.</p>
+    <ul>
+      <li><strong>CDM / OEMCrypto</strong>: proprietary binary that performs crypto inside a protected environment so keys never land in app memory.</li>
+      <li><strong>CENC / PSSH / KID</strong>: Common Encryption metadata (CENC) carries the KID and PSSH payload so any conformant DRM can find/ask for the right key.</li>
+      <li><strong>Security levels</strong>: Widevine supports security levels (L1 / L2 / L3) where L1 uses full hardware/TEE protection and L3 is software-based with weaker guarantees.</li>
+    </ul>
+
+    <h3>How do you decrypt songs?</h3>
+    <p>Important: Apple Music uses Apple's <strong>FairPlay</strong> DRM for playback within Apple's ecosystem (not Widevine). The safe, correct flow for a licensed user is the following:</p>
+    <ol>
+      <li><strong>Client requests content</strong> (stream or download) and receives an HLS manifest pointing at encrypted segments (fMP4/CMAF or CBCS blocks).</li>
+      <li><strong>Player asks the Playback/License server</strong>: the app (authenticated with your subscription token) requests a license for the content. That request includes identifiers (content KID / playback context).</li>
+      <li><strong>License server returns license</strong>: the server issues a license blob (key material + policy), encrypted for the device. Apple's FairPlay server ties that license to Apple's hardware/secure APIs so the key can't be extracted.</li>
+      <li><strong>CDM / Secure Enclave decrypts</strong>: the platform's CDM (or secure media pipeline / Secure Enclave on Apple devices) receives the license and performs decryption inside the trusted environment. Decrypted audio frames are handed to the secure audio path or media pipeline for playback — the application process never gets raw persistent keys.</li>
+      <li><strong>Offline playback</strong>: downloaded files remain encrypted on disk; the license may contain a persistent key bound to the device so the app can decrypt offline but only under the same entitlement and on the same device ecosystem.</li>
+    </ol>
+    <p>Crucial security guarantees (why you can't just copy & decrypt): keys are delivered only after authenticated entitlement checks, keys are consumed inside a hardware/OS-protected CDM (TEE / Secure Enclave / OEMCrypto), and the decrypted path is protected so apps/processes can't simply capture raw PCM reliably.</p>
+
+    <h4>So grosso-modo here's the breakdown:</h4>
+    <p><strong>Apple Music decryption</strong> = So you start from a FairPlay license exchange + device-bound keys + secure playback inside what we can call the "Apple's protected media pipeline"; as a subscriber you get keys only through authenticated licenses and playback happens inside a CDM/TEE — and you don't get raw keys or unprotected files at all.</p>
+
+    <h4>Why Widevine and not FairPlay?</h4>
+    <p>While Apple Music officially uses FairPlay DRM for its native apps (macOS Music app, iOS), this tool targets the <strong>web browser API</strong> which uses Widevine DRM instead. When accessing Apple Music via web browsers (Chrome, Firefox, Edge), Apple serves Widevine-encrypted streams for cross-platform compatibility since FairPlay only works in Apple's ecosystem.</p>
+    <p>The key difference: FairPlay uses device-bound keys + Secure Enclave/TEE where decryption happens inside Apple's protected media pipeline with no access to raw keys. Widevine, however, follows a standard CDM protocol that can be implemented via <code>pywidevine</code>, making it accessible for this tool. By authenticating as a web browser (via cookies and user-agent), the tool receives Widevine-protected HLS streams instead of FairPlay ones, allowing extraction of decryption keys through the Widevine license exchange protocol.</p>
+
+    <h2>How to step-by-step make a DRM removal process</h2>
+
+    <h3>Step 1: Get the PSSH (Protection System Specific Header)</h3>
+    <p>When you fetch song metadata, the HLS item (playlist, song, video) contains a special header python speaking, by defining the <strong>m3u8</strong> <strong>object</strong> according to Glomatico's project analysis:</p>
+    <pre><code class="language-python"># interface_song.py:get_stream_info_legacy (line 387-388)
+m3u8_obj = m3u8.loads(await get_response_text(stream_url))
+stream_info.widevine_pssh = m3u8_obj.keys[0].uri</code></pre>
+    <pre><code class="language-python"># Example PSSH from playlist:
+EXT-X-KEY:METHOD=SAMPLE-AES,URI="data:text/plain;base64,AAAANHBzc2gAAAAA...",KEYFORMAT="urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed"</code></pre>
+    <p>This <strong>base64</strong> string contains:</p>
+    <ol>
+      <li>Key ID (KID): Identifies which key you need</li>
+      <li>Algorithm: How it's encrypted (AES-128, AES-CTR, etc.)</li>
+    </ol>
+
+    <h3>Step 2: CDM (Content Decryption Module) License Exchange</h3>
+    <p>Now comes the Widevine handshake:</p>
+    <pre><code class="language-python"># interface_song.py:get_decryption_key_legacy (line 407-433)
+async def get_decryption_key_legacy(stream_info, cdm):
+    # Open a CDM session
+    cdm_session = cdm.open()
+    
+    # Parse the PSSH to extract key ID
+    widevine_pssh_data = WidevinePsshData()
+    widevine_pssh_data.algorithm = 1  # AES-CTR
+    widevine_pssh_data.key_ids.append(
+        base64.b64decode(stream_info.widevine_pssh.split(",")[1])
+    )
+    pssh_obj = PSSH(widevine_pssh_data.SerializeToString())
+    
+    # Generate a license challenge (encrypted request)
+    challenge = base64.b64encode(
+        cdm.get_license_challenge(cdm_session, pssh_obj)
+    ).decode()
+    
+    # Send challenge to Apple's license server
+    license_response = await apple_music_api.get_license_exchange(
+        song_id,
+        widevine_pssh,
+        challenge,
+    )
+    # Apple verifies you have subscription via cookies file!
+    
+    # Parse the license response (contains the key!)
+    cdm.parse_license(cdm_session, license_response["license"])
+    
+    # Extract the content decryption key
+    decryption_key = next(
+        i for i in cdm.get_keys(cdm_session) if i.type == "CONTENT"
+    )
+    
+    return decryption_key.key.hex()  # The actual AES key!</code></pre>
+    <p>So we open a CDM session to initialize a secure context for key exchange and license parsing: <code>cdm_session = cdm.open()</code></p>
+    <p>Next, parse the PSSH to extract the Key ID(s) this defines which content keys the license must deliver. The PSSH is serialized into a proper Widevine object: (WidevinePsshData, PSSH()).</p>
+    <p>Generate a license challenge from the CDM using this last PSSH. This challenge encapsulates device identity and session data, encrypted by the CDM.</p>
+    <p>Send this challenge to the license server. The server validates entitlement and returns a <strong>signed license blob</strong> bound to your session and of course, your device.</p>
+    <p>Parse the returned license in the CDM as it installs the content decryption key internally.</p>
+    <p>Finally, extract the active content key from the CDM (<code>cdm.get_keys</code>) for decryption, or use the CDM handle to decrypt segments directly. Cool tho?</p>
+    <p><strong>You open a secure CDM session, send it the PSSH so it knows which key to ask for, then generate a license challenge that's verified by the server — once approved, the CDM gets the decryption key and can unlock the encrypted song segments for playback.</strong></p>
+    <p><strong><u>It's like borrowing a movie from a digital library:</u></strong></p>
+    <p><strong>Your player (CDM) shows its ID card and asks the library (license server) for the key to open the movie box (encrypted song).</strong></p>
+    <p><strong>If your subscription is valid, the library gives a unique key that only your player can use — it opens the box, watches the movie, but never keeps or reveals the key. It's actually more easy to get the idea like this.</strong></p>
+    <hr>
+    <h4>Why Apple gives you the key:</h4>
+    <ul>
+      <li>Your cookies prove you have an active Apple Music subscription</li>
+      <li>The media-user-token cookie authenticates you</li>
+      <li>Apple's server checks: "Is this user allowed to stream this song?"</li>
+      <li>If yes → our dear server returns encrypted license containing the AES decryption key</li>
+    </ul>
+    <hr>
+
+    <h3>Step 3: Download Encrypted HLS Segments</h3>
+    <p>Now we have two important items at this stage.</p>
+    <p>The first one is the <strong>stream URL</strong>, also called the <strong>HLS playlist</strong>.</p>
+    <p>The second is the <strong>decryption key</strong> in hexadecimal form (an AES-128 key).</p>
+    <p>Don't get confused — a <em>playlist</em> here isn't a list of songs. It's more like a <strong>table of contents</strong> for an encrypted track: it doesn't contain the audio itself, only the list of locked fragments and the instructions on how to reassemble them in the correct order.</p>
+    <p>From an engineering standpoint, the .m3u8 file is an <strong>HLS manifest</strong>, a small text file that lists URLs for all the media segments (.m4s, .ts, etc.) that make up the stream. It defines playback order, segment duration, and sometimes the encryption key location or codec information. It's basically the <strong>map</strong> the player (or yt-dlp) uses to fetch and reconstruct the actual data.</p>
+    <p>The action here is to make a download stream in the python tool with proper execution using a path for the encrypted stream (chunks by the way):</p>
+    <pre><code class="language-python"># downloader_song.py:download (line 274-283)
+encrypted_path = "/tmp/gamdl_abc123/song_encrypted.m4a"
+await download_stream(stream_url, encrypted_path)</code></pre>
+    <pre><code class="language-python"># downloader_base.py:_download_ytdlp (line 293-306)
+with YoutubeDL({
+    "quiet": True,
+    "outtmpl": encrypted_path,
+    "allow_unplayable_formats": True,  # Keep encrypted segments!
+    "fixup": "never",  # Don't try to fix/decrypt
+}) as ydl:
+    ydl.download(stream_url)</code></pre>
+    <p>Well ok but YoutubeDL it's out of context? No, It's a <strong>generic media extraction framework</strong> that supports <strong>hundreds of streaming platforms</strong>, not just "YouTube". It parses each site's player page, extracts the streaming manifest (like HLS/DASH URLs), and can download raw media segments or merge them into playable files.</p>
+    <p>In this snippet, it's being used in a low-level way to fetch <strong>encrypted HLS segments</strong> without trying to decrypt them (<code>allow_unplayable_formats=True</code>, <code>fixup="never"</code>), meaning it's acting as a <strong>segment fetcher</strong>, not a player, don't get confused!</p>
+    <p>yt-dlp retrieves the HLS <strong>.m3u8 manifest</strong>, enumerates each segment URL, downloads all encrypted chunks (typically .m4s fragments) — often in parallel (async) — and concatenates them sequentially into a single container file like <strong>foo_song_encrypted.m4a</strong>, preserving the original encryption for later decryption by the CDM.</p>
+    <p><strong>It's like collecting all the locked pieces of a music CD one by one, putting them back in order into a single disc, but the music is still locked until your player later uses the proper key to unlock it, no worries we're on that way.</strong></p>
+    <p><strong>Our stage right now is the following: in our encrypted path we got a brand fresh and clean (almost) single .m4a file with encrypted audio data.</strong></p>
+
+    <h3>Step 4: Decrypt the audio</h3>
+    <p>Now the crucial part! Two paths depending on codec* you guys are choosing:</p>
+    <p><em><strong>*codec</strong> (short for coder–decoder) is the algorithm that compresses and decompresses audio or video data.</em></p>
+    <ul>
+      <li>Path A: Legacy codecs (AAC-256, AAC-HE) -> FFmpeg direct decryption (we go further with this)</li>
+      <li>Path B: Experimental codecs (ALAC, Atmos) -> mp4decrypt</li>
+    </ul>
+
+    <h4>Using FFmpeg (path A)</h4>
+    <pre><code class="language-python"># downloader_song.py:remux_ffmpeg (line 158-186)
+await remux_ffmpeg(
+    encrypted_path,
+    staged_path,
+    decryption_key="a1b2c3d4e5f6..."  # The hex key from CDM
+)
+
+# Internally runs:
+ffmpeg -loglevel error -y \
+    -decryption_key a1b2c3d4e5f6... \  # ← FFmpeg decrypts on-the-fly!
+    -i /tmp/song_encrypted.m4a \
+    -c copy \                            # Copy streams (no re-encoding)
+    -movflags +faststart \               # Optimize for streaming
+    /tmp/song_staged.m4a</code></pre>
+    <p>What FFmpeg does here:</p>
+    <ol>
+      <li>Reads encrypted .m4a file</li>
+      <li>Decrypts audio stream using the AES key previously collected (built-in AES-128 decryption)</li>
+      <li>Copies decrypted audio to new container (but no re-encoding!)</li>
+      <li>Adds faststart flag (moves metadata to front for allowing you to do web playback)</li>
+    </ol>
+
+    <h4>Using more modern codecs</h4>
+    <pre><code class="language-python"># downloader_song.py:decrypt_mp4decrypt (line 188-215)
+await decrypt_mp4decrypt(
+    encrypted_path,
+    decrypted_path,
+    decryption_key,
+    legacy=False
+)
+
+# Internally runs:
+mp4decrypt \
+    --key 00000000000000000000000000000001:a1b2c3d4... \
+    --key 00000000000000000000000000000000:b2c3d4e5... \
+    /tmp/song_encrypted.m4a \
+    /tmp/song_decrypted.m4a</code></pre>
+
+    <h4>Why two damn keys in there?</h4>
+    <p>Theses experimental codecs usually have multiple encryption tracks like below:</p>
+    <ul>
+      <li>Key ID 00...01 = main audio track</li>
+      <li>Key ID 00...00 = default/fallback key</li>
+    </ul>
+    <p><strong>And then you have to do the remux process again with FFpeg:</strong></p>
+    <pre><code class="language-python">await remux_ffmpeg(decrypted_path, staged_path)
+# Now FFmpeg just repackages (no decryption needed, you just did in the step before)</code></pre>
+    <p>It's important here to understand <strong>what remuxing does</strong>, you are doing it everytime without knowing it on whatever kind of media formats you can consume everyday and it's kind of black magic still at this stage.</p>
+    <p><strong>"Remuxing" = Re-multiplex = Repackage streams into a clean container (forget Docker here please...).</strong></p>
+    <p>Because your raw received file is just a garbage of junk metadato from a DRM system, the atom structure is messy here. <strong>MP4 atoms = chunks of data it's not physics here...</strong> You also need the faststart flag (a metadata that is at the end of the file).</p>
+    <pre><code>Before remux:
+[Encrypted atoms][Audio stream][DRM atoms][Metadata at end]
+
+After remux:
+[Metadata at start][Clean audio stream][EOF]
+     ↑
+   faststart: Metadata first = instant playback, Mickael Jackson is happy (RIP)</code></pre>
+    <p>And no re-encoding! The audio data itself is just copied byte-for-byte. Only the container structure changes.</p>
+
+    <h3>Step 5: Apply metadata tags</h3>
+    <p>Metadata matters on a fresh clean decrypted audio file. It allows you to have the artist name, credits, song cover, order in a EP/album and more.</p>
+    <pre><code class="language-python"># downloader_base.py:apply_tags (line 330-356)
+mp4 = MP4(staged_path)  # Open with mutagen library
+mp4.clear()             # Remove all existing tags
+
+# Add text metadata
+mp4["\xa9nam"] = [tags.title]           # ©nam = Title
+mp4["\xa9ART"] = [tags.artist]          # ©ART = Artist
+mp4["\xa9alb"] = [tags.album]           # ©alb = Album
+mp4["trkn"] = [(tags.track, tags.track_total)]  # Track 1/12
+
+# Embed cover art
+cover_bytes = await get_cover_bytes(cover_url)
+mp4["covr"] = [MP4Cover(cover_bytes, imageformat=MP4Cover.FORMAT_JPEG)]
+
+mp4.save()  # Write back to file</code></pre>
+    <p>Then, fully tagged, DRM-free .m4a file is ready!</p>
+
+    <h3>Here's my key takeaways</h3>
+    <ol>
+      <li>Key source: NOT from cookies! From Widevine license server after proving subscription</li>
+      <li>Encryption: AES-128 encryption on each HLS segment</li>
+      <li>Decryption: FFmpeg (legacy) or mp4decrypt (experimental) removes DRM</li>
+      <li>Remuxing: Repackages into clean MP4 container, no re-encoding</li>
+      <li>Result: Standard .m4a file that works anywhere, DRM-free</li>
+    </ol>
+    <p>The cookies are only used to authenticate with Apple's license server. The actual decryption key is dynamically generated per-song and delivered via the Widevine CDM protocol.</p>
+
+    <h2>Conclusion</h2>
+    <p>The workflow above reveals something crucial about modern streaming. The only real barrier between a legal playback and a fully usable local file is the key. Once your device obtains that key, DRM becomes just a thin cryptographic wrapper. A 10-second encrypted segment and a standard .m4a file are separated by a single decision: does the user get access to the key or not.</p>
+    <p>When the pipeline runs inside Apple's Secure Enclave with FairPlay, that separation is enforced through hardware and strict policy. As soon as the same content falls back to browser-based Widevine L3 for cross-platform compatibility, those walls weaken. The exact same design that enables offline playback, switching devices, and smooth user experience also unintentionally enables extraction: keys can be obtained, segments decrypted, containers remuxed.</p>
+    <p>This is the real paradox of streaming DRM.<br>
+To let you listen, the system must give you the key.<br>
+Once you have the key, you technically have the file.</p>
+    <p>My goal here is not to promote piracy. Understanding how DRM works is not an invitation to steal music. It is a way to see how fragile our digital "ownership" truly is. I write this kind of breakdown because I enjoy diving deep into the technologies that shape our everyday media. I like to explore, question, and sometimes dismantle the systems in front of us so I can rebuild my own understanding.</p>
+    <p>If this article sparked your curiosity or taught you something new, I am glad. Feel free to reach out. These explorations keep me sharp as an engineer and inspire me to improve the tools and ideas we rely on.</p>
+    <p>Special thanks to <strong>Glomatico</strong> for the incredible work on <a href="https://github.com/glomatico/gamdl" target="_blank" rel="noopener">gamdl (Glomatico's Apple Music Downloader)</a>. It is a great example of how curiosity and technical skill can reveal the inner workings of complex systems.</p>
+  </article>
+</body>
+</html>
