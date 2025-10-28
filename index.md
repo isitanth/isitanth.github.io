@@ -48,7 +48,7 @@ title: Whoami
 
 <main>
   <section class="section">
-    <h2>Professional Summary</h2>
+    <h2>Professional summary</h2>
     <p>
       Hi, I'm Anthony, a 25-year-old Solution Architect currently working at Orange Business, where I design and integrate modern digital infrastructures.
     </p>
@@ -108,7 +108,7 @@ title: Whoami
     <div class="education-item">
       <div class="education-header">
         <div>
-          <div class="degree">Engineering Degree in Computer Science</div>
+          <div class="degree">Engineering degree in computer science</div>
           <div class="school">Conservatoire National des Arts et Métiers (CNAM) — Toulon, France</div>
         </div>
       </div>
@@ -125,7 +125,7 @@ title: Whoami
   </section>
 
   <section class="section">
-    <h2>Technical Skills</h2>
+    <h2>Technical skills</h2>
     <p><strong>Languages:</strong> Bash scripting, Python, Rust (Cargo), C</p>
     <p><strong>Platforms:</strong> Common Linux distros, macOS, Unix systems</p>
     <p><strong>Domains:</strong> Cloud, edge computing, system administration</p>
@@ -190,16 +190,16 @@ title: Whoami
     <h2>Certifications</h2>
     <ul>
       <li>AWS Certified Solutions Architect – Associate</li>
-      <li>AWS Certified Cloud Practitioner</li>
+      <li>AWS Certified Cloud practitioner</li>
       <li>Microsoft Azure Fundamentals (AZ-900)</li>
-      <li>Splunk Accredited Technical Selling Foundations</li>
-      <li>TOEIC – Advanced English Proficiency</li>
+      <li>Splunk accredited technical selling foundations</li>
+      <li>TOEIC – Advanced english proficiency</li>
     </ul>
   </section>
 
   <section class="section">
     <h2>Languages</h2>
-    <p>French — Native | Russian — Native | English — Fluent | Polish — Learning</p>
+    <p>French — native | Russian — native | English — fluent | Polish — learning</p>
   </section>
 
   <section class="section">
