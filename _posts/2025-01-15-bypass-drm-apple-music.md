@@ -253,7 +253,7 @@ Theses experimental codecs usually have multiple encryption tracks like below:
 - Key ID 00...01 = main audio track
 - Key ID 00...00 = default/fallback key
 
-**And then you have to do the remux process again with FFpeg:**
+**And then you have to do the remux process again with FFmpeg:**
 
 ```python
 await remux_ffmpeg(decrypted_path, staged_path)
