@@ -1,7 +1,7 @@
 ---
-title: "Travel urge at 25, what has changed"
+title: "Travel urge in your 20s, what has changed"
 date: 2025-01-28
-tags: [travel, personal, reflection]
+tags: [Travel, Newcomer]
 excerpt: "On solo journeys, the paradox of solitude, and why the only thing I know is that I know nothing."
 ---
 
