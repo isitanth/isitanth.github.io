@@ -632,10 +632,10 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
     justify-content: flex-end;
     margin-top: 48px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 2px;
-    color: var(--text-muted);
-    opacity: 0.35;
+    color: var(--text-secondary);
+    opacity: 0.7;
     padding-top: 20px;
     border-top: 1px solid var(--border-subtle);
   }
@@ -653,12 +653,142 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
-    .container { padding: 40px 20px 60px; }
-    .layers-grid { grid-template-columns: 1fr; }
-    .stack-layer { grid-template-columns: 100px 1fr 120px; padding: 12px 14px; }
-    .threat-table { font-size: 12px; }
-    .threat-table thead th,
-    .threat-table tbody td { padding: 10px 8px; }
+    .container { padding: 32px 16px 48px; }
+
+    .header { margin-bottom: 40px; }
+    .header-sub { font-size: 14px; }
+
+    /* ── Spectrum Bar → vertical stacked bars ── */
+    .spectrum-section { margin-bottom: 48px; }
+
+    .spectrum-bar {
+      flex-direction: column;
+      height: auto;
+      gap: 8px;
+      border: none;
+      border-radius: 0;
+    }
+
+    .spectrum-segment {
+      flex: none !important;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      overflow: visible;
+    }
+
+    .spectrum-segment:hover { transform: none; }
+
+    .seg-legal { border-left: 3px solid var(--layer-legal); }
+    .seg-ops   { border-left: 3px solid var(--layer-ops); }
+    .seg-data  { border-left: 3px solid var(--layer-data); }
+    .seg-tech  { border-left: 3px solid var(--layer-tech); }
+
+    .seg-name {
+      font-size: 12px;
+      min-width: 100px;
+    }
+
+    .seg-score {
+      font-size: 10px;
+      margin-left: auto;
+    }
+
+    .spectrum-labels {
+      margin-top: 6px;
+      font-size: 8px;
+    }
+
+    /* ── Layer Cards ── */
+    .layers-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .layer-card { padding: 22px 18px; }
+    .card-title { font-size: 20px; }
+    .card-body  { font-size: 12.5px; }
+
+    /* ── Threat Matrix → stacked cards ── */
+    .threat-section { margin-bottom: 48px; }
+
+    .threat-table thead { display: none; }
+
+    .threat-table,
+    .threat-table tbody,
+    .threat-table tr,
+    .threat-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .threat-table tbody tr {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .threat-table tbody td {
+      border-bottom: none;
+      padding: 2px 0;
+    }
+
+    .threat-name {
+      font-size: 14px;
+      white-space: normal;
+      margin-bottom: 2px;
+    }
+
+    .threat-desc {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .threat-table tbody td:nth-child(3) {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .threat-table tbody td:nth-child(4) {
+      display: inline-block;
+    }
+
+    /* ── Stack Anatomy → simplified stacking ── */
+    .stack-section { margin-bottom: 48px; }
+
+    .stack-layer {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 12px 14px;
+    }
+
+    .stack-layer-name { font-size: 10px; }
+    .stack-layer-detail { font-size: 11.5px; }
+
+    .stack-origin {
+      justify-content: flex-start;
+    }
+
+    .stack-legend {
+      gap: 14px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* ── Conclusion ── */
+    .conclusion { padding: 28px 20px; }
+    .conclusion-text { font-size: 19px; }
+    .conclusion-footer { font-size: 12px; }
+
+    /* ── Watermark ── */
+    .watermark { font-size: 9px; letter-spacing: 1px; }
   }
 </style>
 
@@ -880,7 +1010,7 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
 
   <!-- Watermark -->
   <div class="watermark">
-    <span>Designed and crafted with &hearts; using HTML, CSS &amp; Jekyll &mdash; &copy; Anthony Chambet</span>
+    <span>Designed and crafted with &hearts; using HTML &amp; CSS &mdash; &copy; Anthony Chambet</span>
   </div>
 
 </div>
