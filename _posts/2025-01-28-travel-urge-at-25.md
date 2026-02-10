@@ -1,8 +1,8 @@
 ---
-title: "Travel urge in your 20s, what has changed"
+title: "What has changed?"
 date: 2025-01-28
-tags: [Travel, Newcomer]
-excerpt: "On solo journeys, the paradox of solitude, and why the only thing I know is that I know nothing."
+tags: [Travel, Early birds]
+excerpt: "What has changed from Asia to South America while crossing Middle East and EU alone?"
 ---
 
 ## The pressure that builds
