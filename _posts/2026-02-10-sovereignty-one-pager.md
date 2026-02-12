@@ -213,7 +213,7 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
   .spectrum-segment:hover { transform: scaleY(1.04); }
 
   .seg-legal {
-    flex: 3.2;
+    flex: 2.8;
     background: linear-gradient(135deg, rgba(80,190,135,0.18), rgba(80,190,135,0.06));
     border-right: 1px solid rgba(80,190,135,0.2);
   }
@@ -426,6 +426,12 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
     color: var(--ob-green-light);
     background: rgba(80,190,135,0.1);
     border: 1px solid rgba(80,190,135,0.15);
+  }
+
+  .status-mitigated {
+    color: var(--ob-yellow);
+    background: rgba(255,204,0,0.1);
+    border: 1px solid rgba(255,204,0,0.15);
   }
 
   .status-partial {
@@ -812,7 +818,7 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
     <div class="spectrum-bar">
       <div class="spectrum-segment seg-legal">
         <span class="seg-name">Legal</span>
-        <span class="seg-score">██████████ 90%</span>
+        <span class="seg-score">████████░░ 75%</span>
       </div>
       <div class="spectrum-segment seg-ops">
         <span class="seg-name">Operational</span>
@@ -841,11 +847,11 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
       <h3 class="card-title">Legal</h3>
       <p class="card-subtitle">Legal indirection as a shield</p>
       <p class="card-body">
-        The operating entity is European, subject to GDPR and outside the direct reach of the CLOUD Act. A US court cannot serve a warrant directly to a European operator for data it controls on its own infrastructure. This is a real layer of legal indirection, the data controller remains European.
+        The operating entity is European, subject to GDPR, and outside the direct jurisdictional reach of US courts. This creates genuine legal friction against extraterritorial requests. However, the CLOUD Act's parent-subsidiary provisions mean that if any entity in the corporate group has a US legal presence, courts could attempt to compel data production through the corporate chain. The protection relies on conflict-of-laws dynamics (GDPR vs CLOUD Act, French blocking statutes, comity analysis) rather than absolute immunity — which is why operational and encryption controls in layers 2–3 are essential complements.
       </p>
       <div class="card-verdict verdict-strong">
         <div class="verdict-icon">&#10003;</div>
-        <span class="verdict-text">Effective protection, SecNumCloud qualified</span>
+        <span class="verdict-text">Strong legal friction, not absolute immunity — SecNumCloud qualified</span>
       </div>
     </div>
 
@@ -906,7 +912,7 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
         <tr>
           <td class="threat-name">CLOUD Act warrant</td>
           <td class="threat-desc">Extraterritorial US legal request for data</td>
-          <td><span class="threat-status status-protected">Protected</span></td>
+          <td><span class="threat-status status-mitigated">Mitigated</span></td>
           <td class="threat-percent">~ 95% of clients</td>
         </tr>
         <tr>
@@ -1001,10 +1007,10 @@ excerpt: "Sovereignty is not a binary state. It's a continuum of control across 
   <div class="conclusion">
     <div class="conclusion-label">The bottom line</div>
     <p class="conclusion-text">
-      <em>Operational and legal</em> sovereignty is credible and protects against the real-world threats faced by 95% of clients. <em>Technological</em> sovereignty remains a global gap that no commercial player fills today.
+      <em>Operational</em> sovereignty is credible. <em>Legal</em> sovereignty creates strong friction that mitigates the realistic threats faced by 95% of clients, without claiming absolute immunity. <em>Technological</em> sovereignty remains a global gap that no commercial player fills today.
     </p>
     <p class="conclusion-footer">
-      This is what the <span class="tag tag-secnum">SecNumCloud 3.2</span> label recognises, it qualifies operations and processes, not the origin of the silicon. The honest positioning: operational sovereignty with a managed technological dependency, governed through risk management.
+      This is what the <span class="tag tag-secnum">SecNumCloud 3.2</span> label recognises, it qualifies operations and processes, not the origin of the silicon. The honest positioning: operational sovereignty with a managed technological dependency, legal sovereignty as a strong barrier rather than an absolute shield, both governed through risk management.
     </p>
   </div>
 

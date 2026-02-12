@@ -50,22 +50,16 @@ title: Whoami
   <section class="section">
     <h2>Professional summary</h2>
     <p>
-      Hi, I'm Anthony, a 25-year-old Solution Architect currently working at Orange Business, where I design and integrate modern digital infrastructures.
+      Hi, I'm Anthony, 25. Solution architect at Orange Business with a focus on cloud solutions, based in Belgium.
     </p>
     <p>
-      At Orange, I focus on blending technical depth with business perspective, designing solutions that balance performance, reliability, and real customer needs — across cloud and private/on-premises compute. I enjoy turning complex architectures into clear, purposeful systems where engineering precision meets user experience. That's where lasting value is created, and where the work of many smart people behind the scenes brings the architecture we envision fully to life.
+      Before that, sysadmin at Airbus as a first job. Production and restricted environments, the Unix/Linux world, and what's behind the tech that runs a group like Airbus. That's where I learned what operational rigor actually means.
     </p>
     <p>
-      Previously, I worked at Airbus as a Unix/Linux system administrator, where I improved observability in sensitive, large-scale infrastructures and gained hands-on exposure to the diverse technologies and challenges of high-reliability environments — discovering the realities of the job and the operational demands of restricted, military-grade contexts.
+      I like understanding how things work, from the big picture down to what's inside a Mach-O binary, the whole spectrum of it. I build projects on my free time, sometimes with agentic environments like Claude Code, and I'm developing a systems thinking approach to architecture.
     </p>
     <p>
-      Beyond work, I explore low-level computing on x86_64 and ARM — diving into memory stacks, registers, and interactive disassembly with tools like GDB, ObjDump, and IDA. I'm fascinated by how complex a simple Mach-O file can be, and how much performance and precision are packed into everyday devices.
-    </p>
-    <p>
-      I also experiment with system tools and automation workflows, often integrating LLMs to simplify and accelerate work across different fields. These tools are incredible time-savers, but I stay mindful not to lose the thread — keeping understanding what you do at the center. I think about how Warp improved the development workflow allowing you to use a set of tech stacks that you have to learn for hours in a shorten time while understanding it.
-    </p>
-    <p>
-      I speak French, English, and Russian fluently, and I'm learning Polish. Traveling, meeting people, and discovering how different cultures approach technology and life keeps my curiosity alive — helping me see the world, including places we don't always think of first, from new perspectives. Always happy to connect and stay curious :)
+      I speak French, English, and Russian. I travel, take photos, and spend time with people from places that have very little in common with where I grew up. It shaped how I think more than most things I've studied.
     </p>
   </section>
 
