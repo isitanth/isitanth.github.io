@@ -43,28 +43,43 @@ title: Whoami
       </svg>
       Blog
     </a>
+
+    <a class="icon-text" href="/cv/anthony-chambet-cv.pdf" target="_blank" rel="noopener" aria-label="CV (opens PDF in new tab)">
+      <!-- cv/id-card icon -->
+      <svg class="icon icon--stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <circle cx="8" cy="11" r="2"/>
+        <path d="M4 17c0-2 1.8-3 4-3s4 1 4 3"/>
+        <path d="M15 9h4"/>
+        <path d="M15 13h3"/>
+      </svg>
+      CV
+    </a>
   </div>
 </header>
 
 <main>
   <section class="section">
-    <h2>Professional summary</h2>
+    <h2>Whoami</h2>
     <p>
-      Hi, I'm Anthony, 25. Solution architect at Orange Business with a focus on cloud solutions, based in Belgium.
+      Hi, I'm Anthony, 25. Solution architect at Orange Business, based in Belgium, focused on cloud infrastructure.
     </p>
     <p>
-      Before that, sysadmin at Airbus as a first job. Production and restricted environments, the Unix/Linux world, and what's behind the tech that runs a group like Airbus. That's where I learned what operational rigor actually means.
+      I like understanding how things work, from the business down to what's inside a Mach-O binary. The whole spectrum of it.
     </p>
     <p>
-      I like understanding how things work, from the big picture down to what's inside a Mach-O binary, the whole spectrum of it. I build projects on my free time, sometimes with agentic environments like Claude Code, and I'm developing a systems thinking approach to architecture.
+      I build on my free time. Ideas that become projects, using the right tools to move fast without building in dependency. Systems thinking runs through most of it.
     </p>
     <p>
-      I speak French, English, and Russian. I travel, take photos, and spend time with people from places that have very little in common with where I grew up. It shaped how I think more than most things I've studied.
+      I speak French, English, and Russian. Currently learning Polish. I travel, take photos, and learn from people coming from different places and contexts.
+    </p>
+    <p>
+      It shaped how I think more than most things I've studied.
     </p>
   </section>
 
   <section class="section">
-    <h2>Experience</h2>
+    <h2>Work</h2>
 
     <div class="job">
       <div class="job-header">
@@ -75,9 +90,9 @@ title: Whoami
         <div class="date">2024 – Present</div>
       </div>
       <ul>
-        <li>Designing and supporting <strong>IaaS/PaaS platforms</strong> or <strong> Private/Sovereign Cloud</strong> for Belgian public-sector customer, integrating disaster recovery, backup, and managed service capabilities.</li>
-        <li>Had the opportunity to coordinate an <strong>edge computing program</strong> with <strong>Orange Business partners</strong>, early in my journey at Orange Business.</li>
-        <li>Contributed business strategies, portfolio ideation, and internal knowledge sharing across <strong>Orange Private &amp; Sovereign Cloud</strong> and hyperscalers.</li>
+        <li>Designed end-to-end solutions integrating disaster recovery, backup, managed service capabilities, and SLAs.</li>
+        <li>First experience coordinating internal edge computing program and involved partners, early, useful, experimental, hands-on.</li>
+        <li>Internal knowledge transfer of private &amp; sovereign cloud concepts, product definitions and portfolio clarity across teams.</li>
       </ul>
     </div>
 
@@ -90,9 +105,9 @@ title: Whoami
         <div class="date">2020 – 2023</div>
       </div>
       <ul>
-        <li>Developed an internal observability tool for heterogeneous Unix/Linux environments.</li>
-        <li>Re-architected the <strong>Red Hat Satellite</strong> solution to improve automation and the delivery of global zero-day patches.</li>
-        <li>Maintained operational reliability across civil and restricted systems through structured monitoring and change management aligned with <strong>ITIL</strong> practices.</li>
+        <li>Developed an internal data collection tool for heterogeneous Unix/Linux environments.</li>
+        <li>Designed lifecycle management at scale across a global server fleet, built for zero-day patch delivery.</li>
+        <li>Operational run across civil and restricted IT environments.</li>
       </ul>
     </div>
   </section>
@@ -111,7 +126,7 @@ title: Whoami
     <div class="education-item">
       <div class="education-header">
         <div>
-          <div class="degree">DUT in Electrical Engineering and Industrial Computing</div>
+          <div class="degree">DUT in electrical engineering and industrial computing</div>
           <div class="school">University Institute of Technology (IUT) — Toulon, France</div>
         </div>
       </div>
@@ -121,22 +136,33 @@ title: Whoami
   <section class="section">
     <h2>Technical skills</h2>
     <p><strong>Languages:</strong> Bash scripting, Python, Rust (Cargo), C</p>
-    <p><strong>Platforms:</strong> Common Linux distros, macOS, Unix systems</p>
+    <p><strong>Platforms:</strong> Common Linux distros, macOS</p>
     <p><strong>Domains:</strong> Cloud, edge computing, system administration</p>
-    <p><strong>Hands on:</strong> AWS, Azure, Git, CI/CD, RHEL Satellite/Ansible, Docker, VMs, network tools</p>
+    <p><strong>Hands on:</strong> Claude Code, cloud based services, network tools, OpenClaw, security concepts</p>
+
   </section>
 
   <section class="section">
-    <h2>My side projects (github.com/isitanth)</h2>
+    <h2>Projects</h2>
 
     <div class="project">
       <div class="project-header">
         <div>
-          <div class="project-name">GameOfLife_MacOS</div>
-          <div class="project-tech">Rust, Metal</div>
+          <div class="project-name">Convolution</div>
+          <div class="project-tech">C</div>
         </div>
       </div>
-      <p>GPU-accelerated cellular automata playground built with <strong>Metal</strong> for Apple Silicon.</p>
+      <p>C library that <strong>convolves</strong> signals and <strong>plots</strong> them using terminal.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div>
+          <div class="project-name">Foldr - early birds</div>
+          <div class="project-tech">Swift, Python</div>
+        </div>
+      </div>
+      <p>native macOS job orchestrator that <strong>turns folders</strong> into <strong>cron tasks</strong>.</p>
     </div>
 
     <div class="project">
@@ -147,36 +173,6 @@ title: Whoami
         </div>
       </div>
       <p>CLI utility for <strong>Fujifilm X-T5</strong> workflows, automating backups, manifests, and workspace creation.</p>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <div>
-          <div class="project-name">FlowD — Under Dev</div>
-          <div class="project-tech">Swift, Python</div>
-        </div>
-      </div>
-      <p>macOS status-bar job orchestrator turning folders into cron-like task runners.</p>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <div>
-          <div class="project-name">Convolution</div>
-          <div class="project-tech">C</div>
-        </div>
-      </div>
-      <p>C library for digital signal convolution with integrated visualization support.</p>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <div>
-          <div class="project-name">reMarkable-Audit-Toolkit</div>
-          <div class="project-tech">Linux, Security</div>
-        </div>
-      </div>
-      <p>Security audit toolkit for embedded Linux devices, modular and non-invasive.</p>
     </div>
   </section>
 
@@ -196,10 +192,4 @@ title: Whoami
     <p>French — native | Russian — native | English — fluent | Polish — learning</p>
   </section>
 
-  <section class="section">
-    <h2>Interests</h2>
-    <p>
-      Apple platform engineering, Linux userspace/kernelspace, photography, complex solution-solving, traveling, aircrafts embeeded systems, tech explained, math concepts, software dev, project mgmgt, new technologies, AI powerewed workflows. I enjoy building small, purpose-driven tools that merge reliability, design clarity, and low-level performance — capturing the spirit of the next generation of engineers.
-    </p>
-  </section>
 </main>
