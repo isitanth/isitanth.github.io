@@ -60,7 +60,6 @@ title: Whoami
 
 <main>
   <section class="section">
-    <h2>Whoami</h2>
     <p>
       Hi, I'm Anthony, 25. Solution architect at Orange Business, based in Belgium, focused on cloud infrastructure.
     </p>
