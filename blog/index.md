@@ -1,6 +1,6 @@
 ---
 layout: blog-list
 title: Blog
-description: Technical explorations
+description: List of articles
 permalink: /blog/
 ---
