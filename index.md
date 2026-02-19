@@ -64,7 +64,7 @@ title: Whoami
       Hi, I'm Anthony, 25. Solution architect at Orange Business, based in Belgium, focused on cloud infrastructure.
     </p>
     <p>
-      I like understanding how things work, from the business down to what's inside a Mach-O binary. The whole spectrum of it.
+      I like understanding how things work, from the business layer down to what's inside a Mach-O binary. The whole spectrum of it at all layers.
     </p>
     <p>
       I build on my free time. Ideas that become projects, using the right tools to move fast without building in dependency. Systems thinking runs through most of it.
@@ -177,12 +177,31 @@ title: Whoami
 
   <section class="section">
     <h2>Certifications</h2>
+
+    <p><strong>Cloud</strong></p>
     <ul>
       <li>AWS Certified Solutions Architect – Associate</li>
-      <li>AWS Certified Cloud practitioner</li>
+      <li>AWS Certified Cloud Practitioner</li>
       <li>Microsoft Azure Fundamentals (AZ-900)</li>
-      <li>Splunk accredited technical selling foundations</li>
-      <li>TOEIC – Advanced english proficiency</li>
+    </ul>
+
+    <p><strong>AI Tooling & Protocols</strong></p>
+    <ul>
+      <li>Anthropic – Claude Code in Action</li>
+      <li>Anthropic – Model Context Protocol: Advanced Topics</li>
+      <li>Anthropic – Introduction to Model Context Protocol</li>
+      <li>Anthropic – AI Fluency Framework & Foundations</li>
+      <li>Anthropic – Teaching the AI Fluency Framework</li>
+    </ul>
+
+    <p><strong>Sales</strong></p>
+    <ul>
+      <li>Splunk Accredited Technical Selling Foundations</li>
+    </ul>
+
+    <p><strong>Languages</strong></p>
+    <ul>
+      <li>TOEIC – Advanced English Proficiency</li>
     </ul>
   </section>
 
