@@ -34,20 +34,20 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
   .note { color: #6e6e73; font-style: italic; }
 </style>
 
-<h2>Introduction</h2>
-<p>An <code>.ipsw</code> is the restore archive for an Apple device. Underneath, it is a ZIP archive. It holds everything needed to reinstall the system.</p>
-<p>This document takes the archive apart, family by family. It also covers how to analyze the contents, with the tools researchers use.</p>
-<p>The running example is the IPSW of an iPhone 16 Pro Max, on iOS 26.5, build 23F77.</p>
-<p>The document is built to grow. The system images chapter is written. The others are waiting for content.</p>
-<p class="note">One last detail. Every file carries the same date, 9 January 2007 at 09:41. The build does not record each file's real write time. It sets them all to one fixed value. That keeps the archive reproducible, byte for byte, and leaks no real build dates. The value itself is a nod: 9 January 2007 was the Macworld keynote where the first iPhone was unveiled, and 9:41 is the time its clock showed at the reveal, the time Apple's ads still use. A signature, not the extraction date.</p>
+<h2>Context</h2>
+<p>An <code>.ipsw</code> is the restore archive for an Apple device. Underneath, it is a ZIP archive. It holds everything needed to reinstall the iOS system.</p>
+<p>This article takes the archive apart, components by components. It also covers how to analyze the contents, with the tools most researchers use.</p>
+<p>The running example here is the IPSW of an iPhone 16 Pro Max, on iOS 26.5, build 23F77.</p>
+<p>The document is built to grow, subject to evolve.</p>
+<p class="note">One last detail. Every file carries the same date, 9 January 2007 at 09:41. The build does not record each file's real write time. It sets them all to one fixed value. That keeps the archive reproducible, byte for byte, and leaks no real build dates. The value itself is a nod: 9 January 2007 was the Macworld keynote where the first iPhone was unveiled, and 9:41 is the time its clock showed at the reveal, the time Apple's ads still use.</p>
 
-<h2>The five families</h2>
-<p>The thirteen items in the archive fall into five families. What sets them apart first is whether they are encrypted.</p>
+<h2>The five components</h2>
+<p>The thirteen items in the archive fall into five components. What sets them apart first is whether they are encrypted.</p>
 
 <figure>
 <svg class="diagram" viewBox="0 0 680 392" role="img" xmlns="http://www.w3.org/2000/svg">
-<title>The five file families of an .ipsw</title>
-<desc>The .ipsw archive groups five families: AEA-encrypted system images, AES-encrypted firmware, plain ramdisks, the kernel, and manifests.</desc>
+<title>The five components (types) of an .ipsw</title>
+<desc>The .ipsw archive groups five components: AEA-encrypted system images, AES-encrypted firmware, plain ramdisks, the kernel, and manifests.</desc>
 <rect x="40" y="44" width="600" height="292" rx="16" fill="none" stroke="#c4c2b8" stroke-width="1" stroke-dasharray="6 4"/>
 <text class="th t-ink" x="60" y="70">.ipsw file</text>
 <text class="ts s-mut" x="60" y="88">ZIP archive, unencrypted</text>
@@ -84,7 +84,7 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
 <rect x="456" y="354" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
 <text class="ts s-mut" x="480" y="366">Plain / unencrypted</text>
 </svg>
-<figcaption>The five file families of an .ipsw.</figcaption>
+<figcaption>The five file components of an .ipsw.</figcaption>
 </figure>
 
 <ul>
@@ -95,7 +95,7 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
   <li><strong>Manifests</strong> (<code>.plist</code>). The metadata. <code>BuildManifest</code> drives the restore. Chapter 5.</li>
 </ul>
 
-<h2>The logic: the restore</h2>
+<h2>The logic behind restore</h2>
 <p>The layout of the archive follows the restore. Each family serves one step.</p>
 
 <figure>
@@ -133,8 +133,8 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
 <figcaption>The restore sequence.</figcaption>
 </figure>
 
-<p>The device enters DFU mode. iBoot loads the second-stage bootloaders, iBSS then iBEC. The kernel and the ramdisk then mount a minimal environment in memory. ASR decrypts the system image there and writes it to storage. The firmware components are flashed.</p>
-<p>The last lock is the signature. Each component must be signed by Apple's signing server, the TSS. The host sends the device ECID and a nonce. Apple returns an APTicket, valid only while the version is signed. This signing window is what stops you from installing, or rolling back to, a version Apple no longer signs.</p>
+<p>The device enters DFU mode. iBoot loads the second-stage bootloaders, iBSS then iBEC. The kernel and the ramdisk then mount a minimal environment in memory. ASR decrypts the system image there and writes it to storage. The firmware components are "flashed".</p>
+<p>The last lock is the signature. Each component must be signed by Apple's signing server, it is called the TSS. The host sends the device ECID and a nonce. Apple returns an APTicket, valid only while the version is signed. This signing window is what stops you from installing, or rolling back to, a version Apple no longer signs over TSS.</p>
 
 <h2>Chapter 1: System images (root + cryptex)</h2>
 <p>The four <code>.dmg.aea</code> files, once decrypted, are the operating system. But modern iOS is not a single volume. It is a sealed root volume, with cryptexes grafted on at boot. Understanding this split is knowing where to look for what.</p>
@@ -173,7 +173,7 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
 </figure>
 
 <p>The root volume, the ~8.12 GB file, becomes the Signed System Volume (SSV) on the device: a sealed APFS snapshot the system boots from. It is the classic Unix tree: <code>/System</code>, <code>/usr</code>, <code>/bin</code>, the daemons, the <code>dyld</code> loader, the base system apps. The seal is a hash tree anchored in the boot chain. Change one byte and the seal breaks.</p>
-<p>A sealed volume is safe, but rigid. You cannot patch it without rebuilding it. Hence the cryptexes. A cryptex is a disk image, itself sealed, grafted on top of the SSV at boot, with its own hash in the chain of trust. The mechanism comes from Apple's Security Research Device, then served the Rapid Security Responses.</p>
+<p>A sealed volume is safe, but honestly still rigid. You cannot patch it without rebuilding it. Hence the cryptexes. A cryptex is a disk image, itself sealed, grafted on top of the SSV at boot, with its own hash in the chain of trust. The mechanism comes from Apple's Security Research Device, then served the Rapid Security Responses.</p>
 <p>Two cryptexes matter here. The OS cryptex holds the dyld shared caches and a few libraries. The App cryptex carries Safari, WebKit, and JavaScriptCore. The point is clear: Apple can patch WebKit by swapping the App cryptex, without touching the SSV or forcing a full update.</p>
 <p>On the file side, the four <code>.dmg.aea</code> map to the root (8.12 GB), the OS cryptex (~2.01 GB, most of the dyld cache), and likely the App cryptex with a smaller companion image (155 and 235 MB). Recent versions add cryptexes for Apple Intelligence. The exact mapping is labeled in <code>BuildManifest.plist</code>, under names like <code>Cryptex1,SystemOS</code> and <code>Cryptex1,AppOS</code>.</p>
 
