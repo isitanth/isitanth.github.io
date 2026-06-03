@@ -32,6 +32,16 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
     padding: 0.1rem 0.5rem; margin-right: 0.5rem; vertical-align: middle;
   }
   .note { color: #6e6e73; font-style: italic; }
+
+  /* Embedded screenshots — match the .ipsw working document styling. */
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    border: 1px solid #ececec;
+  }
 </style>
 
 <h2>Context</h2>
@@ -94,6 +104,21 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
   <li><strong>Firmware</strong> (folder). The low level: boot chain, SEP, baseband. Chapter 4.</li>
   <li><strong>Manifests</strong> (<code>.plist</code>). The metadata. <code>BuildManifest</code> drives the restore. Chapter 5.</li>
 </ul>
+
+<h3>Seeing the five</h3>
+<p>Two commands turn the diagram into something on screen. The first reads the archive and prints it as a table.</p>
+<pre><code>ipsw info iPhone17,2_26.5_23F77_Restore.ipsw</code></pre>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/01-ipsw-info.jpg' | relative_url }}" alt="ipsw info table for the iPhone 16 Pro Max archive">
+<figcaption><code>ipsw info</code> on the archive. The system images first (<code>FileSystem</code>, <code>SystemOS</code>, <code>AppOS</code>, <code>ExclaveOS</code>), then the two restore ramdisks, then the device the build is cut for: an iPhone 16 Pro Max, A18 Pro, chip <code>t8140</code>.</figcaption>
+</figure>
+<p>Every component is named by its role and matched to the image that carries it. <code>FileSystem</code> is the root volume. <code>SystemOS</code> and <code>AppOS</code> are cryptexes, <code>ExclaveOS</code> a newer one. The two <code>RestoreRamDisk</code> entries are the ramdisks from chapter 2. The header reads the build, 26.5 / 23F77, and lists the boot chain it ships, <code>iBEC</code>, <code>iBoot</code>, <code>iBSS</code>, <code>LLB</code>, <code>sep-firmware</code>, each an Image4 from chapter 4.</p>
+<p>The second view is the same set unzipped, as a directory.</p>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/02-archive-unzipped.jpg' | relative_url }}" alt="The .ipsw archive unzipped as a directory of files">
+<figcaption>The archive unzipped. Four <code>.dmg.aea</code> system images, the plain <code>.dmg</code> ramdisks, the <code>Firmware</code> folder, the lone <code>kernelcache</code>, and the <code>.plist</code> manifests. The diagram's five components, now as files.</figcaption>
+</figure>
+<p>The sizes track the architecture from chapter 1. The 8.12 GB <code>.aea</code> is the root volume; the 2.01 GB one is the OS cryptex that holds the dyld shared cache; the smaller images are the other cryptexes. And every file carries the same timestamp, 9 January 2007 at 09:41, the signature from the start of this document, made literal.</p>
 
 <h2>The logic behind restore</h2>
 <p>The layout of the archive follows the restore. Each family serves one step.</p>
@@ -234,6 +259,37 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
   <li><code>ipsw dyld split</code> and <code>ipsw dyld info</code>. Split the cache into dylibs and inspect it.</li>
   <li><code>ipsw ent &lt;IPSW&gt;</code>. Extracts entitlements. A good starting point for mapping attack surface.</li>
 </ul>
+
+<h3>The method, run on this archive</h3>
+<p>That is the method in the abstract. Here it is, command by command, on the iPhone17,2 image.</p>
+<p>Mount first. The AEA is decrypted inside the command; there is no key to pass by hand.</p>
+<pre><code>ipsw mount fs iPhone17,2_26.5_23F77_Restore.ipsw</code></pre>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/03-mount-fs.jpg' | relative_url }}" alt="ipsw mount fs decrypting and mounting the root image">
+<figcaption><code>ipsw</code> decrypts the AEA, turns the root image into a plain DMG, and mounts it. The volume is <code>094-54688-098.dmg</code>, the 8.12 GB <code>FileSystem</code> image from <code>ipsw info</code>. Ctrl+C unmounts it when you are done.</figcaption>
+</figure>
+<p>The mounted volume is the system itself, now a filesystem to walk.</p>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/04-root-volume.jpg' | relative_url }}" alt="The root volume mounted, showing /System, /usr, /bin and Disk Utility metadata">
+<figcaption>The root volume mounted: <code>/System</code>, <code>/usr</code>, <code>/bin</code>, the daemons, the loader. Disk Utility names it, a sealed APFS system volume, case-sensitive, macOS 26.5 (23F77), mounted at <code>/private/tmp/094-54688-098.dmg.mount</code>. The archive has become a tree.</figcaption>
+</figure>
+<p>The prize sits in the OS cryptex. Pull the dyld shared cache out for study.</p>
+<pre><code>ipsw extract --dyld iPhone17,2_26.5_23F77_Restore.ipsw</code></pre>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/05-extract-dyld.jpg' | relative_url }}" alt="ipsw extract --dyld writing out subcaches and metadata files">
+<figcaption><code>ipsw</code> writes the cache out. It is not one file but many: numbered subcaches, the <code>.dylddata</code>, <code>.dyldreadonly</code>, and <code>.dyldlinkedit</code> splits, then <code>.atlas</code> and <code>.symbols</code> to close.</figcaption>
+</figure>
+<p>On disk the shape is plain. One logical cache, split across dozens of files.</p>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/06-dyld-cache-files.jpg' | relative_url }}" alt="The dyld shared cache as files on disk, eighty-nine items">
+<figcaption>The dyld shared cache as files: a base file with no extension, then <code>.01</code> upward, each a subcache. Eighty-nine items here. The large ones are framework code, the small ones metadata.</figcaption>
+</figure>
+<p>The names say what each piece is.</p>
+<figure>
+<img src="{{ '/assets/images/anatomy-ipsw/07-subcache-name.jpg' | relative_url }}" alt="Naming convention of a single subcache file">
+<figcaption><code>dyld_shared_cache</code>, the architecture <code>arm64e</code>, then the subcache index. One slice of the system frameworks, pre-linked.</figcaption>
+</figure>
+<p>From here the method finishes as listed above: <code>ipsw dyld split</code> recovers the individual frameworks as separate Mach-O files, then a disassembler reads them. This cache is the only place that code exists off the device, which is why the extraction is the gate to everything inside it.</p>
 
 <h2>Chapter 2: Ramdisks and ASR</h2>
 <p>Before any system is written, the device needs somewhere to run from. The target storage is about to be erased or rewritten, so the restore cannot run from there. It runs from memory instead. That is the ramdisk: a small, complete environment, loaded into RAM, that drives the install.</p>
