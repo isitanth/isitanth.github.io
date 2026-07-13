@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Traffic Light Simulation — Whoami</title>
+<meta name="description" content="A realistic microscopic traffic simulation: cars on a one-way street approaching a signalized intersection. Intelligent Driver Model, dilemma-zone decisions, Poisson arrivals." />
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --tx: #1f2937;
+    --tx-2: #6b7280;
+    --line: #e5e7eb;
+    --panel: #f7f7f5;
+    --accent: #3d6fb5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101114;
+      --tx: #e6e6e3;
+      --tx-2: #9ca3af;
+      --line: #2a2d33;
+      --panel: #191b1f;
+      --accent: #7aa2d8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 2rem 1.25rem 3rem;
+    background: var(--bg);
+    color: var(--tx);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  header h1 { margin: 0 0 .25rem; font-size: 1.6rem; letter-spacing: -0.01em; }
+  header p.sub { margin: 0; color: var(--tx-2); font-size: .95rem; }
+  .back-link { display: inline-block; margin-bottom: 1.25rem; font-size: .9rem; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+
+  .canvas-wrap {
+    margin-top: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow-x: auto;
+    background: var(--panel);
+  }
+  canvas { display: block; min-width: 640px; width: 100%; }
+
+  .hud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 1.4rem;
+    align-items: center;
+    margin-top: .75rem;
+    font-size: .9rem;
+  }
+  .hud .stat { color: var(--tx-2); }
+  .hud .stat b { color: var(--tx); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .phase-chip {
+    display: inline-flex; align-items: center; gap: .45rem;
+    padding: .15rem .65rem;
+    border: 1px solid var(--line); border-radius: 999px;
+    font-variant-numeric: tabular-nums;
+  }
+  .phase-dot { width: .65em; height: .65em; border-radius: 50%; background: #2e9e44; }
+
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .9rem 1.5rem;
+    margin-top: 1.1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+  }
+  .controls label { display: block; font-size: .82rem; color: var(--tx-2); margin-bottom: .2rem; }
+  .controls label output { color: var(--tx); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .controls input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .buttons { display: flex; gap: .5rem; align-items: end; }
+  button {
+    font: inherit; font-size: .88rem;
+    padding: .4rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--tx);
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); }
+
+  details { margin-top: 1.5rem; font-size: .93rem; }
+  details summary { cursor: pointer; font-weight: 600; }
+  details p { margin: .6rem 0; color: var(--tx-2); }
+  details p b { color: var(--tx); font-weight: 600; }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--tx-2); font-size: .8rem; }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="/">← back to whoami</a>
+
+<header>
+  <h1>One-way street at a traffic light</h1>
+  <p class="sub">A microscopic traffic simulation — each car is an individual driver following the Intelligent Driver Model.</p>
+</header>
+
+<div class="canvas-wrap"><canvas id="scene" aria-label="Animated top-down view of cars driving on a one-way street toward a traffic light"></canvas></div>
+
+<div class="hud">
+  <span class="phase-chip"><span class="phase-dot" id="phaseDot"></span><span id="phaseName">green</span>&nbsp;·&nbsp;<span id="phaseTime">0s</span></span>
+  <span class="stat">cars on street <b id="statCars">0</b></span>
+  <span class="stat">avg speed <b id="statSpeed">0</b> km/h</span>
+  <span class="stat">queue <b id="statQueue">0</b></span>
+  <span class="stat">throughput <b id="statFlow">0</b> veh/min</span>
+</div>
+
+<div class="controls">
+  <div>
+    <label for="inFlow">arrivals — <output id="inFlowOut">12</output> veh/min</label>
+    <input type="range" id="inFlow" min="2" max="30" step="1" value="12" />
+  </div>
+  <div>
+    <label for="inGreen">green phase — <output id="inGreenOut">22</output> s</label>
+    <input type="range" id="inGreen" min="8" max="45" step="1" value="22" />
+  </div>
+  <div>
+    <label for="inRed">red phase — <output id="inRedOut">18</output> s</label>
+    <input type="range" id="inRed" min="8" max="45" step="1" value="18" />
+  </div>
+  <div>
+    <label for="inYellow">yellow phase — <output id="inYellowOut">3.5</output> s</label>
+    <input type="range" id="inYellow" min="2" max="5" step="0.5" value="3.5" />
+  </div>
+  <div class="buttons">
+    <button id="btnPause" aria-label="Pause or resume the simulation">Pause</button>
+    <button id="btnSpeed" aria-label="Change simulation speed">1×</button>
+  </div>
+</div>
+
+<details>
+  <summary>How it works</summary>
+  <p><b>Car-following.</b> Longitudinal dynamics use the Intelligent Driver Model (Treiber, Hennecke &amp; Helbing, 2000). Every driver gets randomized parameters — desired speed around 50 km/h, time headway 1.1–1.8 s, comfortable acceleration and braking — so the flow is heterogeneous like real traffic. Trucks and vans are longer, slower and accelerate less.</p>
+  <p><b>The amber dilemma.</b> When the light turns yellow, each driver checks the deceleration required to stop at the line. If it exceeds their comfort threshold (~3 m/s²) they commit and clear the intersection; otherwise they brake. Short yellow phases produce realistic late crossings.</p>
+  <p><b>Startup lag.</b> On green, the lead driver reacts after a personal 0.6–1.4 s delay (occasionally longer — someone is on their phone). Followers start as the gap ahead opens, reproducing the start-up wave that ripples back through a queue at roughly 1 vehicle per 2 seconds.</p>
+  <p><b>Arrivals.</b> Cars enter as a Poisson process at the rate you set, holding at the entrance if the street is backed up. Physics runs at a fixed 120 Hz with semi-implicit Euler integration, decoupled from the frame rate.</p>
+</details>
+
+<footer>Rendered live on a &lt;canvas&gt; — no libraries. Try dark mode for the night scene.</footer>
+
+<script>
+(() => {
+"use strict";
+
+/* ================= world constants (meters, seconds) ================= */
+
+const ROAD_LEN   = 180;     // visible street length
+const STOP_LINE  = 118;     // stop line position
+const XWALK_NEAR = [119.5, 122.5];
+const CROSS_ROAD = [123, 133];
+const XWALK_FAR  = [133.5, 136.5];
+const LANE_W     = 3.6;
+const ROAD_W     = 6.2;
+const SIDEWALK_W = 2.8;
+const MAX_BRAKE  = 7.5;     // emergency deceleration cap, m/s²
+const STEP       = 1 / 120; // physics timestep
+
+/* ================= tiny helpers ================= */
+
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+const lerp  = (a, b, u) => a + (b - a) * u;
+const rand  = (lo, hi) => lo + Math.random() * (hi - lo);
+
+// deterministic rng for scenery
+function mulberry32(seed) {
+  return () => {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let z = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    z = (z + Math.imul(z ^ (z >>> 7), 61 | z)) ^ z;
+    return ((z ^ (z >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shade(hex, f) { // f<0 darken, f>0 lighten
+  const n = parseInt(hex.slice(1), 16);
+  let r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  if (f < 0) { r *= 1 + f; g *= 1 + f; b *= 1 + f; }
+  else { r += (255 - r) * f; g += (255 - g) * f; b += (255 - b) * f; }
+  return `rgb(${r | 0},${g | 0},${b | 0})`;
+}
+
+/* ================= vehicles ================= */
+
+// realistic body-color distribution
+const CAR_COLORS = [
+  ["#e8e8e6", 23], ["#24262b", 19], ["#8f939a", 16], ["#c7cbd1", 12],
+  ["#3b62a8", 9],  ["#b8383d", 9],  ["#3f6f52", 4],  ["#cfc3a5", 4],
+  ["#cd7a3b", 2],  ["#d9b53a", 2],
+];
+const COLOR_TOTAL = CAR_COLORS.reduce((s, c) => s + c[1], 0);
+function pickColor() {
+  let r = Math.random() * COLOR_TOTAL;
+  for (const [c, w] of CAR_COLORS) { if ((r -= w) <= 0) return c; }
+  return CAR_COLORS[0][0];
+}
+
+let carSeq = 0;
+function makeCar() {
+  const roll = Math.random();
+  const type = roll < 0.10 ? "truck" : roll < 0.24 ? "van" : "car";
+  const c = {
+    id: ++carSeq,
+    type,
+    x: 2,            // front-bumper position along the street
+    v: 0,
+    a: 0,
+    brake: false,
+    goDecision: null, // amber-light commitment: null | "stop" | "go"
+    color: pickColor(),
+  };
+  if (type === "truck") {
+    c.len = rand(7.5, 10);  c.w = 2.35;
+    c.v0 = rand(10.5, 12.5); c.aMax = rand(0.8, 1.1); c.b = rand(1.4, 1.9);
+  } else if (type === "van") {
+    c.len = rand(5.2, 5.9); c.w = 2.0;
+    c.v0 = rand(12, 14.5);  c.aMax = rand(1.2, 1.7); c.b = rand(1.7, 2.3);
+  } else {
+    c.len = rand(4.1, 4.9); c.w = rand(1.8, 1.95);
+    c.v0 = rand(12, 15.5);  c.aMax = rand(1.4, 2.2); c.b = rand(1.8, 2.6);
+  }
+  c.T  = rand(1.1, 1.8);        // desired time headway
+  c.s0 = rand(1.8, 2.8);        // standstill gap
+  c.sqrtAB = 2 * Math.sqrt(c.aMax * c.b);
+  c.yellowB = rand(2.6, 3.8);   // comfort braking threshold for amber decision
+  c.react = rand(0.6, 1.4) + (Math.random() < 0.08 ? rand(0.8, 1.6) : 0); // green-light reaction (8% distracted)
+  return c;
+}
+
+// IDM acceleration toward an obstacle at gap s with closing speed dv
+function idm(c, dv, s) {
+  const sStar = c.s0 + Math.max(0, c.v * c.T + (c.v * dv) / c.sqrtAB);
+  s = Math.max(s, 0.1);
+  return c.aMax * (1 - Math.pow(c.v / c.v0, 4) - (sStar / s) * (sStar / s));
+}
+
+/* ================= traffic light ================= */
+
+const light = {
+  state: "green",
+  tIn: 0,
+  lastGreenAt: -999,
+  durations: { green: 22, yellow: 3.5, red: 18 },
+  remaining() { return Math.max(0, this.durations[this.state] - this.tIn); },
+  update(dt) {
+    this.tIn += dt;
+    if (this.tIn >= this.durations[this.state]) {
+      this.tIn = 0;
+      if (this.state === "green") {
+        this.state = "yellow";
+        for (const c of cars) c.goDecision = null; // fresh amber decision
+      } else if (this.state === "yellow") {
+        this.state = "red";
+      } else {
+        this.state = "green";
+        this.lastGreenAt = simT;
+        for (const c of cars) c.goDecision = null;
+      }
+    }
+  },
+};
+
+/* ================= simulation state ================= */
+
+let cars = [];        // kept sorted front-most first
+let simT = 0;
+let paused = false;
+let timescale = 1;
+let inflow = 12;      // veh/min
+let spawnIn = 0.5;
+const crossings = []; // sim-times of stop-line crossings (rolling window)
+
+// distance from car's front bumper to the effective red obstacle, or null if free to go
+function lightGap(c) {
+  const d = STOP_LINE - c.x;
+  if (d < -0.2) return null; // already past the line — clear the intersection
+  if (light.state === "green") {
+    // stopped drivers take a moment to notice the green
+    if (c.v < 0.5 && simT - light.lastGreenAt < c.react) return d;
+    return null;
+  }
+  if (light.state === "yellow") {
+    if (c.goDecision === null) {
+      const reqB = (c.v * c.v) / (2 * Math.max(d - 0.5, 0.3));
+      c.goDecision = reqB > c.yellowB ? "go" : "stop";
+    }
+    return c.goDecision === "go" ? null : d;
+  }
+  // red: drivers who committed on amber finish clearing; everyone else stops
+  return c.goDecision === "go" ? null : d;
+}
+
+function spawn() {
+  const last = cars[cars.length - 1];
+  if (last && last.x - last.len < 9) return false; // entrance blocked, hold at the edge
+  const c = makeCar();
+  if (last) {
+    const gap = Math.max(last.x - last.len - c.x - c.s0, 0);
+    c.v = Math.min(c.v0 * 0.85, last.v + Math.sqrt(2 * c.b * gap));
+  } else {
+    c.v = c.v0 * 0.85;
+  }
+  cars.push(c);
+  return true;
+}
+
+function step(dt) {
+  simT += dt;
+  light.update(dt);
+
+  spawnIn -= dt;
+  if (spawnIn <= 0) {
+    if (spawn()) {
+      const lambda = inflow / 60;
+      spawnIn = -Math.log(1 - Math.random()) / lambda; // Poisson inter-arrival
+    } else {
+      spawnIn = 0.4; // retry shortly, keeps demand pressure while blocked
+    }
+  }
+
+  cars.sort((a, b) => b.x - a.x);
+
+  for (let i = 0; i < cars.length; i++) {
+    const c = cars[i];
+    let a;
+    if (i > 0) {
+      const ld = cars[i - 1];
+      a = idm(c, c.v - ld.v, ld.x - ld.len - c.x);
+    } else {
+      a = idm(c, 0, 1e9); // free road
+    }
+    const d = lightGap(c);
+    if (d !== null) a = Math.min(a, idm(c, c.v, d));
+    c.a = clamp(a, -MAX_BRAKE, c.aMax);
+  }
+
+  for (let i = 0; i < cars.length; i++) {
+    const c = cars[i];
+    const prevX = c.x;
+    c.v = Math.max(0, c.v + c.a * dt);
+    c.x += c.v * dt;
+    // hard no-overlap guarantee
+    if (i > 0) {
+      const ld = cars[i - 1];
+      const minGap = ld.x - ld.len - 0.25;
+      if (c.x > minGap) { c.x = minGap; c.v = Math.min(c.v, ld.v); }
+    }
+    c.brake = c.a < -0.7 || (c.v < 0.5 && c.a <= 0.05);
+    if (prevX <= STOP_LINE && c.x > STOP_LINE) crossings.push(simT);
+  }
+
+  cars = cars.filter(c => c.x - c.len < ROAD_LEN + 8);
+  while (crossings.length && simT - crossings[0] > 60) crossings.shift();
+}
+
+/* ================= themes ================= */
+
+const THEMES = {
+  day: {
+    grass: "#aebf97", sidewalk: "#d6d1c4", curb: "#b9b4a6",
+    asphalt: "#686c73", crossAsphalt: "#63676e", marking: "rgba(245,242,232,0.92)",
+    buildings: ["#c9b8a6", "#b7c0c7", "#cbb9b3", "#bfc4ae", "#c4b4bd", "#b3bab0"],
+    tree: "#7d9d6e", treeEdge: "#66875a",
+    night: false,
+  },
+  night: {
+    grass: "#1e241d", sidewalk: "#2b2d30", curb: "#3a3c40",
+    asphalt: "#35383d", crossAsphalt: "#313439", marking: "rgba(200,198,185,0.75)",
+    buildings: ["#26292d", "#24272c", "#282a2e", "#25282b", "#292b2f", "#242629"],
+    tree: "#273526", treeEdge: "#1e2a1e",
+    night: true,
+  },
+};
+const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+let theme = darkQuery.matches ? THEMES.night : THEMES.day;
+darkQuery.addEventListener("change", e => {
+  theme = e.matches ? THEMES.night : THEMES.day;
+  buildStatic();
+});
+
+/* ================= rendering ================= */
+
+const canvas = document.getElementById("scene");
+const ctx = canvas.getContext("2d");
+const staticLayer = document.createElement("canvas");
+let cssW = 0, cssH = 0, ppm = 0, yRoad = 0, dpr = 1;
+
+function resize() {
+  const wrap = canvas.parentElement;
+  const w = Math.max(640, wrap.clientWidth);
+  const h = clamp(w * 0.36, 300, 420);
+  dpr = window.devicePixelRatio || 1;
+  cssW = w; cssH = h;
+  ppm = cssW / ROAD_LEN;
+  yRoad = cssH * 0.52;
+  canvas.width = Math.round(w * dpr);
+  canvas.height = Math.round(h * dpr);
+  canvas.style.height = h + "px";
+  staticLayer.width = canvas.width;
+  staticLayer.height = canvas.height;
+  buildStatic();
+}
+
+const mx = m => m * ppm; // meters → css px
+
+function roundRect(g, x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  g.beginPath();
+  g.moveTo(x + r, y);
+  g.arcTo(x + w, y, x + w, y + h, r);
+  g.arcTo(x + w, y + h, x, y + h, r);
+  g.arcTo(x, y + h, x, y, r);
+  g.arcTo(x, y, x + w, y, r);
+  g.closePath();
+}
+
+/* ---- static scene: ground, buildings, road, markings ---- */
+
+function buildStatic() {
+  if (!cssW) return;
+  const g = staticLayer.getContext("2d");
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const T = theme;
+
+  g.fillStyle = T.grass;
+  g.fillRect(0, 0, cssW, cssH);
+
+  const roadTop = yRoad - mx(ROAD_W) / 2;
+  const roadBot = yRoad + mx(ROAD_W) / 2;
+  const walkTopY = roadTop - mx(SIDEWALK_W);
+  const walkBotY = roadBot;
+
+  // building roofs along both frontages
+  const rng = mulberry32(42);
+  for (const side of ["top", "bottom"]) {
+    let x = -mx(2 * rng());
+    const yEdge = side === "top" ? walkTopY - mx(1.2) : roadBot + mx(SIDEWALK_W) + mx(1.2);
+    while (x < cssW) {
+      const bw = mx(8 + rng() * 11);
+      const bd = mx(7 + rng() * 8);
+      const gap = mx(1 + rng() * 4);
+      const bx = x, by = side === "top" ? yEdge - bd : yEdge;
+      // skip roofs over the cross street
+      if (!(bx + bw > mx(CROSS_ROAD[0]) - mx(1) && bx < mx(CROSS_ROAD[1]) + mx(1))) {
+        const col = T.buildings[(rng() * T.buildings.length) | 0];
+        g.fillStyle = col;
+        g.fillRect(bx, by, bw, bd);
+        g.fillStyle = shade("#888888", T.night ? -0.55 : 0.18);
+        g.globalAlpha = 0.25;
+        g.fillRect(bx + mx(0.8), by + mx(0.8), bw - mx(1.6), bd - mx(1.6));
+        g.globalAlpha = 1;
+        // rooftop units
+        const units = 1 + ((rng() * 3) | 0);
+        for (let u = 0; u < units; u++) {
+          g.fillStyle = shade(col, -0.25);
+          g.fillRect(bx + mx(1.5) + rng() * (bw - mx(4)), by + mx(1.5) + rng() * (bd - mx(4)), mx(1.4), mx(1.4));
+        }
+      }
+      x += bw + gap;
+    }
+  }
+
+  // sidewalks
+  g.fillStyle = T.sidewalk;
+  g.fillRect(0, walkTopY, cssW, mx(SIDEWALK_W));
+  g.fillRect(0, walkBotY, cssW, mx(SIDEWALK_W));
+  // expansion joints
+  g.strokeStyle = "rgba(0,0,0,0.10)";
+  g.lineWidth = 1;
+  for (let m = 4; m < ROAD_LEN; m += 6) {
+    g.beginPath();
+    g.moveTo(mx(m), walkTopY); g.lineTo(mx(m), walkTopY + mx(SIDEWALK_W));
+    g.moveTo(mx(m), walkBotY); g.lineTo(mx(m), walkBotY + mx(SIDEWALK_W));
+    g.stroke();
+  }
+
+  // cross street (vertical, full height)
+  g.fillStyle = T.crossAsphalt;
+  g.fillRect(mx(CROSS_ROAD[0]), 0, mx(CROSS_ROAD[1] - CROSS_ROAD[0]), cssH);
+  g.strokeStyle = T.marking;
+  g.lineWidth = Math.max(1.5, mx(0.15));
+  g.setLineDash([mx(2.5), mx(3)]);
+  g.beginPath();
+  const cx = mx((CROSS_ROAD[0] + CROSS_ROAD[1]) / 2);
+  g.moveTo(cx, 0); g.lineTo(cx, roadTop - mx(1));
+  g.moveTo(cx, roadBot + mx(1)); g.lineTo(cx, cssH);
+  g.stroke();
+  g.setLineDash([]);
+
+  // main road
+  g.fillStyle = T.asphalt;
+  g.fillRect(0, roadTop, cssW, mx(ROAD_W));
+  // curbs
+  g.fillStyle = T.curb;
+  g.fillRect(0, roadTop - mx(0.35), cssW, mx(0.35));
+  g.fillRect(0, roadBot, cssW, mx(0.35));
+
+  // edge lines (broken across the intersection)
+  g.strokeStyle = T.marking;
+  g.lineWidth = Math.max(1.5, mx(0.15));
+  for (const yl of [roadTop + mx(0.55), roadBot - mx(0.55)]) {
+    g.beginPath();
+    g.moveTo(0, yl); g.lineTo(mx(CROSS_ROAD[0] - 0.5), yl);
+    g.moveTo(mx(CROSS_ROAD[1] + 0.5), yl); g.lineTo(cssW, yl);
+    g.stroke();
+  }
+
+  // one-way lane arrows
+  g.fillStyle = T.marking;
+  for (const ax of [18, 52, 86, 106, 148, 170]) {
+    const X = mx(ax), Y = yRoad;
+    g.beginPath();
+    g.moveTo(X - mx(2.2), Y - mx(0.28));
+    g.lineTo(X + mx(0.6), Y - mx(0.28));
+    g.lineTo(X + mx(0.6), Y - mx(0.75));
+    g.lineTo(X + mx(2.2), Y);
+    g.lineTo(X + mx(0.6), Y + mx(0.75));
+    g.lineTo(X + mx(0.6), Y + mx(0.28));
+    g.lineTo(X - mx(2.2), Y + mx(0.28));
+    g.closePath();
+    g.fill();
+  }
+
+  // stop line
+  g.fillRect(mx(STOP_LINE), roadTop + mx(0.55), mx(0.5), mx(ROAD_W) - mx(1.1));
+
+  // crosswalks (zebra stripes parallel to travel direction)
+  for (const [x0, x1] of [XWALK_NEAR, XWALK_FAR]) {
+    for (let y = roadTop + mx(0.7); y < roadBot - mx(0.7); y += mx(1.0)) {
+      g.fillRect(mx(x0), y, mx(x1 - x0), mx(0.55));
+    }
+  }
+
+  // trees on the verges
+  const rng2 = mulberry32(7);
+  for (let m = 8; m < ROAD_LEN; m += 14 + rng2() * 10) {
+    if (m > CROSS_ROAD[0] - 6 && m < CROSS_ROAD[1] + 6) continue;
+    for (const y of [walkTopY - mx(1.6), roadBot + mx(SIDEWALK_W) + mx(1.6)]) {
+      if (rng2() < 0.35) continue;
+      const r = mx(1.4 + rng2() * 1.1);
+      g.fillStyle = T.treeEdge;
+      g.beginPath(); g.arc(mx(m) + rng2() * mx(2), y, r, 0, Math.PI * 2); g.fill();
+      g.fillStyle = T.tree;
+      g.beginPath(); g.arc(mx(m) + rng2() * mx(2) - r * 0.15, y - r * 0.15, r * 0.82, 0, Math.PI * 2); g.fill();
+    }
+  }
+
+  // street lamp pools at night
+  if (T.night) {
+    for (const lx of [30, 75, 116, 158]) {
+      const grad = g.createRadialGradient(mx(lx), yRoad, 0, mx(lx), yRoad, mx(9));
+      grad.addColorStop(0, "rgba(255,214,140,0.14)");
+      grad.addColorStop(1, "rgba(255,214,140,0)");
+      g.fillStyle = grad;
+      g.fillRect(mx(lx) - mx(9), yRoad - mx(9), mx(18), mx(18));
+      g.fillStyle = "rgba(255,224,170,0.9)";
+      g.beginPath(); g.arc(mx(lx), roadTop - mx(1.2), mx(0.35), 0, Math.PI * 2); g.fill();
+    }
+  }
+}
+
+/* ---- dynamic layer: signal heads + cars ---- */
+
+const LAMP = { red: "#e5453c", yellow: "#f0b429", green: "#3ecf5a" };
+const LAMP_OFF = { red: "#4a2320", yellow: "#4a3d1c", green: "#1e3a26" };
+
+function drawSignalHead(X, Y, mirror) {
+  const w = mx(2.0), h = mx(5.2);
+  ctx.fillStyle = "#1c1e21";
+  roundRect(ctx, X - w / 2, Y - (mirror ? h : 0), w, h, mx(0.35));
+  ctx.fill();
+  ctx.strokeStyle = "rgba(255,255,255,0.15)";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  const order = mirror ? ["green", "yellow", "red"] : ["red", "yellow", "green"];
+  order.forEach((name, i) => {
+    const ly = Y + (mirror ? -h : 0) + h * (0.2 + i * 0.3);
+    const on = light.state === name;
+    ctx.beginPath();
+    ctx.arc(X, ly, mx(0.62), 0, Math.PI * 2);
+    if (on) {
+      ctx.shadowColor = LAMP[name];
+      ctx.shadowBlur = theme.night ? 22 : 10;
+      ctx.fillStyle = LAMP[name];
+    } else {
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = LAMP_OFF[name];
+    }
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  });
+}
+
+function drawCar(c) {
+  const L = mx(c.len), W = mx(c.w);
+  const X = mx(c.x) - L; // rear-left corner
+  const Y = yRoad - W / 2;
+
+  // headlight cones at night
+  if (theme.night) {
+    const bx = X + L;
+    const grad = ctx.createLinearGradient(bx, 0, bx + mx(11), 0);
+    grad.addColorStop(0, "rgba(255,240,190,0.09)");
+    grad.addColorStop(1, "rgba(255,240,190,0)");
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.moveTo(bx, Y + W * 0.12);
+    ctx.lineTo(bx + mx(11), Y - W * 0.55);
+    ctx.lineTo(bx + mx(11), Y + W * 1.55);
+    ctx.lineTo(bx, Y + W * 0.88);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // shadow
+  ctx.fillStyle = "rgba(0,0,0,0.22)";
+  roundRect(ctx, X + mx(0.12), Y + mx(0.16), L, W, W * 0.28);
+  ctx.fill();
+
+  // body
+  ctx.fillStyle = c.color;
+  roundRect(ctx, X, Y, L, W, W * 0.28);
+  ctx.fill();
+  ctx.strokeStyle = "rgba(0,0,0,0.30)";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  if (c.type === "truck") {
+    // cargo box behind the cab
+    ctx.fillStyle = theme.night ? "#3d4045" : "#dcdcd8";
+    roundRect(ctx, X + L * 0.04, Y + W * 0.06, L * 0.68, W * 0.88, W * 0.12);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(0,0,0,0.25)";
+    ctx.stroke();
+    // cab glass
+    ctx.fillStyle = theme.night ? "#151a22" : "#2f3a4a";
+    ctx.fillRect(X + L * 0.82, Y + W * 0.12, L * 0.08, W * 0.76);
+  } else {
+    // glasshouse: windshield (front) + rear window
+    const glass = theme.night ? "#131820" : "#2f3a4a";
+    ctx.fillStyle = glass;
+    roundRect(ctx, X + L * 0.60, Y + W * 0.10, L * 0.14, W * 0.80, W * 0.10);
+    ctx.fill();
+    roundRect(ctx, X + L * 0.20, Y + W * 0.12, L * 0.10, W * 0.76, W * 0.10);
+    ctx.fill();
+    // roof
+    ctx.fillStyle = shade(c.color, theme.night ? -0.18 : -0.10);
+    roundRect(ctx, X + L * 0.32, Y + W * 0.08, L * 0.26, W * 0.84, W * 0.14);
+    ctx.fill();
+  }
+
+  // headlights
+  ctx.fillStyle = theme.night ? "#ffe9b0" : "#f3efdc";
+  ctx.fillRect(X + L - mx(0.28), Y + W * 0.08, mx(0.24), W * 0.18);
+  ctx.fillRect(X + L - mx(0.28), Y + W * 0.74, mx(0.24), W * 0.18);
+
+  // taillights / brake lights
+  const lit = c.brake;
+  ctx.fillStyle = lit ? "#ff3b30" : (theme.night ? "#c0392b" : "#7e2b26");
+  if (lit || theme.night) { ctx.shadowColor = "#ff3b30"; ctx.shadowBlur = lit ? 8 : 4; }
+  ctx.fillRect(X + mx(0.04), Y + W * 0.08, mx(0.26), W * 0.20);
+  ctx.fillRect(X + mx(0.04), Y + W * 0.72, mx(0.26), W * 0.20);
+  ctx.shadowBlur = 0;
+}
+
+function render() {
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssW, cssH);
+  ctx.drawImage(staticLayer, 0, 0, cssW, cssH);
+
+  for (let i = cars.length - 1; i >= 0; i--) drawCar(cars[i]);
+
+  const roadTop = yRoad - mx(ROAD_W) / 2;
+  const roadBot = yRoad + mx(ROAD_W) / 2;
+  drawSignalHead(mx(STOP_LINE - 0.8), roadBot + mx(1.1), false);
+  drawSignalHead(mx(STOP_LINE - 0.8), roadTop - mx(1.1), true);
+}
+
+/* ================= HUD ================= */
+
+const $ = id => document.getElementById(id);
+const phaseColors = { green: "#2e9e44", yellow: "#e0a422", red: "#d1403a" };
+let hudAt = 0;
+
+function updateHUD() {
+  $("phaseDot").style.background = phaseColors[light.state];
+  $("phaseName").textContent = light.state;
+  $("phaseTime").textContent = Math.ceil(light.remaining()) + "s";
+  if (simT - hudAt < 0.25) return;
+  hudAt = simT;
+  $("statCars").textContent = cars.length;
+  const moving = cars.filter(c => c.x < ROAD_LEN);
+  const avg = moving.length ? moving.reduce((s, c) => s + c.v, 0) / moving.length : 0;
+  $("statSpeed").textContent = (avg * 3.6).toFixed(0);
+  $("statQueue").textContent = cars.filter(c => c.x < STOP_LINE && c.v < 0.3).length;
+  const window_ = Math.min(Math.max(simT, 10), 60);
+  $("statFlow").textContent = (crossings.length * 60 / window_).toFixed(1);
+}
+
+/* ================= main loop ================= */
+
+let lastFrame = performance.now();
+let acc = 0;
+
+function frame(now) {
+  const dtReal = Math.min((now - lastFrame) / 1000, 0.25);
+  lastFrame = now;
+  if (!paused) {
+    acc += dtReal * timescale;
+    const maxSteps = 600;
+    let n = 0;
+    while (acc >= STEP && n++ < maxSteps) { step(STEP); acc -= STEP; }
+    if (n >= maxSteps) acc = 0;
+  }
+  render();
+  updateHUD();
+  requestAnimationFrame(frame);
+}
+
+/* ================= controls ================= */
+
+function bindRange(id, outId, fn) {
+  const el = $(id), out = $(outId);
+  el.addEventListener("input", () => { out.textContent = el.value; fn(parseFloat(el.value)); });
+}
+bindRange("inFlow", "inFlowOut", v => { inflow = v; });
+bindRange("inGreen", "inGreenOut", v => { light.durations.green = v; });
+bindRange("inRed", "inRedOut", v => { light.durations.red = v; });
+bindRange("inYellow", "inYellowOut", v => { light.durations.yellow = v; });
+
+$("btnPause").addEventListener("click", () => {
+  paused = !paused;
+  $("btnPause").textContent = paused ? "Resume" : "Pause";
+});
+const SPEEDS = [0.5, 1, 2, 4];
+$("btnSpeed").addEventListener("click", () => {
+  timescale = SPEEDS[(SPEEDS.indexOf(timescale) + 1) % SPEEDS.length];
+  $("btnSpeed").textContent = timescale + "×";
+});
+document.addEventListener("keydown", e => {
+  if (e.code === "Space" && e.target === document.body) {
+    e.preventDefault();
+    $("btnPause").click();
+  }
+});
+
+window.addEventListener("resize", resize);
+
+/* warm start: a bit of traffic already on the street */
+resize();
+for (let i = 0; i < 6; i++) {
+  const c = makeCar();
+  c.x = 12 + i * rand(16, 26);
+  c.v = c.v0 * rand(0.6, 0.9);
+  cars.push(c);
+}
+cars.sort((a, b) => b.x - a.x);
+requestAnimationFrame(frame);
+
+// debug/testing handle
+window.__sim = {
+  get cars() { return cars; },
+  get t() { return simT; },
+  light,
+  get crossings() { return crossings.length; },
+  setTimescale(v) { timescale = v; },
+};
+
+})();
+</script>
+</body>
+</html>
