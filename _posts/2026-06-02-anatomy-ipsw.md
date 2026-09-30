@@ -42,6 +42,11 @@ excerpt: "An .ipsw is the restore archive for an Apple device — a ZIP that hol
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
     border: 1px solid #ececec;
   }
+
+  /* On phones, diagrams shrink to fit and run edge to edge, past the page margins. */
+  @media (max-width: 600px) {
+    figure > svg.diagram { width: calc(100% + 2.5rem); max-width: none; margin-left: -1.25rem; }
+  }
 </style>
 
 <h2>Context</h2>

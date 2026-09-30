@@ -60,15 +60,11 @@ excerpt: "Hark is a menu bar app for the Mac. Press a key and speak: it types wh
     .diagram { background: #faf9f5; border-radius: 12px; }
     figcaption, .note { color: #a1a1a6; }
   }
-  /* On phones, diagrams keep a readable size and scroll sideways inside their figure. */
+  /* The drill diagram is framed tight; this keeps it at the same scale as the other diagrams. */
+  figure.drill-diagram > svg.diagram { max-width: 497px; margin: 0 auto; }
+  /* On phones, diagrams shrink to fit and run edge to edge, past the page margins. */
   @media (max-width: 600px) {
-    figure:has(> svg.diagram) { overflow-x: auto; }
-    figure > svg.diagram { width: 600px; max-width: none; }
-  }
-  /* The drill diagram is narrow: on phones, shift it left instead of scrolling. */
-  @media (max-width: 600px) {
-    figure.drill-diagram:has(> svg.diagram) { overflow: hidden; border-radius: 12px; }
-    figure.drill-diagram > svg.diagram { margin-left: -132px; }
+    figure > svg.diagram, figure.drill-diagram > svg.diagram { width: calc(100% + 2.5rem); max-width: none; margin-left: -1.25rem; border-radius: 0; }
   }
   /* Short inline code never breaks at a hyphen. */
   article p code, article li code { white-space: nowrap; }
@@ -429,7 +425,7 @@ excerpt: "Hark is a menu bar app for the Mac. Press a key and speak: it types wh
 <p>So after key up, only the drill's battery stays filled, and the drill dims, while Whisper transcribes and the action runs. If that takes longer than 300 ms, the bit turns too: marks pass above and below it, one turn every 1.2 s. The delay keeps a short dictation from flickering. By the sum of its parts, the running example is done well within those 300 ms, so its bit never turns. An ask shows a sparkle beside the battery until the Ask panel closes, and the bit turns while the answer is written.</p>
 <p>An utterance that fails shows a cross for a second, and the drill shakes left and right with it, the way the Mac's login window shakes at a wrong password. One that came to nothing, too short or silent, shows the cross without the shake. A cancel shows nothing, since you did it yourself.</p>
 <figure class="drill-diagram">
-<svg class="diagram" viewBox="0 0 680 432" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg class="diagram" viewBox="134 22 412 412" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>The drill follows the pipeline</title>
 <desc>The menu bar drill in four forms: an outline at rest; filled, with one kick at key down, while the microphone is open; dimmed with only the battery filled while Hark works, the bit turning once the work passes 300 ms; and, when an utterance fails, a cross that shakes left and right with the drill.</desc>
 <defs><marker id="arr-f06b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
