@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1992" height="1780" viewBox="20 100 1992 1780" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+<defs><marker id="m-arrow-59636E" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#59636E"/></marker><marker id="m-open-59636E" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M1 1 L10 5 L1 9" fill="none" stroke="#59636E" stroke-width="1.5"/></marker><marker id="m-hollow-59636E" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#fff" stroke="#59636E" stroke-width="1.2"/></marker><marker id="m-arrow-BC4C00" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BC4C00"/></marker></defs>
+<rect width="2892" height="1926" fill="#FFFFFF"/>
+<rect x="330.0" y="150.0" width="1160.0" height="174.0" rx="12" fill="#F6F8FA" stroke="#E4E8EC" stroke-width="1" class="boundary" data-id="z_pres"/>
+<text x="344.0" y="171.0" font-size="11.5" font-weight="700" fill="#57606A" text-anchor="start" data-owner="z_pres">PRESENTATION</text>
+<text x="441.5" y="171.0" font-size="11" font-weight="400" fill="#8C959F" text-anchor="start" data-owner="z_pres">HarkApp · SwiftUI + one non-activating NSPanel · @MainActor</text>
+<rect x="330.0" y="384.0" width="1160.0" height="454.0" rx="12" fill="#F6F8FA" stroke="#E4E8EC" stroke-width="1" class="boundary" data-id="z_app"/>
+<text x="344.0" y="405.0" font-size="11.5" font-weight="700" fill="#57606A" text-anchor="start" data-owner="z_app">APPLICATION</text>
+<text x="430.7" y="405.0" font-size="11" font-weight="400" fill="#8C959F" text-anchor="start" data-owner="z_app">HarkCore/Pipeline</text>
+<rect x="330.0" y="898.0" width="1160.0" height="454.0" rx="12" fill="#F6F8FA" stroke="#E4E8EC" stroke-width="1" class="boundary" data-id="z_dom"/>
+<text x="344.0" y="919.0" font-size="11.5" font-weight="700" fill="#57606A" text-anchor="start" data-owner="z_dom">DOMAIN</text>
+<text x="401.7" y="919.0" font-size="11" font-weight="400" fill="#8C959F" text-anchor="start" data-owner="z_dom">HarkCore stages · no AppKit or SwiftUI import</text>
+<rect x="330.0" y="1412.0" width="1160.0" height="174.0" rx="12" fill="#F6F8FA" stroke="#E4E8EC" stroke-width="1" class="boundary" data-id="z_inf"/>
+<text x="344.0" y="1433.0" font-size="11.5" font-weight="700" fill="#57606A" text-anchor="start" data-owner="z_inf">INFRASTRUCTURE</text>
+<text x="460.1" y="1433.0" font-size="11" font-weight="400" fill="#8C959F" text-anchor="start" data-owner="z_inf">seam adapters</text>
+<rect x="330.0" y="1646.0" width="1160.0" height="194.0" rx="12" fill="#F6F8FA" stroke="#E4E8EC" stroke-width="1" class="boundary" data-id="z_plat"/>
+<text x="344.0" y="1667.0" font-size="11.5" font-weight="700" fill="#57606A" text-anchor="start" data-owner="z_plat">PLATFORM</text>
+<text x="416.8" y="1667.0" font-size="11" font-weight="400" fill="#8C959F" text-anchor="start" data-owner="z_plat">macOS 14+ · Apple silicon</text>
+<rect x="350.0" y="564.0" width="1120.0" height="254.0" rx="12" fill="none" stroke="#1F6FEB" stroke-width="1.3" stroke-dasharray="6 4" class="boundary" data-id="b_state"/>
+<text x="364.0" y="586.0" font-size="13" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="b_state">PipelineState</text>
+<text x="453.8" y="586.0" font-size="11" font-weight="400" fill="#57606A" text-anchor="start" data-owner="b_state">[enum · the explicit state machine the reducer computes]</text>
+<rect x="32.0" y="110.0" width="1758.0" height="1760.0" rx="12" fill="none" stroke="#1F6FEB" stroke-width="1.3" stroke-dasharray="6 4" class="boundary" data-id="b_dev"/>
+<text x="46.0" y="132.0" font-size="13" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="b_dev">Device boundary · the user&#x27;s Mac</text>
+<g class="edge" data-id="e0" data-from="a_ctl" data-to="a_red"><path class="edge-line" d="M620.0 479.0 L920.0 479.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e1" data-from="s_idle" data-to="s_cap"><path class="edge-line" d="M450.0 703.0 L520.0 703.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e2" data-from="s_cap" data-to="s_tr"><path class="edge-line" d="M610.0 703.0 L680.0 703.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e3" data-from="s_tr" data-to="s_res"><path class="edge-line" d="M770.0 703.0 L840.0 703.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e4" data-from="s_res" data-to="s_cnf"><path class="edge-line" d="M930.0 625.0 L990.0 625.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e5" data-from="s_cnf" data-to="s_act"><path class="edge-line" d="M1080.0 625.0 L1180.0 625.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e6" data-from="s_res" data-to="s_act"><path class="edge-line" d="M930.0 677.0 L1180.0 677.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e7" data-from="s_act" data-to="s_end"><path class="edge-line" d="M1270.0 651.0 L1370.0 651.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e8" data-from="s_res" data-to="s_ins"><path class="edge-line" d="M930.0 729.0 L1180.0 729.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e9" data-from="s_ins" data-to="s_end"><path class="edge-line" d="M1270.0 729.0 L1370.0 729.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e10" data-from="s_res" data-to="s_cpy"><path class="edge-line" d="M930.0 781.0 L1180.0 781.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e11" data-from="s_cpy" data-to="s_end"><path class="edge-line" d="M1270.0 781.0 L1370.0 781.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e12" data-from="user" data-to="p_root"><path class="edge-line" d="M220.0 245.0 L360.0 245.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e13" data-from="p_root" data-to="a_ctl"><path class="edge-line" d="M594.0 300.0 L594.0 424.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e14" data-from="a_ctl" data-to="z_dom"><path class="edge-line" d="M360.0 479.0 L240.0 479.0 L240.0 915.0 L330.0 915.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e15" data-from="d_audio" data-to="o_ca"><path class="edge-line" d="M360.0 1035.5 L240.0 1035.5 L240.0 1596.0 L589.0 1596.0 A5 5 0 0 1 599.0 1596.0 L692.0 1596.0 L692.0 1686.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e16" data-from="d_tr" data-to="i_wh"><path class="edge-line" d="M594.0 1198.0 L594.0 1452.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e17" data-from="i_core" data-to="d_seam"><path class="edge-line" d="M770.0 1452.0 L770.0 1328.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-hollow-59636E)"/></g>
+<g class="edge" data-id="e18" data-from="i_app" data-to="d_seam"><path class="edge-line" d="M1050.0 1452.0 L1050.0 1328.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-hollow-59636E)"/></g>
+<g class="edge" data-id="e19" data-from="i_dl" data-to="d_seam"><path class="edge-line" d="M1330.0 1452.0 L1330.0 1328.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-hollow-59636E)"/></g>
+<g class="edge" data-id="e20" data-from="i_wh" data-to="o_si"><path class="edge-line" d="M594.0 1562.0 L594.0 1686.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e21" data-from="i_core" data-to="o_ca"><path class="edge-line" d="M810.0 1562.0 L810.0 1686.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e22" data-from="i_app" data-to="o_ax"><path class="edge-line" d="M1050.0 1562.0 L1050.0 1626.0 L1330.0 1626.0 L1330.0 1686.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e23" data-from="p_set" data-to="st_pref"><path class="edge-line" d="M1460.0 245.0 L1600.0 245.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)" marker-start="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e24" data-from="d_log" data-to="st_log"><path class="edge-line" d="M1460.0 1003.0 L1530.0 1003.0 L1530.0 1005.0 L1600.0 1005.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e25" data-from="d_cfg" data-to="st_cfg"><path class="edge-line" d="M1460.0 1143.0 L1530.0 1143.0 L1530.0 1145.0 L1600.0 1145.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)" marker-start="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e26" data-from="i_dl" data-to="ext_hf"><path class="edge-line" d="M1460.0 1474.0 L1830.0 1474.0" fill="none" stroke="#BC4C00" stroke-width="1.6" marker-end="url(#m-arrow-BC4C00)"/></g>
+<g class="edge" data-id="e27" data-from="i_dl" data-to="st_mod"><path class="edge-line" d="M1460.0 1540.0 L1600.0 1540.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e28" data-from="o_ax" data-to="ext_app"><path class="edge-line" d="M1460.0 1751.0 L1600.0 1751.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e29" data-from="o_si" data-to="st_cml"><path class="edge-line" d="M360.0 1751.0 L290.0 1751.0 L290.0 1755.0 L220.0 1755.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<rect x="360.0" y="190.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="p_root"/>
+<circle cx="373.0" cy="203.0" r="3.5" fill="#1F6FEB"/>
+<text x="381.0" y="207.0" font-size="9.5" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="p_root">MainActor</text>
+<text x="490.0" y="232.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="p_root">Composition root &amp; hotkeys</text>
+<text x="490.0" y="247.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="p_root">[AppModel · HotkeyBridge]</text>
+<text x="490.0" y="267.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_root">Builds every actor and adapter, mirrors</text>
+<text x="490.0" y="282.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_root">HarkCore streams; sends trigger and cancel.</text>
+<rect x="640.0" y="190.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="p_menu"/>
+<circle cx="653.0" cy="203.0" r="3.5" fill="#1F6FEB"/>
+<text x="661.0" y="207.0" font-size="9.5" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="p_menu">MainActor</text>
+<text x="770.0" y="232.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="p_menu">Menu bar panel &amp; icon</text>
+<text x="770.0" y="247.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="p_menu">[MenuBarExtra · PanelView]</text>
+<text x="770.0" y="267.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_menu">Health rows, LAST and RECENT from the log,</text>
+<text x="770.0" y="282.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_menu">Paste; icon from MenuBarIconState.</text>
+<rect x="920.0" y="190.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="p_hud"/>
+<circle cx="933.0" cy="203.0" r="3.5" fill="#1F6FEB"/>
+<text x="941.0" y="207.0" font-size="9.5" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="p_hud">MainActor</text>
+<text x="1050.0" y="232.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="p_hud">Recording HUD</text>
+<text x="1050.0" y="247.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="p_hud">[HUDPanel: NSPanel · HUDModel]</text>
+<text x="1050.0" y="267.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_hud">Never key. Seven spectrum capsules, timer,</text>
+<text x="1050.0" y="282.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_hud">latch lock, live text.</text>
+<rect x="1200.0" y="190.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="p_set"/>
+<circle cx="1213.0" cy="203.0" r="3.5" fill="#1F6FEB"/>
+<text x="1221.0" y="207.0" font-size="9.5" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="p_set">MainActor</text>
+<text x="1330.0" y="232.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="p_set">Settings &amp; Onboarding</text>
+<text x="1330.0" y="247.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="p_set">[SettingsView · OnboardingView]</text>
+<text x="1330.0" y="267.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_set">Six tabs, permission cards; saves YAML via</text>
+<text x="1330.0" y="282.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="p_set">ConfigStore, prefs to UserDefaults.</text>
+<rect x="360.0" y="424.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="a_ctl"/>
+<circle cx="373.0" cy="437.0" r="3.5" fill="#BF3989"/>
+<text x="381.0" y="441.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="a_ctl">actor</text>
+<text x="490.0" y="466.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="a_ctl">PipelineController</text>
+<text x="490.0" y="481.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="a_ctl">[actor · HarkCore/Pipeline]</text>
+<text x="490.0" y="501.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_ctl">Runs the reducer, executes each PipelineEffect</text>
+<text x="490.0" y="516.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_ctl">through the seams, streams snapshots.</text>
+<rect x="920.0" y="424.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="a_red"/>
+<circle cx="933.0" cy="437.0" r="3.5" fill="#1A7F37"/>
+<text x="941.0" y="441.0" font-size="9.5" font-weight="700" fill="#1A7F37" text-anchor="start" data-owner="a_red">pure</text>
+<text x="1050.0" y="466.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="a_red">PipelineReducer</text>
+<text x="1050.0" y="481.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="a_red">[struct · Sendable]</text>
+<text x="1050.0" y="501.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_red">Next PipelineState plus effects, or a Rejection.</text>
+<text x="1050.0" y="516.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_red">Pure: no I/O, no clock.</text>
+<rect x="1200.0" y="424.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="a_part"/>
+<circle cx="1213.0" cy="437.0" r="3.5" fill="#BF3989"/>
+<text x="1221.0" y="441.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="a_part">actor</text>
+<text x="1330.0" y="466.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="a_part">PartialTranscription</text>
+<text x="1330.0" y="481.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="a_part">[actor · live text, off by default]</text>
+<text x="1330.0" y="501.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_part">Re-decodes the last 6 s on a second Small</text>
+<text x="1330.0" y="516.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="a_part">engine; never logged.</text>
+<rect x="360.0" y="682.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_idle"/>
+<text x="405.0" y="706.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_idle">idle</text>
+<rect x="520.0" y="682.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_cap"/>
+<text x="565.0" y="706.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_cap">capturing</text>
+<rect x="680.0" y="682.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_tr"/>
+<text x="725.0" y="706.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_tr">transcribing</text>
+<rect x="840.0" y="604.0" width="90.0" height="198.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_res"/>
+<text x="885.0" y="706.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_res">resolving</text>
+<rect x="990.0" y="604.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_cnf"/>
+<text x="1035.0" y="628.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_cnf">confirming</text>
+<rect x="1180.0" y="604.0" width="90.0" height="94.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_act"/>
+<text x="1225.0" y="654.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_act">acting</text>
+<rect x="1180.0" y="708.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_ins"/>
+<text x="1225.0" y="732.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_ins">inserting</text>
+<rect x="1180.0" y="760.0" width="90.0" height="42.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_cpy"/>
+<text x="1225.0" y="784.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_cpy">copying</text>
+<rect x="1370.0" y="604.0" width="90.0" height="198.0" rx="18" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="s_end"/>
+<text x="1415.0" y="706.8" font-size="12" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="s_end">idle</text>
+<rect x="360.0" y="938.0" width="260.0" height="130.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_audio"/>
+<circle cx="373.0" cy="951.0" r="3.5" fill="#BF3989"/>
+<text x="381.0" y="955.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="d_audio">actor</text>
+<text x="490.0" y="982.9" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_audio">Audio capture</text>
+<text x="490.0" y="998.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_audio">[AudioCapture · SampleBuffer]</text>
+<text x="490.0" y="1018.6" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_audio">AVCaptureSession per press, 16 kHz mono</text>
+<text x="490.0" y="1033.2" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_audio">Float32, RAM only; 1,800 s cap; OutputDucker</text>
+<text x="490.0" y="1047.7" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_audio">at 0.3x.</text>
+<rect x="640.0" y="938.0" width="260.0" height="130.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_res"/>
+<circle cx="653.0" cy="951.0" r="3.5" fill="#1A7F37"/>
+<text x="661.0" y="955.0" font-size="9.5" font-weight="700" fill="#1A7F37" text-anchor="start" data-owner="d_res">pure</text>
+<text x="770.0" y="990.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_res">Resolution</text>
+<text x="770.0" y="1005.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_res">[UtteranceResolver · CommandMatcher]</text>
+<text x="770.0" y="1025.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_res">Normalizer, then verb + app alias at</text>
+<text x="770.0" y="1040.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_res">Jaro-Winkler &gt;= 0.85, else FocusResolver.</text>
+<rect x="920.0" y="938.0" width="260.0" height="130.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_ins"/>
+<text x="1050.0" y="983.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_ins">Insertion &amp; actions</text>
+<text x="1050.0" y="998.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_ins">[TextInserter (actor) · ActionRunner (struct)]</text>
+<text x="1050.0" y="1018.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_ins">AX insert, else pasteboard promise + Cmd+V,</text>
+<text x="1050.0" y="1033.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_ins">then restore; open_app via Workspace.</text>
+<rect x="1200.0" y="938.0" width="260.0" height="130.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_log"/>
+<text x="1330.0" y="983.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_log">Logging</text>
+<text x="1330.0" y="998.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_log">[UtteranceLog · LogReader]</text>
+<text x="1330.0" y="1018.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_log">One JSONL line per utterance, 11 keys; append</text>
+<text x="1330.0" y="1033.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_log">never throws.</text>
+<rect x="360.0" y="1088.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_tr"/>
+<circle cx="373.0" cy="1101.0" r="3.5" fill="#BF3989"/>
+<text x="381.0" y="1105.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="d_tr">actor</text>
+<text x="490.0" y="1130.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_tr">Transcription</text>
+<text x="490.0" y="1145.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_tr">[Transcriber · SwappableTranscriptionEngine]</text>
+<text x="490.0" y="1165.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_tr">One whisper.cpp context on a serial queue;</text>
+<text x="490.0" y="1180.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_tr">clips cut at pauses.</text>
+<rect x="640.0" y="1088.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_pres"/>
+<circle cx="653.0" cy="1101.0" r="3.5" fill="#1A7F37"/>
+<text x="661.0" y="1105.0" font-size="9.5" font-weight="700" fill="#1A7F37" text-anchor="start" data-owner="d_pres">pure</text>
+<text x="770.0" y="1130.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_pres">Presentation logic</text>
+<text x="770.0" y="1145.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_pres">[HUDPresentation · HealthStatus]</text>
+<text x="770.0" y="1165.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_pres">UI state computed as pure code; HarkApp only</text>
+<text x="770.0" y="1180.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_pres">renders it.</text>
+<rect x="920.0" y="1088.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_mod"/>
+<circle cx="933.0" cy="1101.0" r="3.5" fill="#BF3989"/>
+<text x="941.0" y="1105.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="d_mod">actor</text>
+<text x="1050.0" y="1130.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_mod">Models</text>
+<text x="1050.0" y="1145.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_mod">[ModelStore · DownloadCoordinator]</text>
+<text x="1050.0" y="1165.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_mod">Tiers Small, Medium, Large v3: download,</text>
+<text x="1050.0" y="1180.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_mod">SHA-256 verify, install.</text>
+<rect x="1200.0" y="1088.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_cfg"/>
+<circle cx="1213.0" cy="1101.0" r="3.5" fill="#BF3989"/>
+<text x="1221.0" y="1105.0" font-size="9.5" font-weight="700" fill="#BF3989" text-anchor="start" data-owner="d_cfg">actor</text>
+<text x="1330.0" y="1130.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_cfg">Configuration</text>
+<text x="1330.0" y="1145.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="d_cfg">[ConfigStore · CommandConfigParser]</text>
+<text x="1330.0" y="1165.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_cfg">Hot reload of commands.yaml v2, last good</text>
+<text x="1330.0" y="1180.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_cfg">copy, revision-checked write.</text>
+<rect x="640.0" y="1218.0" width="820.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="d_seam"/>
+<circle cx="653.0" cy="1231.0" r="3.5" fill="#8250DF"/>
+<text x="661.0" y="1235.0" font-size="9.5" font-weight="700" fill="#8250DF" text-anchor="start" data-owner="d_seam">protocol</text>
+<text x="1050.0" y="1260.3" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="d_seam">Seams: the protocols HarkCore defines</text>
+<text x="1050.0" y="1281.1" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_seam">AccessibilityFacade · PasteboardFacade · KeystrokeSynthesizer · Workspace · NotificationPoster · FileWatching · ProcessLaunching · ModelDownloading ·</text>
+<text x="1050.0" y="1295.6" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_seam">SystemOutputVolume. HarkCore owns them; AudioInput and TranscriptionEngine are realized inside HarkCore by AudioCapture and Transcriber. Also</text>
+<text x="1050.0" y="1310.1" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="d_seam">FocusProbing, WallClock (realized inside HarkCore); ConfirmationPrompter has no production adapter yet.</text>
+<rect x="360.0" y="1452.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="i_wh"/>
+<text x="490.0" y="1487.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="i_wh">whisper.cpp runtime</text>
+<text x="490.0" y="1502.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="i_wh">[binaryTarget b5130 xcframework]</text>
+<text x="490.0" y="1522.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_wh">In-process C library; weights from models/,</text>
+<text x="490.0" y="1537.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_wh">Core ML encoder, Metal decoder.</text>
+<rect x="640.0" y="1452.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="i_core"/>
+<text x="770.0" y="1479.8" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="i_core">HarkCore system adapters</text>
+<text x="770.0" y="1495.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="i_core">[SystemAccessibility · DispatchFileWatcher]</text>
+<text x="770.0" y="1515.6" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_core">Also SystemProcessLauncher (ditto),</text>
+<text x="770.0" y="1530.1" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_core">CoreAudioOutputVolume, HarkObjC exception</text>
+<text x="770.0" y="1544.6" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_core">shim.</text>
+<rect x="920.0" y="1452.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="i_app"/>
+<circle cx="933.0" cy="1465.0" r="3.5" fill="#1F6FEB"/>
+<text x="941.0" y="1469.0" font-size="9.5" font-weight="700" fill="#1F6FEB" text-anchor="start" data-owner="i_app">MainActor</text>
+<text x="1050.0" y="1494.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="i_app">HarkApp AppKit adapters</text>
+<text x="1050.0" y="1509.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="i_app">[AppKitWorkspace · AppKitPasteboard]</text>
+<text x="1050.0" y="1529.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_app">Also CGEventKeystrokeSynthesizer,</text>
+<text x="1050.0" y="1544.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_app">UserNotificationPoster; built by AppModel.</text>
+<rect x="1200.0" y="1452.0" width="260.0" height="110.0" rx="10" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4" class="node" data-id="i_dl"/>
+<text x="1330.0" y="1487.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="i_dl">URLSessionDownloader</text>
+<text x="1330.0" y="1502.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="i_dl">[final class · the only URLSession user]</text>
+<text x="1330.0" y="1522.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_dl">Resumable HTTPS; DownloadOriginPolicy</text>
+<text x="1330.0" y="1537.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="i_dl">allows huggingface.co, hf.co.</text>
+<rect x="360.0" y="1686.0" width="260.0" height="130.0" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="o_si"/>
+<text x="490.0" y="1731.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="o_si">Metal GPU · Neural Engine</text>
+<text x="490.0" y="1746.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="o_si">[Apple silicon · Core ML]</text>
+<text x="490.0" y="1766.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_si">Decoder kernels on the GPU; the compiled</text>
+<text x="490.0" y="1781.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_si">encoder on the Neural Engine.</text>
+<rect x="640.0" y="1686.0" width="260.0" height="130.0" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="o_ca"/>
+<text x="770.0" y="1724.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="o_ca">CoreAudio · file system</text>
+<text x="770.0" y="1739.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="o_ca">[HAL · AVFoundation capture (AVCaptureSession)</text>
+<text x="770.0" y="1753.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="o_ca">· DispatchSource]</text>
+<text x="770.0" y="1773.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_ca">Input device and default output; files under</text>
+<text x="770.0" y="1788.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_ca">Application Support.</text>
+<rect x="920.0" y="1686.0" width="260.0" height="130.0" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="o_sys"/>
+<text x="1050.0" y="1731.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="o_sys">Notifications · login item · TCC</text>
+<text x="1050.0" y="1746.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="o_sys">[UserNotifications · SMAppService · TCC]</text>
+<text x="1050.0" y="1766.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_sys">Banners; launch at login; microphone,</text>
+<text x="1050.0" y="1781.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_sys">Accessibility and Automation grants.</text>
+<rect x="1200.0" y="1686.0" width="260.0" height="130.0" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="o_ax"/>
+<text x="1330.0" y="1715.5" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="o_ax">Accessibility API · CGEvent ·</text>
+<text x="1330.0" y="1732.2" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="o_ax">NSPasteboard · NSWorkspace</text>
+<text x="1330.0" y="1748.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="o_ax">[app-facing services]</text>
+<text x="1330.0" y="1768.0" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_ax">Focused element and text insert; Cmd+V on the</text>
+<text x="1330.0" y="1782.5" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_ax">session tap; the general pasteboard; app</text>
+<text x="1330.0" y="1797.0" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="o_ax">launch.</text>
+<circle class="node" data-id="user-head" cx="135.0" cy="204.0" r="20" fill="#DDEBFF" stroke="#0B4F9C" stroke-width="1.6"/>
+<rect x="50.0" y="218.0" width="170.0" height="82.8" rx="26" fill="#DDEBFF" stroke="#0B4F9C" stroke-width="1.6" class="node" data-id="user"/>
+<text x="135.0" y="250.0" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="user">Mac user</text>
+<text x="135.0" y="270.8" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="user">Holds or taps the trigger,</text>
+<text x="135.0" y="285.3" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="user">speaks French or English.</text>
+<g class="node" data-id="st_pref"><path d="M1600 199 V291.0 A85.0 9 0 0 0 1770 291.0 V199" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><ellipse cx="1685.0" cy="199.0" rx="85.0" ry="9" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/></g>
+<text x="1685.0" y="230.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="st_pref">Preferences</text>
+<text x="1685.0" y="245.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_pref">[UserDefaults]</text>
+<text x="1685.0" y="265.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_pref">Delivery mode, fallback,</text>
+<text x="1685.0" y="280.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_pref">device, tier, live text.</text>
+<g class="node" data-id="st_log"><path d="M1600 959 V1051.0 A85.0 9 0 0 0 1770 1051.0 V959" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><ellipse cx="1685.0" cy="959.0" rx="85.0" ry="9" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/></g>
+<text x="1685.0" y="990.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="st_log">Utterance log</text>
+<text x="1685.0" y="1005.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_log">[logs/YYYY-MM-DD.jsonl]</text>
+<text x="1685.0" y="1025.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_log">One line per utterance, mode</text>
+<text x="1685.0" y="1040.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_log">0600.</text>
+<g class="node" data-id="st_cfg"><path d="M1600 1089 V1201.0 A85.0 9 0 0 0 1770 1201.0 V1089" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><ellipse cx="1685.0" cy="1089.0" rx="85.0" ry="9" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/></g>
+<text x="1685.0" y="1123.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="st_cfg">commands.yaml</text>
+<text x="1685.0" y="1138.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_cfg">[YAML v2 +</text>
+<text x="1685.0" y="1152.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_cfg">.commands.lastgood.yaml]</text>
+<text x="1685.0" y="1172.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_cfg">Source of truth for</text>
+<text x="1685.0" y="1187.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_cfg">commands.</text>
+<g class="node" data-id="st_mod"><path d="M1600 1509 V1601.0 A85.0 9 0 0 0 1770 1601.0 V1509" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><ellipse cx="1685.0" cy="1509.0" rx="85.0" ry="9" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/></g>
+<text x="1685.0" y="1540.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="st_mod">Model store</text>
+<text x="1685.0" y="1555.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_mod">[models/]</text>
+<text x="1685.0" y="1575.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_mod">Weights + Core ML</text>
+<text x="1685.0" y="1590.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_mod">encoders, SHA-256 pinned.</text>
+<g class="node" data-id="st_cml"><path d="M50 1709 V1801.0 A85.0 9 0 0 0 220 1801.0 V1709" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><ellipse cx="135.0" cy="1709.0" rx="85.0" ry="9" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/></g>
+<text x="135.0" y="1740.1" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="st_cml">Core ML cache</text>
+<text x="135.0" y="1755.9" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="st_cml">[Caches/…e5bundlecache]</text>
+<text x="135.0" y="1775.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_cml">Written by Core ML, about</text>
+<text x="135.0" y="1790.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="st_cml">1.9 GB.</text>
+<rect x="1600.0" y="1686.0" width="170.0" height="130.0" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="ext_app"/>
+<text x="1685.0" y="1738.6" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="ext_app">Application in front</text>
+<text x="1685.0" y="1759.4" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="ext_app">Receives the text or is</text>
+<text x="1685.0" y="1773.9" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="ext_app">opened by a command.</text>
+<rect x="1830.0" y="1452.0" width="170.0" height="77.3" rx="10" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="ext_hf"/>
+<text x="1915.0" y="1478.0" font-size="14" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="ext_hf">huggingface.co</text>
+<text x="1915.0" y="1493.8" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="ext_hf">[HTTPS model host]</text>
+<text x="1915.0" y="1513.8" font-size="11" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="ext_hf">The only network peer.</text>
+<rect x="2040.0" y="110.0" width="820.0" height="340.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="n_cc"/>
+<rect x="2040.0" y="516.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr0"/>
+<rect x="2320.0" y="516.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr1"/>
+<rect x="2600.0" y="516.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr2"/>
+<rect x="2040.0" y="686.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr3"/>
+<rect x="2320.0" y="686.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr4"/>
+<rect x="2600.0" y="686.0" width="260.0" height="150.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0" class="node" data-id="adr5"/>
+<rect x="2040.0" y="872.0" width="820.0" height="230.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="n_qa"/>
+<rect x="2040.0" y="1168.0" width="260.0" height="110.0" rx="10" fill="#FFF3E8" stroke="#E8710A" stroke-width="1.5" stroke-dasharray="6 4" class="node" data-id="pl0"/>
+<rect x="2320.0" y="1168.0" width="260.0" height="110.0" rx="10" fill="#FFF3E8" stroke="#E8710A" stroke-width="1.5" stroke-dasharray="6 4" class="node" data-id="pl1"/>
+<rect x="2600.0" y="1168.0" width="260.0" height="110.0" rx="10" fill="#FFF3E8" stroke="#E8710A" stroke-width="1.5" stroke-dasharray="6 4" class="node" data-id="pl2"/>
+<g class="edge-label" data-owner="e0"><rect class="edge-plate" data-owner="e0" x="692.5" y="463.0" width="155.0" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="770.0" y="476.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e0">reduce(state, event)</text><text x="770.0" y="489.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e0" font-style="italic">[returns Transition(state, effects)]</text></g>
+<g class="edge-label" data-owner="e1"><rect class="edge-plate" data-owner="e1" x="451.2" y="693.5" width="67.5" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="485.0" y="706.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e1">triggerDown</text></g>
+<g class="edge-label" data-owner="e2"><rect class="edge-plate" data-owner="e2" x="617.9" y="693.5" width="54.1" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="645.0" y="706.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e2">triggerUp</text></g>
+<g class="edge-label" data-owner="e3"><rect class="edge-plate" data-owner="e3" x="773.5" y="693.5" width="63.1" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="805.0" y="706.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e3">transcribed</text></g>
+<g class="edge-label" data-owner="e4"><rect class="edge-plate" data-owner="e4" x="934.6" y="615.5" width="50.8" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="960.0" y="628.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e4">[confirm]</text></g>
+<g class="edge-label" data-owner="e5"><rect class="edge-plate" data-owner="e5" x="1090.8" y="615.5" width="78.4" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1130.0" y="628.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e5">focusRestored</text></g>
+<g class="edge-label" data-owner="e6"><rect class="edge-plate" data-owner="e6" x="1024.9" y="667.5" width="60.2" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1055.0" y="680.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e6">.command</text></g>
+<g class="edge-label" data-owner="e7"><rect class="edge-plate" data-owner="e7" x="1280.9" y="641.5" width="78.3" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1320.0" y="654.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e7">actionFinished</text></g>
+<g class="edge-label" data-owner="e8"><rect class="edge-plate" data-owner="e8" x="1035.6" y="719.5" width="38.8" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1055.0" y="732.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e8">.insert</text></g>
+<g class="edge-label" data-owner="e9"><rect class="edge-plate" data-owner="e9" x="1296.1" y="719.5" width="47.7" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1320.0" y="732.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e9">inserted</text></g>
+<g class="edge-label" data-owner="e10"><rect class="edge-plate" data-owner="e10" x="1037.0" y="771.5" width="36.1" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1055.0" y="784.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e10">.copy</text></g>
+<g class="edge-label" data-owner="e11"><rect class="edge-plate" data-owner="e11" x="1299.0" y="771.5" width="42.1" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1320.0" y="784.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e11">copied</text></g>
+<g class="edge-label" data-owner="e12"><rect class="edge-plate" data-owner="e12" x="234.1" y="216.0" width="81.8" height="58.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="275.0" y="229.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e12">presses trigger,</text><text x="275.0" y="242.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e12">speaks</text><text x="275.0" y="255.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e12" font-style="italic">[keyboard,</text><text x="275.0" y="268.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e12" font-style="italic">microphone]</text></g>
+<g class="edge-label" data-owner="e13"><rect class="edge-plate" data-owner="e13" x="602.0" y="331.5" width="186.0" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="695.0" y="344.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e13">depends on: triggerDown/Up, cancel;</text><text x="695.0" y="357.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e13">reads snapshots</text><text x="695.0" y="370.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e13" font-style="italic">[async calls · AsyncStream]</text></g>
+<g class="edge-label" data-owner="e14"><rect class="edge-plate" data-owner="e14" x="248.0" y="852.0" width="193.1" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="344.5" y="865.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e14">depends on: runs effects on the stages</text><text x="344.5" y="878.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e14" font-style="italic">[async calls via PipelineEnvironment]</text></g>
+<g class="edge-label" data-owner="e15"><rect class="edge-plate" data-owner="e15" x="248.0" y="1353.0" width="107.3" height="58.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="301.6" y="1366.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e15">depends on: capture</text><text x="301.6" y="1379.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e15">session</text><text x="301.6" y="1392.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e15" font-style="italic">[AVCaptureSession ·</text><text x="301.6" y="1405.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e15" font-style="italic">HAL]</text></g>
+<g class="edge-label" data-owner="e16"><rect class="edge-plate" data-owner="e16" x="458.7" y="1366.0" width="127.3" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="522.4" y="1379.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e16">depends on: whisper_full</text><text x="522.4" y="1392.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e16" font-style="italic">[C API · one serial queue]</text></g>
+<g class="edge-label" data-owner="e17"><rect class="edge-plate" data-owner="e17" x="664.9" y="1374.0" width="210.3" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="770.0" y="1387.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e17">realizes AccessibilityFacade, FileWatching,</text><text x="770.0" y="1400.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e17">ProcessLaunching, SystemOutputVolume</text></g>
+<g class="edge-label" data-owner="e18"><rect class="edge-plate" data-owner="e18" x="949.9" y="1374.0" width="200.2" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1050.0" y="1387.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e18">realizes Workspace, PasteboardFacade,</text><text x="1050.0" y="1400.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e18">KeystrokeSynthesizer, NotificationPoster</text></g>
+<g class="edge-label" data-owner="e19"><rect class="edge-plate" data-owner="e19" x="1260.5" y="1380.5" width="139.1" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1330.0" y="1393.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e19">realizes ModelDownloading</text></g>
+<g class="edge-label" data-owner="e20"><rect class="edge-plate" data-owner="e20" x="499.1" y="1610.0" width="86.9" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="542.6" y="1623.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e20">depends on</text><text x="542.6" y="1636.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e20" font-style="italic">[Metal · Core ML]</text></g>
+<g class="edge-label" data-owner="e21"><rect class="edge-plate" data-owner="e21" x="752.6" y="1610.0" width="114.8" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="810.0" y="1623.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e21">depends on</text><text x="810.0" y="1636.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e21" font-style="italic">[HAL · vnode · Process]</text></g>
+<g class="edge-label" data-owner="e22"><rect class="edge-plate" data-owner="e22" x="1079.2" y="1610.0" width="221.7" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1190.0" y="1623.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e22">depends on</text><text x="1190.0" y="1636.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e22" font-style="italic">[NSWorkspace · NSPasteboard · CGEvent · AX]</text></g>
+<g class="edge-label" data-owner="e23"><rect class="edge-plate" data-owner="e23" x="1508.6" y="229.0" width="72.8" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1545.0" y="242.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e23">reads, writes</text><text x="1545.0" y="255.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e23" font-style="italic">[UserDefaults]</text></g>
+<g class="edge-label" data-owner="e24"><rect class="edge-plate" data-owner="e24" x="1505.7" y="987.0" width="78.7" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1545.0" y="1000.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e24">appends a line</text><text x="1545.0" y="1013.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e24" font-style="italic">[O_APPEND]</text></g>
+<g class="edge-label" data-owner="e25"><rect class="edge-plate" data-owner="e25" x="1505.9" y="1127.0" width="78.2" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1545.0" y="1140.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e25">reloads, writes</text><text x="1545.0" y="1153.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e25" font-style="italic">[vnode]</text></g>
+<g class="edge-label" data-owner="e26"><rect class="edge-plate" data-owner="e26" x="1559.4" y="1458.0" width="171.2" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1645.0" y="1471.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e26">model download the user starts</text><text x="1645.0" y="1484.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e26" font-style="italic">[HTTPS · pinned commit · SHA-256]</text></g>
+<g class="edge-label" data-owner="e27"><rect class="edge-plate" data-owner="e27" x="1505.9" y="1524.0" width="78.2" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1545.0" y="1537.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e27">writes .staging</text><text x="1545.0" y="1550.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e27" font-style="italic">[resumable]</text></g>
+<g class="edge-label" data-owner="e28"><rect class="edge-plate" data-owner="e28" x="1507.0" y="1735.0" width="75.9" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1545.0" y="1748.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e28">inserts, opens</text><text x="1545.0" y="1761.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e28" font-style="italic">[AX · Cmd+V]</text></g>
+<g class="edge-label" data-owner="e29"><rect class="edge-plate" data-owner="e29" x="248.1" y="1728.5" width="53.7" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="275.0" y="1741.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e29">compiles</text><text x="275.0" y="1754.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e29">encoder</text><text x="275.0" y="1767.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e29" font-style="italic">[Core ML]</text></g>
+<rect x="2040.0" y="1314.0" width="820.0" height="416.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="legend"/>
+<circle cx="2074.0" cy="1354.0" r="5" fill="#DDEBFF" stroke="#0B4F9C"/><rect x="2064.0" y="1360.0" width="20" height="8" rx="4" fill="#DDEBFF" stroke="#0B4F9C"/>
+<rect x="2052.0" y="1373.0" width="44" height="16" rx="3" fill="#FFFFFF" stroke="#4C8DF6" stroke-width="1.4"/>
+<rect x="2052.0" y="1395.0" width="44" height="16" rx="3" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4"/>
+<path d="M2060.0 1419.0 V1431.0 A14 3 0 0 0 2088.0 1431.0 V1419.0" fill="#FFF8E5" stroke="#B38600"/><ellipse cx="2074.0" cy="1419.0" rx="14" ry="3" fill="#FFF8E5" stroke="#B38600"/>
+<rect x="2052.0" y="1439.0" width="44" height="16" rx="3" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.0"/>
+<rect x="2052.0" y="1461.0" width="44" height="16" rx="3" fill="#FFF3E8" stroke="#E8710A" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="2052.0" y="1483.0" width="44" height="16" rx="3" fill="none" stroke="#1F6FEB" stroke-width="2.0" stroke-dasharray="4 3"/>
+<path d="M2052.0 1535.0 H2096.0" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)" fill="none"/>
+<path d="M2052.0 1557.0 H2096.0" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)" fill="none"/>
+<path d="M2052.0 1579.0 H2096.0" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-hollow-59636E)" fill="none"/>
+<path d="M2052.0 1601.0 H2096.0" stroke="#BC4C00" stroke-width="1.6" marker-end="url(#m-arrow-BC4C00)" fill="none"/>
+<path d="M2074.0 1614.0 V1632.0" stroke="#59636E" stroke-width="1.3"/><path d="M2052.0 1623.0 H2069.0 A5 5 0 0 1 2079.0 1623.0 H2096.0" stroke="#59636E" stroke-width="1.3" fill="none"/>
+<circle cx="2057.0" cy="1645.0" r="4" fill="#BF3989"/>
+<circle cx="2057.0" cy="1667.0" r="4" fill="#1F6FEB"/>
+<circle cx="2057.0" cy="1689.0" r="4" fill="#1A7F37"/>
+<circle cx="2057.0" cy="1711.0" r="4" fill="#8250DF"/>
+</svg>

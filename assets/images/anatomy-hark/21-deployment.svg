@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1940" height="1180" viewBox="650 140 1940 1180" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+<defs><marker id="m-arrow-59636E" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#59636E"/></marker><marker id="m-open-59636E" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M1 1 L10 5 L1 9" fill="none" stroke="#59636E" stroke-width="1.5"/></marker><marker id="m-arrow-BC4C00" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BC4C00"/></marker></defs>
+<rect width="3000" height="1640" fill="#FFFFFF"/>
+<path d="M40 150 L52 138 H532 V778 L520 790 V150 Z M520 150 L532 138" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="40.0" y="150.0" width="480.0" height="640.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="dev"/>
+<path d="M60 210 L72 198 H512 V748 L500 760 V210 Z M500 210 L512 198" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="60.0" y="210.0" width="440.0" height="550.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="devos"/>
+<path d="M40 880 L52 868 H532 V1168 L520 1180 V880 Z M520 880 L532 868" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="40.0" y="880.0" width="480.0" height="300.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="gh"/>
+<path d="M660 150 L672 138 H2592 V1298 L2580 1310 V150 Z M2580 150 L2592 138" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="660.0" y="150.0" width="1920.0" height="1160.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="mac"/>
+<text x="672.0" y="170.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="mac">«device»</text>
+<text x="672.0" y="188.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="mac">Mac</text>
+<text x="709.7" y="188.0" font-size="11" font-weight="400" fill="#57606A" text-anchor="start" data-owner="mac">Apple silicon (arm64), macOS 14.0+</text>
+<path d="M690 210 L702 198 H1042 V1258 L1030 1270 V210 Z M1030 210 L1042 198" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="690.0" y="210.0" width="340.0" height="1060.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="ssd"/>
+<text x="702.0" y="230.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="ssd">«device»</text>
+<text x="702.0" y="248.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="ssd">Internal SSD</text>
+<text x="792.5" y="248.0" font-size="11" font-weight="400" fill="#57606A" text-anchor="start" data-owner="ssd">APFS, user domain</text>
+<path d="M1060 210 L1072 198 H2562 V1098 L2550 1110 V210 Z M2550 210 L2562 198" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1060.0" y="210.0" width="1490.0" height="900.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="macos"/>
+<text x="1072.0" y="230.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="macos">«execution environment»</text>
+<text x="1072.0" y="248.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="macos">macOS 14+</text>
+<text x="1155.9" y="248.0" font-size="11" font-weight="400" fill="#57606A" text-anchor="start" data-owner="macos">Darwin, arm64</text>
+<path d="M1200 280 L1208 272 H1388 V372 L1380 380 V280 Z M1380 280 L1388 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1200.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="tcc"/>
+<text x="1212.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="tcc">«execution environment»</text>
+<text x="1212.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="tcc">TCC (tccd)</text>
+<text x="1212.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="tcc">privacy grants: Microphone,</text>
+<text x="1212.0" y="352.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="tcc">Accessibility, Automation</text>
+<path d="M1410 280 L1418 272 H1598 V372 L1590 380 V280 Z M1590 280 L1598 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1410.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="ls"/>
+<text x="1422.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="ls">«execution environment»</text>
+<text x="1422.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="ls">lsd (Launch Services)</text>
+<text x="1422.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="ls">NSWorkspace: open apps,</text>
+<text x="1422.0" y="352.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="ls">frontmost app</text>
+<path d="M1620 280 L1628 272 H1808 V372 L1800 380 V280 Z M1800 280 L1808 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1620.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="sm"/>
+<text x="1632.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="sm">«execution environment»</text>
+<text x="1632.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="sm">smd</text>
+<text x="1632.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="sm">ServiceManagement:</text>
+<text x="1632.0" y="352.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="sm">SMAppService login items</text>
+<path d="M1830 280 L1838 272 H2018 V372 L2010 380 V280 Z M2010 280 L2018 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1830.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="un"/>
+<text x="1842.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="un">«execution environment»</text>
+<text x="1842.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="un">usernoted</text>
+<text x="1842.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="un">UserNotifications banners</text>
+<path d="M2140 280 L2148 272 H2328 V372 L2320 380 V280 Z M2320 280 L2328 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="2140.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="pb"/>
+<text x="2152.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="pb">«execution environment»</text>
+<text x="2152.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="pb">pboard</text>
+<text x="2152.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="pb">pasteboard server:</text>
+<text x="2152.0" y="352.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="pb">NSPasteboard general board</text>
+<path d="M2350 280 L2358 272 H2538 V372 L2530 380 V280 Z M2530 280 L2538 272" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="2350.0" y="280.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="ws"/>
+<text x="2362.0" y="300.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="ws">«execution environment»</text>
+<text x="2362.0" y="318.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="ws">WindowServer</text>
+<text x="2362.0" y="338.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="ws">CGEvent session tap, secure</text>
+<text x="2362.0" y="352.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="ws">input</text>
+<path d="M1200 480 L1212 468 H2012 V868 L2000 880 V480 Z M2000 480 L2012 468" fill="#E9EEF5" stroke="#4C8DF6" stroke-width="1.5"/>
+<rect x="1200.0" y="480.0" width="800.0" height="400.0" rx="0" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="boundary" data-id="proc"/>
+<text x="1212.0" y="500.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="proc">«execution environment»</text>
+<text x="1212.0" y="518.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="proc">Hark.app process</text>
+<text x="1336.0" y="518.0" font-size="11" font-weight="400" fill="#57606A" text-anchor="start" data-owner="proc">LSUIElement menu bar agent · hardened runtime · not sandboxed</text>
+<path d="M2140 620 L2148 612 H2538 V722 L2530 730 V620 Z M2530 620 L2538 612" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="2140.0" y="620.0" width="390.0" height="110.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="app2"/>
+<text x="2152.0" y="640.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="app2">«execution environment»</text>
+<text x="2152.0" y="658.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="app2">Application in front</text>
+<text x="2152.0" y="678.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="app2">another process on the same Mac: its focused text field receives the text by</text>
+<text x="2152.0" y="692.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="app2">Accessibility set-value, or by ⌘V reading the pasteboard</text>
+<path d="M1240 950 L1248 942 H1548 V1032 L1540 1040 V950 Z M1540 950 L1548 942" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1240.0" y="950.0" width="300.0" height="90.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="hal"/>
+<text x="1252.0" y="970.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="hal">«execution environment»</text>
+<text x="1252.0" y="988.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="hal">CoreAudio HAL (coreaudiod)</text>
+<text x="1252.0" y="1008.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="hal">input devices, default input, output main volume</text>
+<path d="M1200 1170 L1208 1162 H1388 V1262 L1380 1270 V1170 Z M1380 1170 L1388 1162" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1200.0" y="1170.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="mic"/>
+<text x="1212.0" y="1190.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="mic">«device»</text>
+<text x="1212.0" y="1208.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="mic">Microphone(s)</text>
+<text x="1212.0" y="1228.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="mic">built-in, USB or Bluetooth</text>
+<path d="M1420 1170 L1428 1162 H1608 V1262 L1600 1270 V1170 Z M1600 1170 L1608 1162" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1420.0" y="1170.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="out"/>
+<text x="1432.0" y="1190.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="out">«device»</text>
+<text x="1432.0" y="1208.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="out">Audio output</text>
+<text x="1432.0" y="1228.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="out">lowered to 0.3× while recording,</text>
+<text x="1432.0" y="1242.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="out">not with a Bluetooth headset mic</text>
+<path d="M1640 1170 L1648 1162 H1828 V1262 L1820 1270 V1170 Z M1820 1170 L1828 1162" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1640.0" y="1170.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="gpu"/>
+<text x="1652.0" y="1190.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="gpu">«device»</text>
+<text x="1652.0" y="1208.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="gpu">GPU</text>
+<text x="1652.0" y="1228.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="gpu">Metal: whisper encoder +</text>
+<text x="1652.0" y="1242.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="gpu">decoder</text>
+<path d="M1860 1170 L1868 1162 H2048 V1262 L2040 1270 V1170 Z M2040 1170 L2048 1162" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="1860.0" y="1170.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="ane"/>
+<text x="1872.0" y="1190.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="ane">«device»</text>
+<text x="1872.0" y="1208.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="ane">Neural Engine</text>
+<text x="1872.0" y="1228.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="ane">Core ML encoder, optional</text>
+<path d="M2080 1170 L2088 1162 H2268 V1262 L2260 1270 V1170 Z M2260 1170 L2268 1162" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="2080.0" y="1170.0" width="180.0" height="100.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="cpu"/>
+<text x="2092.0" y="1190.0" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="start" data-owner="cpu">«device»</text>
+<text x="2092.0" y="1208.0" font-size="13.5" font-weight="700" fill="#1F2328" text-anchor="start" data-owner="cpu">CPU</text>
+<text x="2092.0" y="1228.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="start" data-owner="cpu">Swift actors, ggml threads (≤ 4)</text>
+<path d="M2630 480 L2642 468 H2962 V868 L2950 880 V480 Z M2950 480 L2962 468" fill="#E6E8EB" stroke="#8C959F" stroke-width="1.4"/>
+<rect x="2630.0" y="480.0" width="320.0" height="400.0" rx="0" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="boundary" data-id="hf"/>
+<g class="edge" data-id="e0" data-from="bundle" data-to="pkg"><path class="edge-line" d="M280.0 440.0 L280.0 370.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e1" data-from="bundle" data-to="dist"><path class="edge-line" d="M280.0 560.0 L280.0 630.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e2" data-from="dev" data-to="gh"><path class="edge-line" d="M280.0 790.0 L280.0 880.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e3" data-from="proc" data-to="tcc"><path class="edge-line" d="M1290.0 480.0 L1290.0 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e4" data-from="proc" data-to="ls"><path class="edge-line" d="M1500.0 480.0 L1500.0 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e5" data-from="proc" data-to="sm"><path class="edge-line" d="M1710.0 480.0 L1710.0 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e6" data-from="proc" data-to="un"><path class="edge-line" d="M1920.0 480.0 L1920.0 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e7" data-from="proc" data-to="pb"><path class="edge-line" d="M2000.0 520.0 L2199.4 520.0 L2199.4 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e8" data-from="proc" data-to="ws"><path class="edge-line" d="M2000.0 570.0 L2273.6 570.0 A5 5 0 0 1 2283.6 570.0 L2409.4 570.0 L2409.4 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e9" data-from="app2" data-to="pb"><path class="edge-line" d="M2278.6 620.0 L2278.6 380.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e10" data-from="ws" data-to="app2"><path class="edge-line" d="M2488.6 380.0 L2488.6 620.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e11" data-from="proc" data-to="app2"><path class="edge-line" d="M2000.0 675.0 L2140.0 675.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e12" data-from="proc" data-to="hf"><path class="edge-line" d="M2000.0 850.0 L2165.0 850.0 A5 5 0 0 1 2175.0 850.0 L2630.0 850.0" fill="none" stroke="#BC4C00" stroke-width="1.6" marker-end="url(#m-arrow-BC4C00)"/></g>
+<g class="edge" data-id="e13" data-from="exe" data-to="wsp"><path class="edge-line" d="M1540.0 774.0 L1610.0 774.0 L1610.0 775.0 L1680.0 775.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e14" data-from="exe" data-to="hal"><path class="edge-line" d="M1390.0 840.0 L1390.0 950.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e15" data-from="hal" data-to="mic"><path class="edge-line" d="M1290.0 1040.0 L1290.0 1170.0" fill="none" stroke="#59636E" stroke-width="1.3"/></g>
+<g class="edge" data-id="e16" data-from="hal" data-to="out"><path class="edge-line" d="M1510.0 1040.0 L1510.0 1170.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e17" data-from="wsp" data-to="gpu"><path class="edge-line" d="M1730.0 820.0 L1730.0 1170.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e18" data-from="wsp" data-to="cpu"><path class="edge-line" d="M1980.0 797.5 L2170.0 797.5 L2170.0 1170.0" fill="none" stroke="#59636E" stroke-width="1.3"/></g>
+<g class="edge" data-id="e19" data-from="wsp" data-to="ane"><path class="edge-line" d="M1950.0 820.0 L1950.0 1170.0" fill="none" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)"/></g>
+<g class="edge" data-id="e20" data-from="proc" data-to="ssd"><path class="edge-line" d="M1200.0 780.0 L1030.0 780.0" fill="none" stroke="#59636E" stroke-width="1.3"/></g>
+<g class="edge" data-id="e21" data-from="proc" data-to="app"><path class="edge-line" d="M1200.0 560.0 L1120.0 560.0 L1120.0 310.0 L1010.0 310.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<g class="edge" data-id="e22" data-from="dist" data-to="app"><path class="edge-line" d="M430.0 675.0 L590.0 675.0 L590.0 310.0 L710.0 310.0" fill="none" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)"/></g>
+<rect x="130.0" y="280.0" width="300.0" height="90.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="pkg"/>
+<path d="M408 287 H417 L421 291 V303 H408 Z M417 287 V291 H421" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="130.0" y="440.0" width="300.0" height="120.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="bundle"/>
+<path d="M408 447 H417 L421 451 V463 H408 Z M417 447 V451 H421" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="130.0" y="630.0" width="300.0" height="90.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="dist"/>
+<path d="M408 637 H417 L421 641 V653 H408 Z M417 637 V641 H421" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="130.0" y="950.0" width="300.0" height="90.0" rx="2" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="xcf"/>
+<path d="M408 957 H417 L421 961 V973 H408 Z M417 957 V961 H421" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="130.0" y="1070.0" width="300.0" height="80.0" rx="2" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="spm"/>
+<path d="M408 1077 H417 L421 1081 V1093 H408 Z M417 1077 V1081 H421" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="270.0" width="300.0" height="80.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="app"/>
+<text x="860.0" y="294.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="app">«artifact»</text>
+<text x="860.0" y="312.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="app">/Applications/Hark.app</text>
+<text x="860.0" y="332.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="app">installed bundle; replaced by bundle.sh --install</text>
+<path d="M988 277 H997 L1001 281 V293 H988 Z M997 277 V281 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="394.0" width="300.0" height="90.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="yaml"/>
+<text x="860.0" y="416.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="yaml">«artifact»</text>
+<text x="860.0" y="434.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="yaml">commands.yaml</text>
+<text x="860.0" y="454.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="yaml">~/Library/Application Support/Hark/ · source of truth, hot</text>
+<text x="860.0" y="468.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="yaml">reloaded</text>
+<path d="M988 401.0 H997 L1001 405.0 V417.0 H988 Z M997 401.0 V405.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="528.0" width="300.0" height="80.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="lastgood"/>
+<text x="860.0" y="552.5" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="lastgood">«artifact»</text>
+<text x="860.0" y="570.0" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="lastgood">.commands.lastgood.yaml</text>
+<text x="860.0" y="590.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="lastgood">same folder · last config that parsed</text>
+<path d="M988 535.0 H997 L1001 539.0 V551.0 H988 Z M997 535.0 V539.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="652.0" width="300.0" height="80.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="log"/>
+<text x="860.0" y="676.5" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="log">«artifact»</text>
+<text x="860.0" y="694.0" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="log">logs/YYYY-MM-DD.jsonl</text>
+<text x="860.0" y="714.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="log">Utterance log · one line per utterance, mode 0600</text>
+<path d="M988 659.0 H997 L1001 663.0 V675.0 H988 Z M997 659.0 V663.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="776.0" width="300.0" height="80.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="bin"/>
+<text x="860.0" y="800.5" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="bin">«artifact»</text>
+<text x="860.0" y="818.0" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="bin">models/ggml-&lt;tier&gt;-*.bin</text>
+<text x="860.0" y="838.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="bin">Model store · whisper weights, pinned SHA-256</text>
+<path d="M988 783.0 H997 L1001 787.0 V799.0 H988 Z M997 783.0 V787.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="900.0" width="300.0" height="80.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="enc"/>
+<text x="860.0" y="924.5" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="enc">«artifact»</text>
+<text x="860.0" y="942.0" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="enc">models/ggml-&lt;tier&gt;-encoder.mlmodelc/</text>
+<text x="860.0" y="962.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="enc">optional Core ML encoder, unzipped by /usr/bin/ditto</text>
+<path d="M988 907.0 H997 L1001 911.0 V923.0 H988 Z M997 907.0 V911.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="1024.0" width="300.0" height="90.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="cache"/>
+<text x="860.0" y="1046.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="cache">«artifact»</text>
+<text x="860.0" y="1064.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="cache">com.apple.e5rt.e5bundlecache/</text>
+<text x="860.0" y="1084.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="cache">~/Library/Caches/com.anthonychambet.hark/ · Core ML</text>
+<text x="860.0" y="1098.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="cache">cache, written by Core ML</text>
+<path d="M988 1031.0 H997 L1001 1035.0 V1047.0 H988 Z M997 1031.0 V1035.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="710.0" y="1158.0" width="300.0" height="80.0" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4" class="node" data-id="plist"/>
+<text x="860.0" y="1182.5" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="plist">«artifact»</text>
+<text x="860.0" y="1200.0" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="plist">com.anthonychambet.hark.plist</text>
+<text x="860.0" y="1220.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="plist">~/Library/Preferences/ · Preferences (UserDefaults)</text>
+<path d="M988 1165.0 H997 L1001 1169.0 V1181.0 H988 Z M997 1165.0 V1169.0 H1001" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="1240.0" y="550.0" width="300.0" height="120.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="info"/>
+<text x="1390.0" y="573.7" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="info">«artifact»</text>
+<text x="1390.0" y="591.2" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="info">Info.plist + Hark.entitlements</text>
+<text x="1390.0" y="611.2" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="info">com.anthonychambet.hark, LSUIElement,</text>
+<text x="1390.0" y="625.2" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="info">LSMinimumSystemVersion 14.0 · entitlements</text>
+<text x="1390.0" y="639.2" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="info">device.audio-input, automation.apple-events; no</text>
+<text x="1390.0" y="653.2" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="info">app-sandbox key</text>
+<path d="M1518 557 H1527 L1531 561 V573 H1518 Z M1527 557 V561 H1531" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="1680.0" y="550.0" width="300.0" height="120.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="res"/>
+<text x="1830.0" y="580.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="res">«artifact»</text>
+<text x="1830.0" y="598.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="res">Resources/*.bundle</text>
+<text x="1830.0" y="618.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="res">Hark_HarkApp.bundle (Localizable.xcstrings),</text>
+<text x="1830.0" y="632.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="res">Hark_HarkCore.bundle (default-commands.yaml),</text>
+<text x="1830.0" y="646.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="res">KeyboardShortcuts_KeyboardShortcuts.bundle</text>
+<path d="M1958 557 H1967 L1971 561 V573 H1958 Z M1967 557 V561 H1971" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="1240.0" y="730.0" width="300.0" height="110.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="exe"/>
+<text x="1390.0" y="755.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="exe">«artifact»</text>
+<text x="1390.0" y="773.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="exe">Contents/MacOS/Hark</text>
+<text x="1390.0" y="793.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="exe">Mach-O arm64 · HarkApp on MainActor, HarkCore actors,</text>
+<text x="1390.0" y="807.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="exe">HarkObjC catches AVCaptureSession exceptions · rpath</text>
+<text x="1390.0" y="821.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="exe">@executable_path/../Frameworks</text>
+<path d="M1518 737 H1527 L1531 741 V753 H1518 Z M1527 737 V741 H1531" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="1680.0" y="730.0" width="300.0" height="90.0" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5" class="node" data-id="wsp"/>
+<text x="1830.0" y="752.6" font-size="10.5" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="wsp">«artifact»</text>
+<text x="1830.0" y="770.1" font-size="12.5" font-weight="700" fill="#1F2328" text-anchor="middle" data-owner="wsp">Frameworks/whisper.framework</text>
+<text x="1830.0" y="790.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="wsp">whisper.cpp b5130, lipo -thin arm64, signed with the app;</text>
+<text x="1830.0" y="804.1" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="wsp">Metal backend, Core ML encoder when present</text>
+<path d="M1958 737 H1967 L1971 741 V753 H1958 Z M1967 737 V741 H1971" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<rect x="2640.0" y="740.0" width="300.0" height="110.0" rx="2" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4" class="node" data-id="hfrepo"/>
+<path d="M2918 747 H2927 L2931 751 V763 H2918 Z M2927 747 V751 H2931" fill="#fff" stroke="#59636E" stroke-width="1"/>
+<path d="M2640 560 H2928 L2940 572 V630 H2640 Z" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="hfnote"/>
+<path d="M2928 560 V572 H2940" fill="none" stroke="#D0D7DE" stroke-width="1"/>
+<path d="M40 1230 H508 L520 1242 V1309.6 H40 Z" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="same"/>
+<path d="M508 1230 V1242 H520" fill="none" stroke="#D0D7DE" stroke-width="1"/>
+<g class="edge-label" data-owner="e0"><rect class="edge-plate" data-owner="e0" x="236.4" y="395.5" width="87.2" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/></g>
+<g class="edge-label" data-owner="e1"><rect class="edge-plate" data-owner="e1" x="199.2" y="585.5" width="161.6" height="19.0" rx="3" fill="#fff" fill-opacity="0.96"/></g>
+<g class="edge-label" data-owner="e2"><rect class="edge-plate" data-owner="e2" x="216.2" y="819.0" width="127.5" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/></g>
+<g class="edge-label" data-owner="e3"><rect class="edge-plate" data-owner="e3" x="1225.7" y="407.5" width="128.5" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1290.0" y="420.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e3">grant status, prompts</text><text x="1290.0" y="433.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e3" font-style="italic">[XPC: AVAudioApplication,</text><text x="1290.0" y="446.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e3" font-style="italic">AXIsProcessTrusted]</text></g>
+<g class="edge-label" data-owner="e4"><rect class="edge-plate" data-owner="e4" x="1436.6" y="414.0" width="126.7" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1500.0" y="427.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e4">open app, frontmost app</text><text x="1500.0" y="440.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e4" font-style="italic">[XPC: NSWorkspace]</text></g>
+<g class="edge-label" data-owner="e5"><rect class="edge-plate" data-owner="e5" x="1635.0" y="414.0" width="150.0" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1710.0" y="427.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e5">register login item</text><text x="1710.0" y="440.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e5" font-style="italic">[XPC: SMAppService.mainApp]</text></g>
+<g class="edge-label" data-owner="e6"><rect class="edge-plate" data-owner="e6" x="1841.6" y="414.0" width="156.8" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1920.0" y="427.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e6">post banner</text><text x="1920.0" y="440.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e6" font-style="italic">[XPC: UNUserNotificationCenter]</text></g>
+<g class="edge-label" data-owner="e7"><rect class="edge-plate" data-owner="e7" x="2022.6" y="497.5" width="94.8" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2070.0" y="510.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e7">promise text, then</text><text x="2070.0" y="523.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e7">restore</text><text x="2070.0" y="536.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e7" font-style="italic">[NSPasteboard]</text></g>
+<g class="edge-label" data-owner="e8"><rect class="edge-plate" data-owner="e8" x="2014.1" y="554.0" width="111.9" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2070.0" y="567.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e8">post ⌘V</text><text x="2070.0" y="580.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e8" font-style="italic">[CGEvent, session tap]</text></g>
+<g class="edge-label" data-owner="e9"><rect class="edge-plate" data-owner="e9" x="2238.4" y="484.0" width="80.4" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2278.6" y="497.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e9">read on ⌘V</text><text x="2278.6" y="510.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e9" font-style="italic">[NSPasteboard]</text></g>
+<g class="edge-label" data-owner="e10"><rect class="edge-plate" data-owner="e10" x="2452.1" y="484.0" width="73.0" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2488.6" y="497.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e10">key events</text><text x="2488.6" y="510.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e10" font-style="italic">[event stream]</text></g>
+<g class="edge-label" data-owner="e11"><rect class="edge-plate" data-owner="e11" x="2011.9" y="659.0" width="116.1" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2070.0" y="672.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e11">set selected text</text><text x="2070.0" y="685.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e11" font-style="italic">[AX IPC, 0.25 s timeout]</text></g>
+<g class="edge-label" data-owner="e12"><rect class="edge-plate" data-owner="e12" x="2200.4" y="834.0" width="239.1" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2320.0" y="847.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e12">download model files, user-initiated</text><text x="2320.0" y="860.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e12" font-style="italic">[HTTPS GET :443, URLSession, SHA-256 checked]</text></g>
+<g class="edge-label" data-owner="e13"><rect class="edge-plate" data-owner="e13" x="1564.7" y="752.5" width="90.6" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1610.0" y="765.5" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e13">dyld load</text><text x="1610.0" y="778.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e13" font-style="italic">[LC_LOAD_DYLIB</text><text x="1610.0" y="791.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e13" font-style="italic">@rpath]</text></g>
+<g class="edge-label" data-owner="e14"><rect class="edge-plate" data-owner="e14" x="1259.6" y="896.0" width="260.7" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1390.0" y="909.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e14">capture session on the chosen device, output volume</text><text x="1390.0" y="922.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e14" font-style="italic">[AVCaptureSession, AudioObject API]</text></g>
+<g class="edge-label" data-owner="e15"><rect class="edge-plate" data-owner="e15" x="1229.5" y="1054.0" width="120.9" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1290.0" y="1067.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e15">PCM in</text><text x="1290.0" y="1080.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e15" font-style="italic">[USB, Bluetooth, built-in]</text></g>
+<g class="edge-label" data-owner="e16"><rect class="edge-plate" data-owner="e16" x="1461.1" y="1054.0" width="97.8" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1510.0" y="1067.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e16">set volume</text><text x="1510.0" y="1080.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e16" font-style="italic">[VirtualMainVolume]</text></g>
+<g class="edge-label" data-owner="e17"><rect class="edge-plate" data-owner="e17" x="1683.7" y="984.0" width="92.5" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1730.0" y="997.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e17">encode + decode</text><text x="1730.0" y="1010.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e17" font-style="italic">[Metal]</text></g>
+<g class="edge-label" data-owner="e18"><rect class="edge-plate" data-owner="e18" x="2090.3" y="984.0" width="159.5" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="2170.0" y="997.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e18">mel spectrogram, n_threads ≤ 4</text><text x="2170.0" y="1010.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e18" font-style="italic">[pthreads]</text></g>
+<g class="edge-label" data-owner="e19"><rect class="edge-plate" data-owner="e19" x="1923.1" y="1044.0" width="53.7" height="32.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1950.0" y="1057.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e19">encoder</text><text x="1950.0" y="1070.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e19" font-style="italic">[Core ML]</text></g>
+<g class="edge-label" data-owner="e20"><rect class="edge-plate" data-owner="e20" x="1072.9" y="751.0" width="114.3" height="58.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1130.0" y="764.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e20">config, log, models,</text><text x="1130.0" y="777.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e20">prefs</text><text x="1130.0" y="790.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e20" font-style="italic">[POSIX file I/O,</text><text x="1130.0" y="803.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e20" font-style="italic">DispatchSource vnode]</text></g>
+<g class="edge-label" data-owner="e21"><rect class="edge-plate" data-owner="e21" x="1068.5" y="391.0" width="103.0" height="58.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="1120.0" y="404.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e21">«deploy» process</text><text x="1120.0" y="417.0" font-size="10.5" font-weight="400" fill="#32383F" text-anchor="middle" data-owner="e21">image</text><text x="1120.0" y="430.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e21" font-style="italic">[launched by Launch</text><text x="1120.0" y="443.0" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e21" font-style="italic">Services]</text></g>
+<g class="edge-label" data-owner="e22"><rect class="edge-plate" data-owner="e22" x="542.2" y="497.5" width="95.6" height="45.0" rx="3" fill="#fff" fill-opacity="0.96"/><text x="590.0" y="523.5" font-size="10" font-weight="400" fill="#57606A" text-anchor="middle" data-owner="e22" font-style="italic">[bundle.sh --install,</text></g>
+<rect x="40.0" y="1380.0" width="2910.0" height="162.0" rx="10" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" class="node" data-id="legend"/>
+<path d="M52.0 1422.0 l5 -5 h44 v18 l-5 5 z" fill="#E9EEF5" stroke="#8C959F" stroke-width="1.4"/><rect x="52.0" y="1422.0" width="44" height="18" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4"/>
+<path d="M52.0 1452.0 l5 -5 h44 v18 l-5 5 z" fill="#E9EEF5" stroke="#4C8DF6" stroke-width="1.5"/><rect x="52.0" y="1452.0" width="44" height="18" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5"/>
+<rect x="52.0" y="1480.0" width="44" height="18" rx="2" fill="#F2F7FF" stroke="#4C8DF6" stroke-width="1.5"/><path d="M85.0 1483.0 h6 l3 3 v8 h-9 z" fill="#fff" stroke="#59636E" stroke-width="0.8"/>
+<rect x="52.0" y="1510.0" width="44" height="18" rx="2" fill="#FFF8E5" stroke="#B38600" stroke-width="1.4"/><path d="M85.0 1513.0 h6 l3 3 v8 h-9 z" fill="#fff" stroke="#59636E" stroke-width="0.8"/>
+<rect x="1014.0" y="1420.0" width="44" height="18" rx="2" fill="#F2F3F5" stroke="#8C959F" stroke-width="1.4"/><path d="M1047.0 1423.0 h6 l3 3 v8 h-9 z" fill="#fff" stroke="#59636E" stroke-width="0.8"/>
+<path d="M1014.0 1450.0 H1050.0 L1058.0 1458.0 V1468.0 H1014.0 Z" fill="#fff" stroke="#D0D7DE"/>
+<path d="M1014.0 1489.0 H1058.0" stroke="#59636E" stroke-width="1.3" fill="none"/>
+<path d="M1014.0 1519.0 H1058.0" stroke="#59636E" stroke-width="1.4" marker-end="url(#m-arrow-59636E)" fill="none"/>
+<path d="M1976.0 1429.0 H2020.0" stroke="#59636E" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#m-open-59636E)" fill="none"/>
+<path d="M1976.0 1459.0 H2020.0" stroke="#BC4C00" stroke-width="1.6" marker-end="url(#m-arrow-BC4C00)" fill="none"/>
+<path d="M1998.0 1480.0 V1498.0" stroke="#59636E" stroke-width="1.3"/><path d="M1976.0 1489.0 H1993.0 A5 5 0 0 1 2003.0 1489.0 H2020.0" stroke="#59636E" stroke-width="1.3" fill="none"/>
+<rect x="1976.0" y="1505.0" width="44" height="28" rx="3" fill="#fff" stroke="#D0D7DE" stroke-width="0.8"/>
+</svg>

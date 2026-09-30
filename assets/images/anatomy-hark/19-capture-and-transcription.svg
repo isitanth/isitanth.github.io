@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1384" height="456" viewBox="8 100 1384 456" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title>Capture and transcription: from the key to the transcript, all on the Mac</title>
+<defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#777777"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#BC4C00"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8FA9D6"/></marker></defs>
+<rect width="1400" height="720" fill="#fff"/>
+<rect x="30" y="74" width="16" height="12" rx="3" ry="3" fill="#fff" stroke="#BFBFBF" stroke-width="1.2"/>
+<rect x="220" y="74" width="16" height="12" rx="3" ry="3" fill="#FFF3E8" stroke="#BC4C00" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="410" y="74" width="16" height="12" rx="3" ry="3" fill="#EEF3FB" stroke="#8FA9D6" stroke-width="1.2"/>
+<rect x="30" y="150" width="110" height="70" rx="10" ry="10" fill="#111111" stroke="#111111" stroke-width="1.4"/>
+<text x="42" y="172" font-size="13" font-weight="700" fill="#fff" text-anchor="start">⌃⌥V held</text>
+<text x="42" y="189" font-size="10.5" font-weight="400" fill="#DDD" text-anchor="start">or a tap: latch</text>
+<text x="42" y="203" font-size="10.5" font-weight="400" fill="#DDD" text-anchor="start">until the next tap</text>
+<rect x="190" y="150" width="160" height="70" rx="10" ry="10" fill="#EEF3FB" stroke="#8FA9D6" stroke-width="1.4"/>
+<text x="340" y="165" font-size="10" font-weight="700" fill="#777777" text-anchor="end">OS-01</text>
+<text x="202" y="182" font-size="13" font-weight="700" fill="#111111" text-anchor="start">KeyboardShortcuts</text>
+<text x="202" y="199" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">Carbon hotkeys, key down</text>
+<text x="202" y="213" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">and key up events</text>
+<rect x="400" y="150" width="180" height="70" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="570" y="165" font-size="10" font-weight="700" fill="#777777" text-anchor="end">IX-01</text>
+<text x="412" y="182" font-size="13" font-weight="700" fill="#111111" text-anchor="start">HotkeyBridge · TriggerGate</text>
+<text x="412" y="199" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">tap &lt; 350 ms latches; a hold</text>
+<text x="412" y="213" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">is push-to-talk · ⌃⌥Esc cancels</text>
+<rect x="630" y="150" width="180" height="70" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="800" y="165" font-size="10" font-weight="700" fill="#777777" text-anchor="end">CORE-01</text>
+<text x="640" y="165" font-size="10" font-weight="500" fill="#777777" text-anchor="start">actor</text>
+<text x="642" y="182" font-size="13" font-weight="700" fill="#111111" text-anchor="start">PipelineController</text>
+<text x="642" y="199" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">triggerDown / triggerUp / cancel</text>
+<text x="642" y="213" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">idle → capturing → transcribing</text>
+<rect x="860" y="130" width="300" height="116" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="1150" y="145" font-size="10" font-weight="700" fill="#777777" text-anchor="end">CORE-02</text>
+<text x="870" y="145" font-size="10" font-weight="500" fill="#777777" text-anchor="start">actor</text>
+<text x="872" y="162" font-size="13" font-weight="700" fill="#111111" text-anchor="start">AudioCapture</text>
+<text x="872" y="179" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">AVAudioEngine tap: bus 0, 1024 frames, hardware rate</text>
+<text x="872" y="193" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">TapConverter → mono → 16 kHz Float32</text>
+<text x="872" y="207" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">SampleBuffer: linear, 1 min reserved, cap 30 min</text>
+<text x="872" y="221" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">reaching the cap ends the capture, not the utterance</text>
+<text x="872" y="235" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">the engine runs only between start and stop</text>
+<rect x="1210" y="150" width="160" height="70" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="1222" y="172" font-size="13" font-weight="700" fill="#111111" text-anchor="start">CapturedAudio</text>
+<text x="1222" y="189" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">+ CaptureSummary: duration,</text>
+<text x="1222" y="203" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">peak RMS, mean RMS</text>
+<path d="M140 185 L190 185" fill="none" stroke="#8FA9D6" stroke-width="1.8" stroke-dasharray="2 3" marker-end="url(#ab)"/>
+<text x="165.0" y="173" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round"></text>
+<path d="M350 185 L400 185" fill="none" stroke="#777777" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#ag)"/>
+<text x="375.0" y="173" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">events</text>
+<path d="M580 185 L630 185" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<text x="605.0" y="173" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">start · stop</text>
+<path d="M810 185 L860 185" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<text x="835.0" y="173" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">AudioInput</text>
+<path d="M1160 185 L1210 185" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<text x="1185.0" y="173" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">stop(id)</text>
+<rect x="630" y="270" width="180" height="76" rx="10" ry="10" fill="#EEF3FB" stroke="#8FA9D6" stroke-width="1.4"/>
+<text x="800" y="285" font-size="10" font-weight="700" fill="#777777" text-anchor="end">OS-03</text>
+<text x="642" y="302" font-size="13" font-weight="700" fill="#111111" text-anchor="start">AXFocusProbe</text>
+<text x="642" y="319" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">at key-down, in parallel:</text>
+<text x="642" y="333" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">frontmost app, focused element,</text>
+<text x="642" y="347" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">secure input → FocusSnapshot</text>
+<path d="M720 220 L720 270" fill="none" stroke="#777777" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#ag)"/>
+<text x="730" y="250" font-size="10" font-weight="500" fill="#444444" text-anchor="start" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">probeFocus</text>
+<text x="1210" y="250" font-size="10" font-weight="400" fill="#777777" text-anchor="start">CapturePolicy: &lt; 250 ms → too_short;</text>
+<text x="1210" y="264" font-size="10" font-weight="400" fill="#777777" text-anchor="start">peak RMS &lt; 0.01 → no_speech</text>
+<path d="M1290 220 L1290 340 L830 340 L830 370" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<text x="1060" y="332" font-size="10" font-weight="500" fill="#444444" text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">transcribe(samples): the samples never enter reducer state</text>
+<rect x="30" y="400" width="220" height="70" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="40" y="415" font-size="10" font-weight="500" fill="#777777" text-anchor="start">actor</text>
+<text x="42" y="432" font-size="13" font-weight="700" fill="#111111" text-anchor="start">SwappableTranscriptionEngine</text>
+<text x="42" y="449" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">holds the engine in use; the Model</text>
+<text x="42" y="463" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">tab swaps it without a rebuild</text>
+<rect x="280" y="370" width="580" height="176" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="850" y="385" font-size="10" font-weight="700" fill="#777777" text-anchor="end">CORE-03</text>
+<text x="290" y="385" font-size="10" font-weight="500" fill="#777777" text-anchor="start">actor · own serial queue</text>
+<text x="292" y="402" font-size="13" font-weight="700" fill="#111111" text-anchor="start">Transcriber · whisper.cpp behind the TranscriptionEngine seam</text>
+<text x="292" y="419" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">1  ClipChunks: ≤ 30 s stays whole; longer clips are cut at a pause ≥ 2 s, else at the quietest 20 ms</text>
+<text x="292" y="433" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">2  SamplePadding: every chunk is padded to at least 1.25 s (whisper returns nothing under ~1 s)</text>
+<text x="292" y="447" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">3  DecodeSpec: greedy, temperature 0, single segment, no timestamps, ≤ 4 threads, prompt = vocabulary</text>
+<text x="292" y="461" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">    audio_ctx = ceil(seconds × 50) + 50, aligned to 256, within 256…1500 (the full 1500 with Core ML)</text>
+<text x="292" y="475" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">4  whisper_full: encoder on Core ML (Neural Engine) when installed, decoder on Metal (GPU)</text>
+<text x="292" y="489" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">5  language auto: the first chunk kept pins the language of the rest · cancel via abort_callback</text>
+<text x="292" y="503" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">6  HallucinationFilter per chunk: blank · no_speech_prob ≥ 0.9 · subtitle artefact · repetition · weak filler</text>
+<rect x="890" y="400" width="190" height="70" rx="10" ry="10" fill="#EAF6EF" stroke="#6DB98A" stroke-width="1.4"/>
+<text x="902" y="422" font-size="13" font-weight="700" fill="#111111" text-anchor="start">Transcript</text>
+<text x="902" y="439" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">text, language, model tier,</text>
+<text x="902" y="453" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">and the ms it took</text>
+<rect x="1110" y="400" width="260" height="70" rx="10" ry="10" fill="#fff" stroke="#BFBFBF" stroke-width="1.4"/>
+<text x="1122" y="422" font-size="13" font-weight="700" fill="#111111" text-anchor="start">Next: resolving</text>
+<text x="1122" y="439" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">blank → discarded (empty_transcript)</text>
+<text x="1122" y="453" font-size="10.5" font-weight="400" fill="#444444" text-anchor="start">text → Normalizer and matcher (diagram 4)</text>
+<path d="M250 435 L280 435" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<path d="M860 435 L890 435" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<path d="M1080 435 L1110 435" fill="none" stroke="#777777" stroke-width="1.8" marker-end="url(#ag)"/>
+<rect x="30" y="580" width="1340" height="59" rx="8" ry="8" fill="#fff" stroke="#E3E3E3" stroke-width="1"/>
+</svg>
