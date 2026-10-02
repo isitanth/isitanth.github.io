@@ -43,6 +43,17 @@ excerpt: "Hark is a menu bar app for the Mac. Press a key and speak: it types wh
     border: 1px solid #ececec;
   }
 
+  /* Looping animations: the same frame as the images. */
+  figure video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    border: 1px solid #ececec;
+    background: #1a237e;
+  }
+
   /* Window-only screenshots with transparent rounded corners: no frame, a shadow that follows the alpha. Width per image through --w. */
   figure img.window { width: auto; max-width: min(100%, var(--w, 620px)); margin: 0 auto; border: 0; border-radius: 0; box-shadow: none; filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.22)); }
   /* Stacked screenshots in one figure. */
@@ -73,6 +84,20 @@ excerpt: "Hark is a menu bar app for the Mac. Press a key and speak: it types wh
 <h2>Context</h2>
 <p>I've started to design Hark as a menu bar app for the Mac first. Where you can press a key and speak. It types what you said at the cursor, opens the app you named, or, through a model server you run beside it, answers what you ask according to your context. The speech is transcribed on the Mac, by whisper.cpp, a C and C++ implementation of OpenAI's Whisper speech model so far in EU more accurate and also faster than the free DCMA dictation feature on MacOS/iOS. The audio never leaves the Mac, it's the second fundamental point that I wanted to bring here a text to speech that respect privacy. The text lands a little over a tenth of a second after key up, by a sum of parts measured separately, and the app measured about half a gigabyte of memory.</p>
 <p>Hark works like a "power tool". The key is the trigger. Hold it and Hark listens. Let go and it does one precise job, then stops. A quick tap locks it on, until the next tap. Its icon is a cordless drill. It is a tool you pick up on purpose, to open one app or write into one text field, then put down. It is not an assistant that is always listening, waiting to be called.</p>
+
+<figure>
+<video autoplay muted loop playsinline controls preload="auto" width="1600" height="900" poster="{{ '/assets/images/anatomy-hark/00a-icon-animations-poster.jpg' | relative_url }}" aria-label="Animation of Hark's menu bar icon, a cordless drill, moving between its states: outline, filled, with a dot, with sparkles, with an exclamation mark and with a cross, then the app icon">
+<source src="{{ '/assets/images/anatomy-hark/00a-icon-animations.webm' | relative_url }}" type='video/webm; codecs="av01.0.09M.08"'>
+<source src="{{ '/assets/images/anatomy-hark/00a-icon-animations-hevc.mp4' | relative_url }}" type='video/mp4; codecs="hvc1.1.6.L123.B0"'>
+<source src="{{ '/assets/images/anatomy-hark/00a-icon-animations.mp4' | relative_url }}" type='video/mp4; codecs="avc1.64002A"'>
+</video>
+<figcaption>Different animations depending on events</figcaption>
+</figure>
+<script>
+  // With "reduce motion" on, the animation waits for a click on play instead of starting by itself.
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+    document.querySelectorAll('figure video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+</script>
 <p></p>
 <p>Why the voice? Voice is the most natural way of transferring information, since the beginning of human history, we started to speak, communicate between each other over the most natural way, the language over the voice. And I always wonder to build a product that brings natural human fundamentals and empowering it with technology. There is also an ambition to bring AI close to the human and their work rather than bring them close to AI and adapt their work to technology.</p>
 <p>A good product always start by fitting to the current workflow and bring solution rather to adapt yourself to fix your problems.</p>
