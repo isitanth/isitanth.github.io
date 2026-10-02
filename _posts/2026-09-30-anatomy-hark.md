@@ -1877,7 +1877,7 @@ endings:
 </ul>
 
 <h2>Appendix C: The project's diagrams</h2>
-<p>These diagrams come from the project's documentation, larger and older than the figures above. Each opens full size from its link, and each caption gives its date and what has changed since.</p>
+<p>These diagrams come from the project's documentation and open full size from their link. The first two and the last are older than the figures above; their captions give their date and what has changed since. The five in between are redrawn from the code of Hark 0.0.4.</p>
 
 <figure>
 <a href="{{ '/assets/images/anatomy-hark/11-data-flow-level0.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/11-data-flow-level0.svg' | relative_url }}" alt="Data-flow diagram: Hark as one process inside the Mac, with the microphone, the user, the app in front and notifications, and huggingface.co outside"></a>
@@ -1890,13 +1890,28 @@ endings:
 </figure>
 
 <figure>
-<a href="{{ '/assets/images/anatomy-hark/19-capture-and-transcription.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/19-capture-and-transcription.svg' | relative_url }}" alt="Capture and transcription pipeline, from the key to the transcript"></a>
-<figcaption>From the key to the transcript, drawn on 24 September 2026. Its Core ML encoder runs only with the switch on. Since then, an <code>AVCaptureSession</code> per press has replaced the <code>AVAudioEngine</code> tap, and the Ask key and "Hark, …" have arrived.</figcaption>
+<a href="{{ '/assets/images/anatomy-hark/19a-key-to-samples.svg' | relative_url }}"><picture><source media="(max-width: 600px)" srcset="{{ '/assets/images/anatomy-hark/19a-key-to-samples-phone.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/19a-key-to-samples.svg' | relative_url }}" alt="Diagram: the talk and Ask keys reach PipelineController, which probes focus, starts AudioCapture and drops captures too short or too quiet."></picture></a>
+<figcaption>From the key to the samples, redrawn from the code of Hark 0.0.4. Both keys reach one controller, the Ask key after reading the selection. Dictation probes the focus at key down, and the microphone is open only from start to stop. Raw audio reaches disk only in debug builds.</figcaption>
 </figure>
 
 <figure>
-<a href="{{ '/assets/images/anatomy-hark/20-config-models-log.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/20-config-models-log.svg' | relative_url }}" alt="Configuration, model store and log, each as a column of components"></a>
-<figcaption>The three files Hark lives by, drawn on 24 September 2026: the commands you write, the models you choose, the log it keeps. Since then: version 3 of the file, 13 log keys, and network code beyond the downloader.</figcaption>
+<a href="{{ '/assets/images/anatomy-hark/19b-samples-to-transcript.svg' | relative_url }}"><picture><source media="(max-width: 600px)" srcset="{{ '/assets/images/anatomy-hark/19b-samples-to-transcript-phone.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/19b-samples-to-transcript.svg' | relative_url }}" alt="Diagram: the samples pass through SwappableTranscriptionEngine into the Transcriber's four steps; PipelineReducer then picks idle, asking or the resolver."></picture></a>
+<figcaption>From the samples to the transcript, redrawn from the code of Hark 0.0.4. The samples reach the engine without entering the reducer's state. whisper.cpp runs on Metal by default: a 5.7 s clip on Small, 76 ms, against 83 ms with the Core ML switch on.</figcaption>
+</figure>
+
+<figure>
+<a href="{{ '/assets/images/anatomy-hark/20a-commands-yaml.svg' | relative_url }}"><picture><source media="(max-width: 600px)" srcset="{{ '/assets/images/anatomy-hark/20a-commands-yaml-phone.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/20a-commands-yaml.svg' | relative_url }}" alt="Diagram: commands.yaml is watched by DispatchFileWatcher and parsed by ConfigStore, which feeds ResolutionSettings, AskSettings and HealthStatus."></picture></a>
+<figcaption>commands.yaml, the file you write, redrawn from the code of Hark 0.0.4. One actor re-reads it after each save, and the app hands each part to the code that uses it. A broken file never replaces the last good one, and Settings never writes over a newer edit.</figcaption>
+</figure>
+
+<figure>
+<a href="{{ '/assets/images/anatomy-hark/20b-models.svg' | relative_url }}"><picture><source media="(max-width: 600px)" srcset="{{ '/assets/images/anatomy-hark/20b-models-phone.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/20b-models.svg' | relative_url }}" alt="Diagram: Settings › Model drives DownloadCoordinator and ModelStore; URLSessionDownloader fetches pinned files from huggingface.co for the Transcriber."></picture></a>
+<figcaption>The models you choose, redrawn from the code of Hark 0.0.4. Nothing downloads until you click, every file is checked against a pinned SHA-256, and the Core ML encoder comes only with its switch on. This downloader is one of two network clients; Ask's is the other.</figcaption>
+</figure>
+
+<figure>
+<a href="{{ '/assets/images/anatomy-hark/20c-log.svg' | relative_url }}"><picture><source media="(max-width: 600px)" srcset="{{ '/assets/images/anatomy-hark/20c-log-phone.svg' | relative_url }}"><img src="{{ '/assets/images/anatomy-hark/20c-log.svg' | relative_url }}" alt="Diagram: PipelineController appends one line per utterance through UtteranceLog; LogReader feeds the panel and Settings › Log; LogHistory deletes them."></picture></a>
+<figcaption>The log Hark keeps, redrawn from the code of Hark 0.0.4: one line per utterance, 13 keys, a folder at 0700 and files at 0600. The panel and Settings › Log read it back, and Clear History, offered in both, deletes it.</figcaption>
 </figure>
 
 <figure>

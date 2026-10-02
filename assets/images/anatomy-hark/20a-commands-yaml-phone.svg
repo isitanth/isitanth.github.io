@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 952" width="360" height="952" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title id="t">commands.yaml: the rules you write</title>
+<desc id="d">Reading order: commands.yaml, DispatchFileWatcher, Settings › Commands and Ask, ConfigStore, then ResolutionSettings, AskSettings and HealthStatus. DispatchFileWatcher keeps vnode sources on the file and on its folder; ConfigStore re-reads 100 ms after the last change, makes a valid file the config in force and copies it to .commands.lastgood.yaml, and on a bad file keeps the last good config and publishes the error with its line and column. Settings writes through a temporary file, fsync and rename(2), and passes the diskRevision of the snapshot it edited, so it never writes over a newer edit. On launch, a missing file, or a version 1 or 2 default nobody edited (matched by its SHA-256), is replaced by the bundled default. Sources: CommandConfig.swift, CommandConfigSchema.swift, FileWatching.swift, ConfigStore.swift, ConfigFileIO.swift, AppModel.swift, UtteranceResolver.swift, AskEngine.swift and HealthStatus.swift. Drawn from Hark 0.0.4, commit 228466c.</desc>
+<defs><marker id="arr-20a-p" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="360" height="952" fill="#ffffff"/>
+<g class="edge" data-id="e:F-W" data-from="F" data-to="W"><path class="edge-line" d="M36 96 L36 142" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4" pathLength="44.96" stroke-dashoffset="2.5" marker-end="url(#arr-20a-p)"/><text x="46" y="124" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:F-W">vnode events</text></g>
+<g class="edge" data-id="e:W-CS" data-from="W" data-to="CS"><path class="edge-line" d="M36 208 L36 390" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4" pathLength="180.18" stroke-dashoffset="2.5" marker-end="url(#arr-20a-p)"/><text x="46" y="350" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:W-CS">changed</text></g>
+<g class="edge" data-id="e:ST-CS" data-from="ST" data-to="CS"><path class="edge-line" d="M262 320 L262 390" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20a-p)"/><text x="252" y="370" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="end" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:ST-CS">write(_:basedOn:)</text></g>
+<g class="edge" data-id="e:CS-RS" data-from="CS" data-to="RS"><path class="edge-line" d="M68 472 L68 560 L102 560" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4" pathLength="125.97" stroke-dashoffset="2" marker-end="url(#arr-20a-p)"/><text x="78" y="500" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:CS-RS">snapshot</text></g>
+<g class="edge" data-id="e:CS-AS" data-from="CS" data-to="AS"><path class="edge-line" d="M52 472 L52 688 L102 688" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4" pathLength="278.63" stroke-dashoffset="2" marker-end="url(#arr-20a-p)"/><text x="62" y="628" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:CS-AS">llm:</text></g>
+<g class="edge" data-id="e:CS-HS" data-from="CS" data-to="HS"><path class="edge-line" d="M36 472 L36 774" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4" pathLength="314.83" stroke-dashoffset="2.5" marker-end="url(#arr-20a-p)"/><text x="46" y="756" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:CS-HS">error, line, column</text></g>
+<rect class="node" data-id="F" x="16" y="16" width="328" height="80" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<rect class="node" data-id="W" x="16" y="144" width="328" height="64" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="ST" x="104" y="240" width="240" height="80" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<rect class="node" data-id="CS" x="16" y="392" width="328" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="RS" x="104" y="520" width="240" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="AS" x="104" y="648" width="240" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="HS" x="16" y="776" width="328" height="80" rx="10" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="180" y="44.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#085041" text-anchor="middle" data-owner="F">commands.yaml</text>
+<text x="180" y="62.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="F">your rules, schema v3</text>
+<text x="180" y="78.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="F">version 2 still reads</text>
+<text x="180" y="172.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="W">DispatchFileWatcher</text>
+<text x="180" y="190.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="W">file and folder events</text>
+<text x="224" y="268.9" font-size="14" font-weight="500" fill="#085041" text-anchor="middle" data-owner="ST">Settings › Commands, Ask</text>
+<text x="224" y="286.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="ST">edits written back atomically</text>
+<text x="224" y="302.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="ST">never over a newer edit</text>
+<text x="180" y="420.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="CS">ConfigStore</text>
+<text x="180" y="438.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="CS">re-reads 100 ms after a change</text>
+<text x="180" y="454.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="CS">keeps the last good copy</text>
+<text x="224" y="548.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="RS">ResolutionSettings</text>
+<text x="224" y="566.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="RS">commands, prefix, app rules</text>
+<text x="224" y="582.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="RS">read per utterance</text>
+<text x="224" y="676.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="AS">AskSettings</text>
+<text x="224" y="694.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="AS">the <tspan font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12">llm:</tspan> profile</text>
+<text x="224" y="710.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="AS">read per ask</text>
+<text x="180" y="804.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#712b13" text-anchor="middle" data-owner="HS">HealthStatus</text>
+<text x="180" y="822.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="HS">bad file: error icon</text>
+<text x="180" y="838.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="HS">line and column in the panel</text>
+<g class="key">
+<rect class="key-swatch" x="16" y="892" width="16" height="16" rx="3" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<text x="40" y="904" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Yours to shape</text>
+<rect class="key-swatch" x="155.95" y="892" width="16" height="16" rx="3" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="179.95" y="904" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Boundary or check</text>
+<rect class="key-swatch" x="16" y="916" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<text x="40" y="928" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Plumbing</text>
+<path class="key-swatch" d="M147.95 924 H171.95" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="179.95" y="928" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">dashed line: asynchronous</text>
+</g></svg>

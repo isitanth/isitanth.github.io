@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 712" width="1020" height="1068" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title id="t">Models: the ones you choose</title>
+<desc id="d">Reading order: Settings › Model, DownloadCoordinator, ModelCatalog, ModelStore, URLSessionDownloader, huggingface.co, the models/ folder and the Transcriber. Each tier moves through nine install states; a download lands in models/.staging, with a .resume sidecar when it is paused, an encoder zip is unpacked with ditto, and every file is hashed in 1 MiB chunks before the rename. whisper.cpp derives the encoder name from the weights, without the quantisation suffix and with -encoder.mlmodelc, and the three Core ML encoders weigh 163.1, 567.8 and 1,175.7 MB. This downloader is one of the two network clients of Hark 0.0.4; Ask&#x27;s LLMClient is the other. Sources: ModelsModel.swift, DownloadCoordinator.swift, ModelCatalog.swift, ModelStore.swift, ModelLayout.swift, URLSessionDownloader.swift, DownloadOriginPolicy.swift and Transcriber.swift. Drawn from Hark 0.0.4, commit 228466c.</desc>
+<defs><marker id="arr-20b" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="680" height="712" fill="#ffffff"/>
+<g class="edge" data-id="e:M1-M2" data-from="M1" data-to="M2"><path class="edge-line" d="M132 104 L132 150" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="142" y="132" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M1-M2">start, pause, cancel</text></g>
+<g class="edge" data-id="e:M2-M4" data-from="M2" data-to="M4"><path class="edge-line" d="M132 232 L132 278" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="142" y="260" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M2-M4">install</text></g>
+<g class="edge" data-id="e:M3-M4" data-from="M3" data-to="M4"><path class="edge-line" d="M400 192 L320 192 L320 300 L242 300" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="330" y="260" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M3-M4">URL, size, SHA-256</text></g>
+<g class="edge" data-id="e:M4-M5" data-from="M4" data-to="M5"><path class="edge-line" d="M240 320 L398 320" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="320" y="336" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M4-M5">download</text></g>
+<g class="edge" data-id="e:M5-M6" data-from="M5" data-to="M6"><path class="edge-line" d="M508 360 L508 406" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="518" y="388" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M5-M6">HTTPS GET</text></g>
+<g class="edge" data-id="e:M4-M7" data-from="M4" data-to="M7"><path class="edge-line" d="M132 360 L132 406" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="142" y="388" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M4-M7">verified, renamed in</text></g>
+<g class="edge" data-id="e:M7-M8" data-from="M7" data-to="M8"><path class="edge-line" d="M186 488 L186 512 L508 512 L508 534" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="347" y="504" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M7-M8">weights</text></g>
+<g class="edge" data-id="e:M1-M8" data-from="M1" data-to="M8"><path class="edge-line" d="M240 64 L640 64 L640 576 L618 576" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20b)"/><text x="440" y="56" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:M1-M8">load, swap in</text></g>
+<rect class="node" data-id="M1" x="24" y="24" width="216" height="80" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<rect class="node" data-id="M2" x="24" y="152" width="216" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="M3" x="400" y="152" width="216" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="M4" x="24" y="280" width="216" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="M5" x="400" y="280" width="216" height="80" rx="10" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<rect class="node" data-id="M6" x="400" y="408" width="216" height="64" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1" stroke-dasharray="5 4" pathLength="576" stroke-dashoffset="2"/>
+<rect class="node" data-id="M7" x="24" y="408" width="216" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="M8" x="400" y="536" width="216" height="80" rx="10" fill="#faeeda" stroke="#854f0b" stroke-width="1"/>
+<text x="132" y="52.9" font-size="14" font-weight="500" fill="#085041" text-anchor="middle" data-owner="M1">Settings › Model</text>
+<text x="132" y="70.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="M1">download, choose a tier</text>
+<text x="132" y="86.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="M1">Core ML off on new installs</text>
+<text x="132" y="180.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="M2">DownloadCoordinator</text>
+<text x="132" y="198.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M2">per-tier state</text>
+<text x="132" y="214.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M2">starts only on click</text>
+<text x="508" y="180.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="M3">ModelCatalog</text>
+<text x="508" y="198.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M3">3 tiers, one pinned commit</text>
+<text x="508" y="214.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M3">264.5 to 1,081.1 MB</text>
+<text x="132" y="308.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="M4">ModelStore</text>
+<text x="132" y="326.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M4">space check, stage, rename</text>
+<text x="132" y="342.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M4">verifies each SHA-256</text>
+<text x="508" y="308.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#712b13" text-anchor="middle" data-owner="M5">URLSessionDownloader</text>
+<text x="508" y="326.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="M5">HTTPS, two domains only</text>
+<text x="508" y="342.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="M5">checked on every redirect</text>
+<text x="508" y="436.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="M6">huggingface.co</text>
+<text x="508" y="454.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M6">pinned commit, <tspan font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12">hf.co</tspan> storage</text>
+<text x="132" y="436.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="M7">models/</text>
+<text x="132" y="454.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M7">the weights</text>
+<text x="132" y="470.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="M7">encoders only with Core ML on</text>
+<text x="508" y="564.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#633806" text-anchor="middle" data-owner="M8">Transcriber</text>
+<text x="508" y="582.2" font-size="12" font-weight="400" fill="#92611e" text-anchor="middle" data-owner="M8">loads the weights</text>
+<text x="508" y="598.2" font-size="12" font-weight="400" fill="#92611e" text-anchor="middle" data-owner="M8">warm-up: 1.25 s of silence</text>
+<g class="key">
+<rect class="key-swatch" x="24" y="652" width="16" height="16" rx="3" fill="#faeeda" stroke="#854f0b" stroke-width="1"/>
+<text x="48" y="664" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Speech model</text>
+<rect class="key-swatch" x="152.62" y="652" width="16" height="16" rx="3" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<text x="176.62" y="664" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Yours to shape</text>
+<rect class="key-swatch" x="284.57" y="652" width="16" height="16" rx="3" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="308.57" y="664" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Boundary or check</text>
+<rect class="key-swatch" x="438.96" y="652" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<text x="462.96" y="664" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Plumbing</text>
+<rect class="key-swatch" x="24" y="676" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1" stroke-dasharray="5 4" pathLength="54" stroke-dashoffset="2.5"/>
+<text x="48" y="688" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">dashed outline: not Hark&#x27;s code</text>
+</g></svg>

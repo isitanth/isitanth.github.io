@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 984" width="360" height="984" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title id="t">The log: what Hark keeps</title>
+<desc id="d">Reading order: PipelineController, UtteranceLog, the day file logs/YYYY-MM-DD.jsonl, LogReader, the menu bar panel, Settings › Log and LogHistory. The panel&#x27;s RECENT list shows 5 rows and scrolls through up to 50. The panel&#x27;s Clear… and Settings › Log both call AppModel.clearHistory after a confirmation; the drawing keeps one edge into LogHistory, from Settings › Log, and its detail names both places. The logs folder is created at 0700 and each day file at 0600. Sources: PipelineController.swift, UtteranceLog.swift, UtteranceRecord.swift, LogReader.swift, RecentFeed.swift, AppModel.swift, LogSettingsView.swift, LogHistory.swift and PanelView.swift. Drawn from Hark 0.0.4, commit 228466c.</desc>
+<defs><marker id="arr-20c-p" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="360" height="984" fill="#ffffff"/>
+<g class="edge" data-id="e:L1-L2" data-from="L1" data-to="L2"><path class="edge-line" d="M36 96 L36 142" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="46" y="124" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L1-L2">append(_:)</text></g>
+<g class="edge" data-id="e:L2-L3" data-from="L2" data-to="L3"><path class="edge-line" d="M36 224 L36 270" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="46" y="252" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L2-L3">one line</text></g>
+<g class="edge" data-id="e:L3-L4" data-from="L3" data-to="L4"><path class="edge-line" d="M36 352 L36 398" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="46" y="380" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L3-L4">read back</text></g>
+<g class="edge" data-id="e:L4-L5" data-from="L4" data-to="L5"><path class="edge-line" d="M52 480 L52 568 L102 568" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="62" y="508" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L4-L5">200 at launch</text></g>
+<g class="edge" data-id="e:L4-L6" data-from="L4" data-to="L6"><path class="edge-line" d="M36 480 L36 654" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="46" y="636" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L4-L6">≤ 500, filtered</text></g>
+<g class="edge" data-id="e:L6-L7" data-from="L6" data-to="L7"><path class="edge-line" d="M36 736 L36 806" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="46" y="766" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L6-L7">Clear History</text></g>
+<g class="edge" data-id="e:L7-L3" data-from="L7" data-to="L3"><path class="edge-line" d="M320 848 L336 848 L336 312 L322 312" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-20c-p)"/><text x="326" y="786" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="end" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:L7-L3">deletes</text></g>
+<rect class="node" data-id="L1" x="16" y="16" width="304" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="L2" x="16" y="144" width="304" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="L3" x="16" y="272" width="304" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="L4" x="16" y="400" width="304" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="L5" x="104" y="528" width="216" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="L6" x="16" y="656" width="304" height="80" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<rect class="node" data-id="L7" x="16" y="808" width="304" height="80" rx="10" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="168" y="44.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="L1">PipelineController</text>
+<text x="168" y="62.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L1">writes one line</text>
+<text x="168" y="78.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L1">as each utterance ends</text>
+<text x="168" y="172.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="L2">UtteranceLog</text>
+<text x="168" y="190.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L2">one <tspan font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12">O_APPEND</tspan> write</text>
+<text x="168" y="206.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L2">never throws</text>
+<text x="168" y="300.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="L3">logs/YYYY-MM-DD.jsonl</text>
+<text x="168" y="318.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L3">one line per utterance</text>
+<text x="168" y="334.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L3">13 keys, file 0600</text>
+<text x="168" y="428.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="L4">LogReader</text>
+<text x="168" y="446.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L4">newest first</text>
+<text x="168" y="462.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L4">skips a half-written line</text>
+<text x="212" y="556.9" font-size="14" font-weight="500" fill="#3a3a38" text-anchor="middle" data-owner="L5">Menu bar panel</text>
+<text x="212" y="574.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L5">last line, then a recent list</text>
+<text x="212" y="590.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="L5">live from <tspan font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12">lastRecord</tspan></text>
+<text x="168" y="684.9" font-size="14" font-weight="500" fill="#085041" text-anchor="middle" data-owner="L6">Settings › Log</text>
+<text x="168" y="702.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="L6">filters, Reveal in Finder</text>
+<text x="168" y="718.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="L6">Clear History</text>
+<text x="168" y="836.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#712b13" text-anchor="middle" data-owner="L7">LogHistory</text>
+<text x="168" y="854.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="L7">deletes every day file</text>
+<text x="168" y="870.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="L7">panel or Log tab, confirmed</text>
+<g class="key">
+<rect class="key-swatch" x="16" y="924" width="16" height="16" rx="3" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<text x="40" y="936" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Yours to shape</text>
+<rect class="key-swatch" x="147.95" y="924" width="16" height="16" rx="3" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="171.95" y="936" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Boundary or check</text>
+<rect class="key-swatch" x="16" y="948" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<text x="40" y="960" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Plumbing</text>
+</g></svg>

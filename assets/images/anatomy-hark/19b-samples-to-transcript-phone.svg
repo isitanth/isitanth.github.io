@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1248" width="360" height="1248" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<title id="t">From the samples to the transcript</title>
+<desc id="d">Reading order: PipelineController, SwappableTranscriptionEngine, the Transcriber with its four steps (ClipChunks, SamplePadding, whisper_full and HallucinationFilter), PipelineReducer, UtteranceResolver, and the phases idle and asking. The Transcript returns to PipelineController, which hands it to the pure reducer as the transcribed event; the line from HallucinationFilter to PipelineReducer is that hand-over, drawn short. A cancel (⌃⌥Esc) arms the abort flag, and whisper checks it between graph computes, so an in-flight whisper_full returns early. A Transcript holds the raw text, the normalized text and the model tier. Sources: PipelineController.swift, SwappableTranscriptionEngine.swift, Transcriber.swift, ClipChunks.swift, SamplePadding.swift, HallucinationFilter.swift, PipelineReducer.swift and UtteranceResolver.swift. Drawn from Hark 0.0.4, commit 228466c.</desc>
+<defs><marker id="arr-19b-p" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5f5e5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="360" height="1248" fill="#ffffff"/>
+<rect class="boundary" data-id="G" x="16" y="272" width="328" height="456" rx="16" fill="none" stroke="#8d8b82" stroke-width="1"/>
+<g class="edge" data-id="e:PC-SE" data-from="PC" data-to="SE"><path class="edge-line" d="M52 96 L52 142" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="62" y="124" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:PC-SE">transcribe(samples)</text></g>
+<g class="edge" data-id="e:SE-CC" data-from="SE" data-to="CC"><path class="edge-line" d="M52 224 L52 286" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="62" y="252" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:SE-CC">current model</text></g>
+<g class="edge" data-id="e:CC-SP" data-from="CC" data-to="SP"><path class="edge-line" d="M52 368 L52 398" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/></g>
+<g class="edge" data-id="e:SP-WF" data-from="SP" data-to="WF"><path class="edge-line" d="M52 464 L52 494" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/></g>
+<g class="edge" data-id="e:WF-HF" data-from="WF" data-to="HF"><path class="edge-line" d="M52 576 L52 606" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/></g>
+<g class="edge" data-id="e:HF-PR" data-from="HF" data-to="PR"><path class="edge-line" d="M52 688 L52 774" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="62" y="756" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:HF-PR">Transcript</text></g>
+<g class="edge" data-id="e:PR-P_idle" data-from="PR" data-to="P_idle"><path class="edge-line" d="M84 840 L84 904 L102 904" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="94" y="868" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:PR-P_idle">blank</text></g>
+<g class="edge" data-id="e:PR-P_ask" data-from="PR" data-to="P_ask"><path class="edge-line" d="M68 840 L68 984 L102 984" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="78" y="948" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:PR-P_ask">ask intent</text></g>
+<g class="edge" data-id="e:PR-UR" data-from="PR" data-to="UR"><path class="edge-line" d="M52 840 L52 1046" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="62" y="1028" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:PR-UR">dictation</text></g>
+<g class="edge" data-id="e:UR-P_ask" data-from="UR" data-to="P_ask"><path class="edge-line" d="M144 1048 L144 1002" fill="none" stroke="#5f5e5a" stroke-width="1.5" marker-end="url(#arr-19b-p)"/><text x="154" y="1028" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="start" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" data-owner="e:UR-P_ask">&quot;Hark, …&quot;</text></g>
+<rect class="node" data-id="PC" x="16" y="16" width="328" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="SE" x="16" y="144" width="328" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="CC" x="32" y="288" width="296" height="80" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="SP" x="32" y="400" width="296" height="64" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="WF" x="32" y="496" width="296" height="80" rx="10" fill="#faeeda" stroke="#854f0b" stroke-width="1"/>
+<rect class="node" data-id="HF" x="32" y="608" width="296" height="80" rx="10" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<rect class="node" data-id="PR" x="16" y="776" width="328" height="64" rx="10" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="UR" x="16" y="1048" width="328" height="80" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<rect class="node" data-id="P_idle" data-kind="pill" x="104" y="888" width="64" height="32" rx="16" fill="#ffffff" stroke="#5f5e5a" stroke-width="1"/>
+<rect class="node" data-id="P_ask" data-kind="pill" x="104" y="968" width="80" height="32" rx="16" fill="#ffffff" stroke="#5f5e5a" stroke-width="1"/>
+<text x="180" y="44.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="PC">PipelineController</text>
+<text x="180" y="62.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="PC">holds the samples</text>
+<text x="180" y="78.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="PC">outside the reducer&#x27;s state</text>
+<text x="180" y="172.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="SE">SwappableTranscriptionEngine</text>
+<text x="180" y="190.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="SE">the model chosen</text>
+<text x="180" y="206.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="SE">in Settings › Model</text>
+<text x="180" y="316.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="CC">ClipChunks</text>
+<text x="180" y="334.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="CC">≤ 30 s a chunk</text>
+<text x="180" y="350.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="CC">cut at a pause or lull</text>
+<text x="180" y="428.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="SP">SamplePadding</text>
+<text x="180" y="446.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="SP">pads to ≥ 1.25 s</text>
+<text x="180" y="524.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#633806" text-anchor="middle" data-owner="WF">whisper_full</text>
+<text x="180" y="542.2" font-size="12" font-weight="400" fill="#92611e" text-anchor="middle" data-owner="WF">encoder and decoder on Metal</text>
+<text x="180" y="558.2" font-size="12" font-weight="400" fill="#92611e" text-anchor="middle" data-owner="WF">Core ML only with its switch</text>
+<text x="180" y="636.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#712b13" text-anchor="middle" data-owner="HF">HallucinationFilter</text>
+<text x="180" y="654.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="HF">drops subtitle artefacts</text>
+<text x="180" y="670.2" font-size="12" font-weight="400" fill="#993c1d" text-anchor="middle" data-owner="HF">loops and weak fillers</text>
+<text x="180" y="804.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#3a3a38" text-anchor="middle" data-owner="PR">PipelineReducer</text>
+<text x="180" y="822.2" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="middle" data-owner="PR">pure: picks the next phase</text>
+<text x="180" y="1076.55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#085041" text-anchor="middle" data-owner="UR">UtteranceResolver</text>
+<text x="180" y="1094.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="UR">checks &quot;Hark, …&quot; first</text>
+<text x="180" y="1110.2" font-size="12" font-weight="400" fill="#0f6e56" text-anchor="middle" data-owner="UR">then your commands</text>
+<text x="136" y="908.2" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="middle" data-owner="P_idle">idle</text>
+<text x="144" y="988.2" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#2c2c2a" text-anchor="middle" data-owner="P_ask">asking</text>
+<text x="138.54" y="712" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#2c2c2a" text-anchor="start" data-owner="G">Transcriber</text>
+<text x="234.94" y="712" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="G">one serial queue</text>
+<g class="key">
+<rect class="key-swatch" x="24" y="1164" width="16" height="16" rx="3" fill="#faeeda" stroke="#854f0b" stroke-width="1"/>
+<text x="48" y="1176" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Speech model</text>
+<rect class="key-swatch" x="178.39" y="1164" width="16" height="16" rx="3" fill="#e1f5ee" stroke="#0f6e56" stroke-width="1"/>
+<text x="202.39" y="1176" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Yours to shape</text>
+<rect class="key-swatch" x="24" y="1188" width="16" height="16" rx="3" fill="#faece7" stroke="#993c1d" stroke-width="1"/>
+<text x="48" y="1200" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Boundary or check</text>
+<rect class="key-swatch" x="178.39" y="1188" width="16" height="16" rx="3" fill="#f1efe8" stroke="#5f5e5a" stroke-width="1"/>
+<text x="202.39" y="1200" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">Plumbing</text>
+<rect class="key-swatch" x="16" y="1214" width="24" height="12" rx="6" fill="#ffffff" stroke="#5f5e5a" stroke-width="1"/>
+<text x="48" y="1224" font-size="12" font-weight="400" fill="#5f5e5a" text-anchor="start" data-owner="key">pill: pipeline phase</text>
+</g></svg>
