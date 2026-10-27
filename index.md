@@ -43,18 +43,6 @@ title: Whoami
       </svg>
       Blog
     </a>
-
-    <a class="icon-text" href="/cv/anthony-chambet-cv.pdf" target="_blank" rel="noopener" aria-label="CV (opens PDF in new tab)">
-      <!-- cv/id-card icon -->
-      <svg class="icon icon--stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <circle cx="8" cy="11" r="2"/>
-        <path d="M4 17c0-2 1.8-3 4-3s4 1 4 3"/>
-        <path d="M15 9h4"/>
-        <path d="M15 13h3"/>
-      </svg>
-      CV
-    </a>
   </div>
 </header>
 
