@@ -1875,11 +1875,6 @@ endings:
   <li><strong>Tests.</strong> 800 in 122 suites at build 69, written as plain tables, with no network, no microphone and no real Accessibility.</li>
   <li><strong>Signing.</strong> Releases are signed ad hoc, so macOS treats each update as a new app. The README says how to allow Accessibility again.</li>
 </ul>
-<p>The screenshots come from build 70, five commits after 0.0.4, over a sample log:</p>
-<pre><code>open -n -a Hark --args -HarkDebugPreview panel -HarkDebugLogs &lt;folder&gt;</code></pre>
-<p>The <code>-n</code> starts a preview process beside the running Hark, whose real log is left as it is. Other screens use other names after <code>-HarkDebugPreview</code>.</p>
-<p>One practice runs through the project: premises measured before tests assert them. Each defect of the transcription milestone was a premise nobody had checked, not a mistake in the code. When a regression test passed before its fix, it was deleted: it proved nothing.</p>
-<p>Work began on 18 September 2026. The public history starts with 0.0.2 on 28 September, 0.0.3 the same day, 0.0.4 on 29 September. The tests went from 23 to 800. The README closes with one line: "Designed and engineered by isitanth, powered by Claude Code, built for you."</p>
 
 <h2>Appendix B: The problems, by date</h2>
 <p>Between 21 and 29 September, fifteen problems shaped Hark. Here they are in the order they were met:</p>
